@@ -1,15 +1,15 @@
 <?php
-
 namespace App\Controller;
 
 use App\Entity\Cafe;
 use App\Form\CafeType;
 use App\Repository\CafeRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 /**
  * @Route("/cafe")
  */
@@ -28,13 +28,30 @@ class CafeController extends AbstractController
     /**
      * @Route("/new", name="cafe_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, SluggerInterface $slugger): Response
     {
         $cafe = new Cafe();
         $form = $this->createForm(CafeType::class, $cafe);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+             /**  @var uploadedFile $photoFile */
+             $photoFile=$form->get('image')->getData();
+             if($photoFile){
+                 $filename = pathinfo($photoFile -> getClientOriginalNAme(),PATHINFO_FILENAME);
+                 $originalname = $slugger -> slug($filename);
+                 $newFilename=$originalname.'-'.uniqid().'.'.$photoFile->guessExtension();
+                 try{
+                     $photoFile->move(
+                         $this->getParameter('photo_directory'),
+                         $newFilename
+                     );}
+                 catch(FileException $e){
+ 
+                 }
+                 $cafe ->setImage($newFilename);
+ 
+             }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($cafe);
             $entityManager->flush();

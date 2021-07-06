@@ -1,8 +1,86 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}Cafe{% endblock %}
 
 {% block body %}
+  <!-- /.col (left) -->
+  <div >
+    <div class="card card-primary">
+      <div class="card-header">
+        <h3 class="card-title">Cafés</h3>
+      </div>
+      <div class="card-body">
+        <!-- Nom -->
+        <div class="form-group">
+          <label>Nom:</label>
+            <div class="input-group date" id="reservationdate" data-target-input="nearest">
+               <input type="text" class="form-control datetimepicker-input" value="{{cafe.id}}">
+
+                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-signature"></i></div>
+                </div>
+            </div>
+        </div>
+        <!-- Description -->
+        <div class="form-group">
+          <label>Description:</label>
+            <div class="input-group date" id="reservationdate" data-target-input="nearest">
+               <input type="text" class="form-control datetimepicker-input" value="{{cafe.description}}">
+
+
+                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-signature"></i></div>
+                </div>
+            </div>
+        </div>
+        <!-- /.form group -->
+        <!-- Localisation -->
+        <div class="form-group">
+          <label>Localisation:</label>
+
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fa fa-globe"></i>
+              </span>
+            </div>
+               <input type="text" class="form-control datetimepicker-input" value="{{cafe.localisation}}">
+
+          </div>
+          <!-- /.input group -->
+        </div>
+        <!-- /.form group -->
+
+        <!-- Image -->
+
+        
+
+        <div class="form-group">
+          <label>Image:</label>
+
+          <div class="input-group">
+            <div class="custom-file">
+                <input type="text" class="form-control datetimepicker-input" value="{{cafe.image}}">
+
+            </div>
+             
+          </div>
+          <!-- /.input group -->
+        </div>
+        <!-- /.form group -->
+
+       
+        <!-- /.form group -->
+      </div>
+      
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+
+</div>
+
     <h1>Cafe</h1>
 
     <table class="table">

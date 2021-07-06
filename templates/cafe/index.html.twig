@@ -54,7 +54,7 @@
             <tr>
                 <td>{{ cafe.id }}</td>
                 <td>{{ cafe.nom }}</td>
-                <td>{{ cafe.image }}</td>
+                <td> <img src="{{ asset('upload/photo/'~cafe.image) }} "  height="100px" width="100px"></td>
                 <td>{{ cafe.description }}</td>
                 <td>{{ cafe.localisation }}</td>
                 <td>{{ cafe.note }}</td>
