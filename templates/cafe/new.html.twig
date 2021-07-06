@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Cafe{% endblock %}
+
+
+
+{% block body %}
+
+
+    {{ include('cafe/_form.html.twig') }}
+
+    <a href="{{ path('cafe_index') }}">back to list</a>
+{% endblock %}
