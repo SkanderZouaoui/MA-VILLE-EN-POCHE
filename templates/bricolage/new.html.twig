@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Bricolage{% endblock %}
+
+
+
+{% block body %}
+
+
+    {{ include('bricolage/_form.html.twig') }}
+
+    <a class="btn btn-secondary" href="{{ path('bricolage_index') }}">Back to list</a>
+{% endblock %}

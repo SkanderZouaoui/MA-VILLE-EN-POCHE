@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Vie Pratique{% endblock %}
+
+
+
+{% block body %}
+
+
+    {{ include('vie_pratique/_form.html.twig') }}
+
+    <a class="btn btn-secondary" href="{{ path('vie_pratique_index') }}">Back to list</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Vie Pratique{% endblock %}
+
+{% block body %}
+    <h1>Edit Vie Pratique</h1>
+
+    {{ include('vie_pratique/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn btn-secondary"href="{{ path('vie_pratique_index') }}">back to list</a>
+
+    {{ include('vie_pratique/_delete_form.html.twig') }}
+{% endblock %}

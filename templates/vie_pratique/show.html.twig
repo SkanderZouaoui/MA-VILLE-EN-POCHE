@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Vie Pratique{% endblock %}
+
+{% block stylesheets %}
+ <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
+{% endblock %}
+
+{% block javascripts %}
+<!-- jQuery -->
+<script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{asset('dist/js/adminlte.min.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{asset('dist/js/demo.js')}}"></script>
+{% endblock %}
+
+
+{% block body %}
+    <div class="card-body">
+          <div class="row">
+            <div class="col-12 col-sm-6">
+              <h3 class="d-inline-block d-sm-none">{{ vie_pratique.nom }}</h3>
+              <div class="col-12">
+                <img src="{{ asset('upload/photo/'~vie_pratique.image) }}" class="product-image" alt="Product Image">
+              </div>
+              
+            </div>
+            <div class="col-12 col-sm-6">
+              <h2 class="my-3">{{ vie_pratique.categorie }}</h2>
+              <h4 class="my-3">{{ vie_pratique.nom }}</h4>
+              <p>{{ vie_pratique.description }}</p>
+
+              <hr>
+              
+             <h4></h4>
+              <div class="col-12 col-sm-6">       
+                    <a  class="btn btn-primary" href="{{ path('vie_pratique_edit', {'id': vie_pratique.id}) }}">Edit</a>
+                     <a class="btn btn-success" href="{{ path('vie_pratique_index') }}">Back to list</a>
+                     <hr>
+                    {{ include('vie_pratique/_delete_form.html.twig') }}
+                   
+                  </div>
+
+            </div>
+           
+          </div>
+         
+        <!-- /.card-body -->
+  
+{% endblock %}

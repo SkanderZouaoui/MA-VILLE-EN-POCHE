@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Bricolage{% endblock %}
+
+{% block body %}
+    <h1>Edit Bricolage</h1>
+
+    {{ include('bricolage/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn btn-secondary" href="{{ path('bricolage_index') }}">Back to list</a>
+
+    {{ include('bricolage/_delete_form.html.twig') }}
+{% endblock %}
