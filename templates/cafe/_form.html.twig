@@ -47,9 +47,6 @@
                 <!-- /.form group -->
 
                 <!-- Image -->
-
-                
-
                 <div class="form-group">
                   <label>Image:</label>
 
@@ -57,7 +54,7 @@
                     <div class="custom-file">
                      
                         {{ form_widget(form.image,{'attr':{"class":"custom-file-input" }}) }}
-                      <label class="custom-file-label" for="customFile">Choose file</label>
+                      <label class="custom-file-label" for="customFile">{{ cafe.image }}</label>
                     </div>
                      
                   </div>

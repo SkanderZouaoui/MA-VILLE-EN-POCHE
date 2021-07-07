@@ -3,122 +3,75 @@
 
 {% block title %}Cafe{% endblock %}
 
+{% block stylesheets %}
+ <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
+{% endblock %}
+
+{% block javascripts %}
+<!-- jQuery -->
+<script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{asset('dist/js/adminlte.min.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{asset('dist/js/demo.js')}}"></script>
+{% endblock %}
+
+
 {% block body %}
-  <!-- /.col (left) -->
-  <div >
-    <div class="card card-primary">
-      <div class="card-header">
-        <h3 class="card-title">Cafés</h3>
-      </div>
-      <div class="card-body">
-        <!-- Nom -->
-        <div class="form-group">
-          <label>Nom:</label>
-            <div class="input-group date" id="reservationdate" data-target-input="nearest">
-               <input type="text" class="form-control datetimepicker-input" value="{{cafe.id}}">
-
-                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                    <div class="input-group-text"><i class="fa fa-signature"></i></div>
-                </div>
+  
+  
+  
+   <div class="card-body">
+          <div class="row">
+            <div class="col-12 col-sm-6">
+              <h3 class="d-inline-block d-sm-none">{{ cafe.nom }}</h3>
+              <div class="col-12">
+                <img src="{{ asset('upload/photo/'~cafe.image) }}" class="product-image" alt="Product Image">
+              </div>
+              
             </div>
-        </div>
-        <!-- Description -->
-        <div class="form-group">
-          <label>Description:</label>
-            <div class="input-group date" id="reservationdate" data-target-input="nearest">
-               <input type="text" class="form-control datetimepicker-input" value="{{cafe.description}}">
+            <div class="col-12 col-sm-6">
+              <h3 class="my-3">{{ cafe.nom }}</h3>
+              <p>{{ cafe.description }}</p>
 
+              <hr>
+              <h4>Available Colors</h4>
+              <div class="col-12 col-sm-6">       
+                    <a  class="btn btn-primary" href="{{ path('cafe_edit', {'id': cafe.id}) }}">Edit</a>
+                     <a class="btn btn-success" href="{{ path('cafe_index') }}">Back to list</a>
+                     <hr>
+                    {{ include('cafe/_delete_form.html.twig') }}
+                   
+                  </div>
 
-                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                    <div class="input-group-text"><i class="fa fa-signature"></i></div>
-                </div>
             </div>
-        </div>
-        <!-- /.form group -->
-        <!-- Localisation -->
-        <div class="form-group">
-          <label>Localisation:</label>
-
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">
-                <i class="fa fa-globe"></i>
-              </span>
-            </div>
-               <input type="text" class="form-control datetimepicker-input" value="{{cafe.localisation}}">
-
+           
           </div>
-          <!-- /.input group -->
-        </div>
-        <!-- /.form group -->
+         
+        <!-- /.card-body -->
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
-        <!-- Image -->
-
-        
-
-        <div class="form-group">
-          <label>Image:</label>
-
-          <div class="input-group">
-            <div class="custom-file">
-                <input type="text" class="form-control datetimepicker-input" value="{{cafe.image}}">
-
-            </div>
-             
-          </div>
-          <!-- /.input group -->
-        </div>
-        <!-- /.form group -->
-
-       
-        <!-- /.form group -->
-      </div>
-      
-      <!-- /.card-body -->
-    </div>
-    <!-- /.card -->
+ 
 
 
-</div>
+   
 
-    <h1>Cafe</h1>
+    
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ cafe.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ cafe.nom }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ cafe.image }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ cafe.description }}</td>
-            </tr>
-            <tr>
-                <th>Localisation</th>
-                <td>{{ cafe.localisation }}</td>
-            </tr>
-            <tr>
-                <th>Note</th>
-                <td>{{ cafe.note }}</td>
-            </tr>
-            <tr>
-                <th>Avis</th>
-                <td>{{ cafe.avis }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('cafe_index') }}">back to list</a>
-
-    <a href="{{ path('cafe_edit', {'id': cafe.id}) }}">edit</a>
-
-    {{ include('cafe/_delete_form.html.twig') }}
+   
 {% endblock %}
