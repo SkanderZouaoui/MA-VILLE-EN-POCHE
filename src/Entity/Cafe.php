@@ -37,15 +37,7 @@ class Cafe
      */
     private $localisation;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $note;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $avis;
+   
 
     public function getId(): ?int
     {
@@ -100,27 +92,5 @@ class Cafe
         return $this;
     }
 
-    public function getNote(): ?int
-    {
-        return $this->note;
-    }
-
-    public function setNote(int $note): self
-    {
-        $this->note = $note;
-
-        return $this;
-    }
-
-    public function getAvis(): ?string
-    {
-        return $this->avis;
-    }
-
-    public function setAvis(string $avis): self
-    {
-        $this->avis = $avis;
-
-        return $this;
-    }
+  
 }

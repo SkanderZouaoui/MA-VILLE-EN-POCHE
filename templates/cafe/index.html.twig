@@ -44,8 +44,7 @@
                 <th>Image</th>
                 <th>Description</th>
                 <th>Localisation</th>
-                <th>Note</th>
-                <th>Avis</th>
+                
                 <th>actions</th>
                 </tr>
                   </thead>
@@ -57,11 +56,12 @@
                 <td> <img src="{{ asset('upload/photo/'~cafe.image) }} "  height="100px" width="100px"></td>
                 <td>{{ cafe.description }}</td>
                 <td>{{ cafe.localisation }}</td>
-                <td>{{ cafe.note }}</td>
-                <td>{{ cafe.avis }}</td>
+             
                 <td>
-                    <a class="btn btn-primary" href="{{ path('cafe_show', {'id': cafe.id}) }}">show</a>
-                    <a class="btn btn-danger"  href="{{ path('cafe_edit', {'id': cafe.id}) }}">edit</a>
+                    <a class="btn btn-info" href="{{ path('cafe_show', {'id': cafe.id}) }}">Show</a>
+                    <a class="btn btn-warning"  href="{{ path('cafe_edit', {'id': cafe.id}) }}">Edit</a>
+                    <hr>
+                     {{ include('cafe/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}

@@ -17,8 +17,6 @@ class CafeType extends AbstractType
             ->add('image',FileType::class, ['data_class' => null])
             ->add('description')
             ->add('localisation')
-            ->add('note')
-            ->add('avis')
         ;
     }
 
