@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New sport{% endblock %}
+
+
+
+{% block body %}
+
+
+    {{ include('sport/_form.html.twig') }}
+
+    <a class="btn btn-secondary" href="{{ path('sport_index') }}">Back to list</a>
+{% endblock %}

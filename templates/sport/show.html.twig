@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 
-{% block title %}Cafe{% endblock %}
+{% block title %}sport{% endblock %}
 
 {% block stylesheets %}
  <!-- Google Font: Source Sans Pro -->
@@ -28,24 +28,25 @@
     <div class="card-body">
           <div class="row">
             <div class="col-12 col-sm-6">
-              <h3 class="d-inline-block d-sm-none">{{ cafe.nom }}</h3>
+              <h3 class="d-inline-block d-sm-none">{{ sport.nom }}</h3>
               <div class="col-12">
-                <img src="{{ asset('upload/photo/'~cafe.image) }}" class="product-image" alt="Product Image">
+                <img src="{{ asset('upload/photo/'~sport.image) }}" class="product-image" alt="Product Image">
               </div>
               
             </div>
             <div class="col-12 col-sm-6">
-              <h3 class="my-3">{{ cafe.nom }}</h3>
-              <p>{{ cafe.description }}</p>
+              <h2 class="my-3">{{ sport.categorie }}</h2>
+              <h4 class="my-3">{{ sport.nom }}</h4>
+              <p>{{ sport.description }}</p>
 
               <hr>
               
              <h4></h4>
               <div class="col-12 col-sm-6">       
-                    <a  class="btn btn-primary" href="{{ path('cafe_edit', {'id': cafe.id}) }}">Edit</a>
-                     <a class="btn btn-success" href="{{ path('cafe_index') }}">Back to list</a>
+                    <a  class="btn btn-primary" href="{{ path('sport_edit', {'id': sport.id}) }}">Edit</a>
+                     <a class="btn btn-success" href="{{ path('sport_index') }}">Back to list</a>
                      <hr>
-                    {{ include('cafe/_delete_form.html.twig') }}
+                    {{ include('sport/_delete_form.html.twig') }}
                    
                   </div>
 

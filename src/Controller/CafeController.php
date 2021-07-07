@@ -78,12 +78,29 @@ class CafeController extends AbstractController
     /**
      * @Route("/{id}/edit", name="cafe_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Cafe $cafe): Response
+    public function edit(Request $request, Cafe $cafe, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(CafeType::class, $cafe);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+             /**  @var uploadedFile $photoFile */
+             $photoFile=$form->get('image')->getData();
+             if($photoFile){
+                 $filename = pathinfo($photoFile -> getClientOriginalNAme(),PATHINFO_FILENAME);
+                 $originalname = $slugger -> slug($filename);
+                 $newFilename=$originalname.'-'.uniqid().'.'.$photoFile->guessExtension();
+                 try{
+                     $photoFile->move(
+                         $this->getParameter('photo_directory'),
+                         $newFilename
+                     );}
+                 catch(FileException $e){
+ 
+                 }
+                 $cafe ->setImage($newFilename);
+ 
+             }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('cafe_index', [], Response::HTTP_SEE_OTHER);
