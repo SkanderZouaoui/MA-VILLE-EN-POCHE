@@ -25,6 +25,8 @@ class CafeController extends AbstractController
         ]);
     }
 
+   
+
     /**
      * @Route("/new", name="cafe_new", methods={"GET","POST"})
      */
