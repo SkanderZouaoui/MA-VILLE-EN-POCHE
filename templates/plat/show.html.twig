@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 
-{% block title %}Culture{% endblock %}
+{% block title %}Plat{% endblock %}
 
 {% block stylesheets %}
  <!-- Google Font: Source Sans Pro -->
@@ -28,25 +28,27 @@
     <div class="card-body">
           <div class="row">
             <div class="col-12 col-sm-6">
-              <h3 class="d-inline-block d-sm-none">{{ culture.nom }}</h3>
+              <h3 class="d-inline-block d-sm-none">{{ plat.nom }}</h3>
               <div class="col-12">
-                <img src="{{ asset('upload/photo/'~culture.image) }}" class="product-image" alt="Product Image">
+                <img src="{{ asset('upload/photo/'~plat.image) }}" class="product-image" alt="Product Image">
               </div>
               
             </div>
             <div class="col-12 col-sm-6">
-              <h2 class="my-3">{{ culture.categorie }}</h2>
-              <h4 class="my-3">{{ culture.nom }}</h4>
-              <p>{{ culture.description }}</p>
+              <h2 class="my-3">{{ plat.categorie }}</h2>
+              <h4 class="my-3">{{ plat.nom }}</h4>
+              <p>{{ plat.description }}</p>
+              <h5>{{ plat.prix }}</h5>
+
 
               <hr>
               
              <h4></h4>
               <div class="col-12 col-sm-6">       
-                    <a  class="btn btn-primary" href="{{ path('culture_edit', {'id': culture.id}) }}">Edit</a>
-                     <a class="btn btn-success" href="{{ path('culture_index') }}">Back to list</a>
+                    <a  class="btn btn-primary" href="{{ path('plat_edit', {'id': plat.id}) }}">Edit</a>
+                     <a class="btn btn-success" href="{{ path('plat_index') }}">Back to list</a>
                      <hr>
-                    {{ include('culture/_delete_form.html.twig') }}
+                    {{ include('plat/_delete_form.html.twig') }}
                    
                   </div>
 
