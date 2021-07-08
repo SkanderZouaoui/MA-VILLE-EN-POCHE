@@ -39,9 +39,13 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                 <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Image</th>
+                <th>Id Resto</th>
+                <th>Nom Restaurant</th>
+                <th>Image Restaurant</th>
+                <th>menu</th>
+                <th>Image Menu</th>
+               
+                
                 <th>Description</th>
                 <th>Localisation</th>
                 
@@ -51,14 +55,21 @@
                 <tbody>
             
         {% for restaurant in restaurants %}
+       
+      
         
             <tr>
-                <td>{{ restaurant.id }}</td>
+              <td>{{ restaurant.id }}</td>
                 <td>{{ restaurant.nom }}</td>
                 <td> <img src="{{ asset('upload/photo/'~restaurant.image) }} "  height="100px" width="100px"></td>
-                <td>{{ restaurant.description }}</td>
+                 {% for menu in menus %}
+               {% if (restaurant.nom == menu.idrestaurant) %}
+
+                 <td>{{ menu.nommenu }}</td>
+                 <td> <img src="{{ asset('upload/menu.jpg') }} "  height="100px" width="100px"></td>
+                  <td>{{ restaurant.description }}</td>
                 <td>{{ restaurant.localisation }}</td>
-             
+               
                 <td>
                     <a class="btn btn-info" href="{{ path('restaurant_show', {'id': restaurant.id}) }}">Show</a>
                     <a class="btn btn-warning"  href="{{ path('restaurant_edit', {'id': restaurant.id}) }}">Edit</a>
@@ -66,30 +77,25 @@
                      {{ include('restaurant/_delete_form.html.twig') }}
                 </td>
             </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        {% for menu in menus %}
-            <tr>
-                <td>{{ menu.id }}</td>
-                <td>{{ menu.idrestaurant }}</td>
-                <td> <img src="{{ asset('upload/menu.jpg') }} "  height="100px" width="100px"></td>
-               
+                  {% else %}
+              
+                <td>{{ restaurant.id }}</td>
+                <td>{{ restaurant.nom }}</td>
+                <td colspan="8">No Menu</td>
+                <td colspan="8">No Menu</td>
+                <td> <img src="{{ asset('upload/photo/'~restaurant.image) }} "  height="100px" width="100px"></td>
+                <td>{{ restaurant.description }}</td>
+                <td>{{ restaurant.localisation }}</td>
              
                 <td>
-                    <a class="btn btn-info" href="{{ path('menu_show', {'id': menu.id}) }}">Show</a>
-                    <a class="btn btn-warning"  href="{{ path('menu_edit', {'id': menu.id}) }}">Edit</a>
-                    <hr>
-                     {{ include('menu/_delete_form.html.twig') }}
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
+                    <a class="btn btn-info" href="{{ path('restaurant_show', {'id': restaurant.id}) }}">Show</a>
+                    <a class="btn btn-warning"  href="{{ path('restaurant_edit', {'id': restaurant.id}) }}">Edit</a>
+
+              {% endif %}
+            {% endfor %}
+  
         {% endfor %}
+       
          
         </tbody>
                  
