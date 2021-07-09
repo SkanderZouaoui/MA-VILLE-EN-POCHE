@@ -49,6 +49,16 @@ class Plat
      */
     private $idmenu;
 
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $latitude;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $longitude;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -127,4 +137,6 @@ class Plat
 
         return $this;
     }
+
+   
 }

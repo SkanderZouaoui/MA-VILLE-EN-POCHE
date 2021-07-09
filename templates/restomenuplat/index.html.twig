@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="{{asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
         <!-- Theme style -->
         <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
+        
 
         {% endblock %}
         
@@ -42,11 +43,12 @@
                 <th>Id Resto</th>
                 <th>Nom Restaurant</th>
                 <th>Image Restaurant</th>
-                <th>menu</th>
-                <th>Image Menu</th>
+               
                           
                 <th>Description</th>
-                <th>Localisation</th>               
+                <th>Localisation</th> 
+                <th>Menu</th>
+                <th>Image Menu</th>             
                 <th>actions</th>
                 </tr>
                   </thead>
@@ -57,16 +59,18 @@
                 <td>{{ restaurant.id }}</td>
                 <td>{{ restaurant.nom }}</td>
                 <td> <img src="{{ asset('upload/photo/'~restaurant.image) }} "  height="100px" width="100px"></td>
-                {% for menu in menus %}
-                {% if (restaurant.nom == menu.idrestaurant) %}
-                 <td>{{ menu.nommenu }}</td>
-                 <td> <img src="{{ asset('upload/menu.jpg') }} "  height="100px" width="100px"></td>
-                  {% elseif (menu.idrestaurant == null) %}
-                    <td>No Menu</td>
-                    {% endif %}
-                  {% endfor %}
+               
                   <td>{{ restaurant.description }}</td>
                   <td>{{ restaurant.localisation }}</td> 
+             
+              {% for menu in menus %}
+              {% if (restaurant.nom == menu.idrestaurant) %} 
+              <td>{{ menu.nommenu }}</td>
+               <td> <img src="{{ asset('upload/menu.jpg') }} "  height="100px" width="100px"></td>
+              
+                  {% endif %}
+                {% endfor %}
+                
                 <td>
                     <a class="btn btn-info" href="{{ path('restaurant_show', {'id': restaurant.id}) }}">Show</a>
                     <a class="btn btn-warning"  href="{{ path('restaurant_edit', {'id': restaurant.id}) }}">Edit</a>
@@ -74,7 +78,8 @@
                      {{ include('restaurant/_delete_form.html.twig') }}
                 </td>
             </tr>
-                {% endfor %}       
+            {% endfor %} 
+                    
         </tbody>
                  
                 </table>

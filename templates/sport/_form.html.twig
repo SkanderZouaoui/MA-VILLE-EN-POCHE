@@ -1,5 +1,10 @@
 {{ form_start(form) }}
 
+{% block javascripts %}
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_Gjdm_0nJk17UVBPoV5Im40uQeguoRAo"></script>
+      <script type="text/javascript" src="{{asset('gmap.js')}}"></script>
+{% endblock %}
      <!-- /.col (left) -->
           <div >
             <div class="card card-primary">
@@ -41,6 +46,7 @@
                     </div>
                 </div>
                 <!-- /.form group -->
+                <!-- /.form group -->
                 <!-- Localisation -->
                 <div class="form-group">
                   <label>Localisation:</label>
@@ -51,12 +57,51 @@
                         <i class="fa fa-globe"></i>
                       </span>
                     </div>
-                       {{ form_widget(form.localisation,{'attr':{"class":"form-control datetimepicker-input" }}) }}
+                    {{ form_widget(form.localisation,  {'id': 'address'} ) }}
+
+                       
                   </div>
                   <!-- /.input group -->
                 </div>
                 <!-- /.form group -->
 
+                <!-- /.form group -->
+                <!-- latitude -->
+                <div class="form-group">
+                  <label>Latitude:</label>
+
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-globe"></i>
+                      </span>
+                    </div>
+                    {{ form_widget(form.latitude,  {'id': 'latitude'} ) }}
+
+                       
+                  </div>
+                  <!-- /.input group -->
+                </div>
+                <!-- /.form group -->
+
+                 <!-- longitude -->
+                 <div class="form-group">
+                  <label>longitude:</label>
+
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-globe"></i>
+                      </span>
+                    </div>
+                    {{ form_widget(form.longitude,  {'id': 'longitude'} ) }}
+                    
+
+                       
+                  </div>
+                  <!-- /.input group -->
+                </div>
+                <!-- /.form group -->
                 <!-- Image -->
                 <div class="form-group">
                   <label>Image:</label>
@@ -84,6 +129,19 @@
                         <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
                       </div>
         {{ form_end(form) }}
+
+        <div id="map" style="height: 500px"></div>
+        {% block stylsheets %}
+        <style>
+        #map {
+          height:450px ; 
+          width:500px;
+          border: 5px solid black;
+          left: 300px;
+        }
+        
+        </style>
+        {% endblock %}
    
         </div>
 
