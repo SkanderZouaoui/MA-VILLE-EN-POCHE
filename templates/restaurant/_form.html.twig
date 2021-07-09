@@ -60,13 +60,17 @@
                   </div>
                   <!-- /.input group -->
                 </div>
-                <!-- /.form group -->
+                <!-- Nom Menu  -->
+                <div class="form-group">
+                  <label>Nom Menu:</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                       {{ form_widget(form.nommenu,{'attr':{"class":"form-control datetimepicker-input" , "placeholder":"Menu"}}) }}
 
-               
-                <!-- /.form group -->
-              </div>
-              
-              <!-- /.card-body -->
+                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-signature"></i></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- /.card -->
 <div>

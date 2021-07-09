@@ -37,15 +37,17 @@
             <div class="col-12 col-sm-6">
               <h3 class="my-3">{{ restaurant.nom }}</h3>
               <p>{{ restaurant.description }}</p>
-
+              <h4 class="my-3">{{ restaurant.localisation }}</h4>
               <hr>
               
              <h4></h4>
               <div class="col-12 col-sm-6">       
                     <a  class="btn btn-primary" href="{{ path('restaurant_edit', {'id': restaurant.id}) }}">Edit</a>
                      <a class="btn btn-success" href="{{ path('restaurant_index') }}">Back to list</a>
+                     
                      <hr>
                     {{ include('restaurant/_delete_form.html.twig') }}
+                    
                    
                   </div>
 
@@ -53,6 +55,190 @@
            
           </div>
          
-        <!-- /.card-body -->
+
+     <br>
+      <h1>{{restaurant.nommenu}}</h1>
+          <div class="col-12 col-sm-6">
+            <div class="card card-primary card-outline card-outline-tabs">
+              <div class="card-header p-0 border-bottom-0">
+                <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="custom-tabs-four-entrees-tab" data-toggle="pill" href="#custom-tabs-four-entrees" role="tab" aria-controls="custom-tabs-four-entrees" aria-selected="true">Entrées</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-four-fastfood-tab" data-toggle="pill" href="#custom-tabs-four-fastfood" role="tab" aria-controls="custom-tabs-four-fastfood" aria-selected="false">FastFood</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-four-plat-tab" data-toggle="pill" href="#custom-tabs-four-plat" role="tab" aria-controls="custom-tabs-four-plat" aria-selected="false">Plat</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-four-dessert-tab" data-toggle="pill" href="#custom-tabs-four-dessert" role="tab" aria-controls="custom-tabs-four-dessert" aria-selected="false">Dessert</a>
+                  </li>
+                </ul>
+              </div>
+              
+              <div class="card-body">
+                <div class="tab-content" id="custom-tabs-four-tabContent">
+                <!--Entrées-->
+                  <div class="tab-pane fade show active" id="custom-tabs-four-entrees" role="tabpanel" aria-labelledby="custom-tabs-four-entrees-tab">
+                          <div>
+                       
+                        {% for plat in plats %}
+                        {% if (plat.idresto == restaurant.nommenu ) %}
+                       <div> 
+                         {% if (plat.categorie == "Entrées" ) %}
+                           <div class="card-body p-0">
+                              <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th style="width: 10px">Image</th>
+                                    <th>NOM</th>
+                                    <th>Description</th>
+                                    <th style="width: 40px">Prix</th>
+                                  </tr>
+                                </thead>
+                               <tbody>
+                                 <tr>
+                                  <td> <img src="{{ asset('upload/photo/'~plat.image) }} "  height="100px" width="100px"></td>
+                                  <td>{{ plat.nom }}</td>   
+                                  <td>{{ plat.description }}</td>
+                                  <td>{{ plat.prix }}</td>
+                                      
+                                        {% endif %}                              
+                                      </div> 
+                                      {% endif %} 
+                                      {% endfor %}  
+                                        </tr> 
+                                  </tbody>
+                                </table>
+                              </div>
+                       </div> 
+                     </div>
+                    </div>
+              
+                <!--FastFood-->
+                <div class="tab-pane fade" id="custom-tabs-four-fastfood" role="tabpanel" aria-labelledby="custom-tabs-four-fastfood-tab"> 
+                    <div>
+                       
+                        {% for plat in plats %}
+                        {% if (plat.idresto == restaurant.nommenu ) %}
+                       <div> 
+                         {% if (plat.categorie == "FastFood" ) %}
+      
+                           <div class="card-body p-0">
+                              <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th style="width: 10px">Image</th>
+                                    <th>NOM</th>
+                                    <th>Description</th>
+                                    <th style="width: 40px">Prix</th>
+                                  </tr>
+                                </thead>
+                               <tbody>
+                                 <tr>
+                                  <td> <img src="{{ asset('upload/photo/'~plat.image) }} "  height="100px" width="100px"></td>
+                                  <td>{{ plat.nom }}</td>   
+                                  <td>{{ plat.description }}</td>
+                                  <td>{{ plat.prix }}</td>
+                                      
+                                        {% endif %}                              
+                                      </div> 
+                                      {% endif %} 
+                                      {% endfor %}  
+                                        </tr> 
+                                  </tbody>
+                                </table>
+                              </div>
+                       </div> 
+                     </div>
+                    </div>
+                     <!--PLAT-->
+                      <div class="tab-pane fade" id="custom-tabs-four-plat" role="tabpanel" aria-labelledby="custom-tabs-four-plat-tab">
+                       <div>              
+                        {% for plat in plats %}
+                         {% if (plat.idresto == restaurant.nommenu ) %}                       
+                       <div> 
+                         {% if (plat.categorie == "Plat" ) %}
+       <div class="card-body p-0">
+                              <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th style="width: 10px">Image</th>
+                                    <th>NOM</th>
+                                    <th>Description</th>
+                                    <th style="width: 40px">Prix</th>
+                                  </tr>
+                                </thead>
+                               <tbody>
+                                 <tr>
+                                  <td> <img src="{{ asset('upload/photo/'~plat.image) }} "  height="100px" width="100px"></td>
+                                  <td>{{ plat.nom }}</td>   
+                                  <td>{{ plat.description }}</td>
+                                  <td>{{ plat.prix }}</td>
+                                      
+                                        {% endif %}                              
+                                      </div> 
+                                      {% endif %} 
+                                      {% endfor %}  
+                                        </tr> 
+                                  </tbody>
+                                </table>
+                              </div>
+                       </div> 
+                     </div>
+                    </div>
+                      
+                      <!--Dessert-->
+                        <div class="tab-pane fade" id="custom-tabs-four-dessert" role="tabpanel" aria-labelledby="custom-tabs-four-dessert-tab">
+                       <div>
+                        <div class="card-body p-0">
+                              <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th style="width: 10px">Image</th>
+                                    <th>NOM</th>
+                                    <th>Description</th>
+                                    <th style="width: 40px">Prix</th>
+                                  </tr>
+                                </thead>
+                        {% for plat in plats %}
+                         {% if (plat.idresto == restaurant.nommenu ) %}
+                       <div> 
+                       
+                         {% if (plat.categorie == "Dessert" ) %}
+      
+                               <tbody>
+                                 <tr>
+                                  <td> <img src="{{ asset('upload/photo/'~plat.image) }} "  height="100px" width="100px"></td>
+                                  <td>{{ plat.nom }}</td>   
+                                  <td>{{ plat.description }}</td>
+                                  <td>{{ plat.prix }}</td>
+                                      
+                                        {% endif %}                              
+                                      </div> 
+                                      {% endif %} 
+                                      {% endfor %}  
+                                        </tr> 
+                                  </tbody>
+                                </table>
+                              </div>
+                       </div> 
+                     </div>
+                    </div>
+                   
+                   
+
+
+                    </div>
+               </div>
+            </div>
+      </div>
+
+           
+   <!-- /.card-body -->
+    </div>
+  </div>       
+       
   
 {% endblock %}

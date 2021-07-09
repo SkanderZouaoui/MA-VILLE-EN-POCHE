@@ -17,7 +17,7 @@ class RestaurantType extends AbstractType
             ->add('image',FileType::class, ['data_class' => null])
             ->add('description')
             ->add('localisation')
-            
+            ->add('nommenu')
         ;
     }
 

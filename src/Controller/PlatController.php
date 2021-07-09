@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 /**
  * @Route("/plat")
@@ -30,30 +29,30 @@ class PlatController extends AbstractController
     /**
      * @Route("/new", name="plat_new", methods={"GET","POST"})
      */
-    public function new(Request $request,SluggerInterface $slugger): Response
+    public function new(Request $request , SluggerInterface $slugger): Response
     {
         $plat = new Plat();
         $form = $this->createForm(PlatType::class, $plat);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /**  @var uploadedFile $photoFile */
-            $photoFile=$form->get('image')->getData();
-            if($photoFile){
-                $filename = pathinfo($photoFile -> getClientOriginalNAme(),PATHINFO_FILENAME);
-                $originalname = $slugger -> slug($filename);
-                $newFilename=$originalname.'-'.uniqid().'.'.$photoFile->guessExtension();
-                try{
-                    $photoFile->move(
-                        $this->getParameter('photo_directory'),
-                        $newFilename
-                    );}
-                catch(FileException $e){
-
-                }
-                $plat ->setImage($newFilename);
-
-            }
+             /**  @var uploadedFile $photoFile */
+             $photoFile=$form->get('image')->getData();
+             if($photoFile){
+                 $filename = pathinfo($photoFile -> getClientOriginalNAme(),PATHINFO_FILENAME);
+                 $originalname = $slugger -> slug($filename);
+                 $newFilename=$originalname.'-'.uniqid().'.'.$photoFile->guessExtension();
+                 try{
+                     $photoFile->move(
+                         $this->getParameter('photo_directory'),
+                         $newFilename
+                     );}
+                 catch(FileException $e){
+ 
+                 }
+                 $plat ->setImage($newFilename);
+ 
+             }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($plat);
             $entityManager->flush();
@@ -86,23 +85,23 @@ class PlatController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /**  @var uploadedFile $photoFile */
-            $photoFile=$form->get('image')->getData();
-            if($photoFile){
-                $filename = pathinfo($photoFile -> getClientOriginalNAme(),PATHINFO_FILENAME);
-                $originalname = $slugger -> slug($filename);
-                $newFilename=$originalname.'-'.uniqid().'.'.$photoFile->guessExtension();
-                try{
-                    $photoFile->move(
-                        $this->getParameter('photo_directory'),
-                        $newFilename
-                    );}
-                catch(FileException $e){
-
-                }
-                $plat ->setImage($newFilename);
-
-            }
+             /**  @var uploadedFile $photoFile */
+             $photoFile=$form->get('image')->getData();
+             if($photoFile){
+                 $filename = pathinfo($photoFile -> getClientOriginalNAme(),PATHINFO_FILENAME);
+                 $originalname = $slugger -> slug($filename);
+                 $newFilename=$originalname.'-'.uniqid().'.'.$photoFile->guessExtension();
+                 try{
+                     $photoFile->move(
+                         $this->getParameter('photo_directory'),
+                         $newFilename
+                     );}
+                 catch(FileException $e){
+ 
+                 }
+                 $plat ->setImage($newFilename);
+ 
+             }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('plat_index', [], Response::HTTP_SEE_OTHER);
