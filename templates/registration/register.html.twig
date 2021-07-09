@@ -19,7 +19,7 @@
       <a href="#" class="h1"><b>Ma Ville</b>En Poche</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Register a new membership</p>
+      <p class="login-box-msg">Créer Un Noveau Compte</p>
 
  {{ form_start(registrationForm) }}
       <div class="input-group mb-3">
@@ -30,19 +30,58 @@
             </div>
           </div>
         </div>
-       
-
-   
-        {{ form_row(registrationForm.email) }}
-       
-        {{ form_row(registrationForm.prenom) }}
-
-        {{ form_row(registrationForm.plainPassword, {
+        <div class="input-group mb-3">
+          {{ form_widget(registrationForm.prenom) }}
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          {{ form_widget(registrationForm.email) }}
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          {{ form_widget(registrationForm.plainPassword.first,{'attr':{"class":"form-control datetimepicker-input" , "placeholder":"Mot de Passe"}}, {
             label: 'Password'
         }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          {{ form_widget(registrationForm.plainPassword.second,{'attr':{"class":"form-control datetimepicker-input" , "placeholder":"Mot de Passe"}}, {
+            label: 'Password'
+        }) }}
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+              <div class="icheck-primary">
+                {{ form_widget(registrationForm.agreeTerms, {'id':'remember'} ) }}    
+         
+              <label for="remember">
+               Remember
+              </label>
+              </div>
+          </div>
+        
+   
+       
+   
 
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="btn btn-primary btn-block">Register</button>
     {{ form_end(registrationForm) }}
 {% endblock %}
 
