@@ -47,15 +47,7 @@ class Plat
      */
     private $idresto;
 
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $latitude;
-
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $longitude;
+   
 
     public function getId(): ?int
     {

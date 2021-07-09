@@ -1,13 +1,40 @@
-{% extends 'base.html.twig' %}
+{% block stylesheets %}
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
 
-{% block title %}Register{% endblock %}
+{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+    
+    <body class="hold-transition register-page">
+<div class="register-box">
+  <div class="card card-outline card-primary">
+    <div class="card-header text-center">
+      <a href="#" class="h1"><b>Ma Ville</b>En Poche</a>
+    </div>
+    <div class="card-body">
+      <p class="login-box-msg">Register a new membership</p>
 
-    {{ form_start(registrationForm) }}
+ {{ form_start(registrationForm) }}
+      <div class="input-group mb-3">
+          {{ form_widget(registrationForm.nom,{'attr':{"class":"form-control datetimepicker-input" , "placeholder":"Nom"}}) }}
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+       
+
+   
         {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.nom) }}
+       
         {{ form_row(registrationForm.prenom) }}
 
         {{ form_row(registrationForm.plainPassword, {
@@ -17,4 +44,13 @@
 
         <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
+{% endblock %}
+
+{% block javascripts %}
+<!-- jQuery -->
+<script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{asset('dist/js/adminlte.min.js')}}"></script>
 {% endblock %}
