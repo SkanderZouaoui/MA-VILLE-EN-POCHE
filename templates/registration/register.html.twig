@@ -23,56 +23,46 @@
 
  {{ form_start(registrationForm) }}
       <div class="input-group mb-3">
-          {{ form_widget(registrationForm.nom,{'attr':{"class":"form-control datetimepicker-input" , "placeholder":"Nom"}}) }}
+          {{ form_row(registrationForm.nom,{'attr':{"class":"form-control datetimepicker-input" , "placeholder":"Nom"}}) }}
           <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
+            
           </div>
         </div>
         <div class="input-group mb-3">
-          {{ form_widget(registrationForm.prenom) }}
+          {{ form_row(registrationForm.prenom) }}
           <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
+            
           </div>
         </div>
         <div class="input-group mb-3">
-          {{ form_widget(registrationForm.email) }}
+          {{ form_row(registrationForm.email) }}
           <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
+           
           </div>
         </div>
         <div class="input-group mb-3">
-          {{ form_widget(registrationForm.plainPassword.first,{'attr':{"class":"form-control datetimepicker-input" , "placeholder":"Mot de Passe"}}, {
+          {{ form_row(registrationForm.plainPassword.first,{'attr':{"class":"form-control datetimepicker-input" , "placeholder":"Mot de Passe"}}, {
             label: 'Password'
         }) }}
           <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
+           
           </div>
         </div>
         <div class="input-group mb-3">
-          {{ form_widget(registrationForm.plainPassword.second,{'attr':{"class":"form-control datetimepicker-input" , "placeholder":"Mot de Passe"}}, {
+          {{ form_row(registrationForm.plainPassword.second,{'attr':{"class":"form-control datetimepicker-input" , "placeholder":"Mot de Passe"}}, {
             label: 'Password'
         }) }}
           <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
+           
           </div>
         </div>
         <div class="row">
           <div class="col-8">
               <div class="icheck-primary">
-                {{ form_widget(registrationForm.agreeTerms, {'id':'remember'} ) }}    
+                {{ form_row(registrationForm.agreeTerms, {'id':'agreeterms'} ) }}    
          
-              <label for="remember">
-               Remember
+              <label for="agreeterms">
+               Agree terms
               </label>
               </div>
           </div>

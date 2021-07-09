@@ -53,8 +53,7 @@
           </div>
         </div>
     <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+           value="{{ csrf_token('authenticate') }}">
 
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
@@ -82,7 +81,7 @@
       <div>
             <a class="mb-1" href="forgot-password.html">I forgot my password</a>
             <br>
-            <a class="mb-1" href="register.html" class="text-center">Register a new membership</a>
+            <a class="mb-1" href="{{path('app_register')}}" class="text-center">Register a new membership</a>
       </div>
 </form>
 {% endblock %}
