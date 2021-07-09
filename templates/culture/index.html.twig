@@ -45,6 +45,8 @@
                 <th>Image</th>
                 <th>Description</th>
                 <th>Localisation</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
                 <th>actions</th>
                 </tr>
                   </thead>
@@ -57,6 +59,8 @@
                 <td> <img src="{{ asset('upload/photo/'~culture.image) }} "  height="100px" width="100px"></td>
                 <td>{{ culture.description }}</td>
                 <td>{{ culture.localisation }}</td>
+                <td>{{ culture.latitude }}</td> 
+                <td>{{ culture.longitude }}</td> 
              
                 <td>
                     <a class="btn btn-info" href="{{ path('culture_show', {'id': culture.id}) }}">Show</a>

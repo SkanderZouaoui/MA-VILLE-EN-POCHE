@@ -45,6 +45,8 @@
                 <th>Image</th>
                 <th>Description</th>
                 <th>Localisation</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
                 <th>actions</th>
                 </tr>
                   </thead>
@@ -57,6 +59,8 @@
                 <td> <img src="{{ asset('upload/photo/'~vie_pratique.image) }} "  height="100px" width="100px"></td>
                 <td>{{ vie_pratique.description }}</td>
                 <td>{{ vie_pratique.localisation }}</td>
+                <td>{{ vie_pratique.latitude }}</td> 
+                <td>{{ vie_pratique.longitude }}</td> 
              
                 <td>
                     <a class="btn btn-info" href="{{ path('vie_pratique_show', {'id': vie_pratique.id}) }}">Show</a>
