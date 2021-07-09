@@ -44,6 +44,8 @@
                 <th>Image</th>
                 <th>Description</th>
                 <th>Localisation</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
                 <th>Nommenu</th>
                 <th>actions</th>
             </tr>
@@ -56,6 +58,8 @@
                 <td> <img src="{{ asset('upload/photo/'~restaurant.image) }} "  height="100px" width="100px"></td>
                 <td>{{ restaurant.description }}</td>
                 <td>{{ restaurant.localisation }}</td>
+                <td>{{ restaurant.latitude }}</td>
+                <td>{{ restaurant.longitude }}</td>
                 <td>{{ restaurant.nommenu }}</td>
                 <td>
                    <a class="btn btn-info" href="{{ path('restaurant_show', {'id': restaurant.id}) }}">Show</a>
