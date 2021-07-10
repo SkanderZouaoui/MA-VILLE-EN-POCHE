@@ -11,68 +11,93 @@
 {% endblock %}
 
 {% block body %}
-    
-    <body class="hold-transition register-page">
+  {{ form_start(registrationForm) }}
+<!-- Card -->
+<body class="hold-transition register-page">
 <div class="register-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="#" class="h1"><b>Ma Ville</b>En Poche</a>
+      <a href="#" class="h1"><b>MaVille</b> enPoche</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Créer Un Noveau Compte</p>
-
- {{ form_start(registrationForm) }}
-      <div class="input-group mb-3">
-          {{ form_row(registrationForm.nom,{'attr':{"class":"form-control datetimepicker-input" , "placeholder":"Nom"}}) }}
-          <div class="input-group-append">
-            
-          </div>
+      <h5 class="login-box-msg">Inscription</h5>
+     
+      <form>
+      
+      
+        <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                       {{ form_row(registrationForm.nom,{'attr':{"class":"form-control datetimepicker-input" , "placeholder":"Nom"}}) }}                      
+                    </div>
+                    
+                  </div>       
+         <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                       {{ form_row(registrationForm.prenom,{'attr':{"class":"form-control datetimepicker-input" , "placeholder":"Prenom"}}) }}
+                    </div>
         </div>
-        <div class="input-group mb-3">
-          {{ form_row(registrationForm.prenom) }}
-          <div class="input-group-append">
-            
-          </div>
+        <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                     
+                      {{ form_row(registrationForm.email) }}
+                    </div>
         </div>
-        <div class="input-group mb-3">
-          {{ form_row(registrationForm.email) }}
-          <div class="input-group-append">
-           
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          {{ form_row(registrationForm.plainPassword.first,{'attr':{"class":"form-control datetimepicker-input" , "placeholder":"Mot de Passe"}}, {
+         <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                     {{ form_row(registrationForm.plainPassword.first,{'attr':{"class":"form-control datetimepicker-input" , "placeholder":"Mot de Passe"}}, {
             label: 'Password'
         }) }}
-          <div class="input-group-append">
-           
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          {{ form_row(registrationForm.plainPassword.second,{'attr':{"class":"form-control datetimepicker-input" , "placeholder":"Mot de Passe"}}, {
+                     
+                    </div>
+
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                    
+                      {{ form_row(registrationForm.plainPassword.second,{'attr':{"class":"form-control datetimepicker-input" , "placeholder":"Mot de Passe"}}, {
             label: 'Password'
         }) }}
-          <div class="input-group-append">
-           
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-8">
-              <div class="icheck-primary">
-              
-         
-              <label for="agreeterms">
-                {{ form_row(registrationForm.agreeTerms ) }}    
-              </label>
-              </div>
-          </div>
-        
-   
-       
-   
+                   
+                    </div>
+                  </div>
+                 
+      
+              {{ form_end(registrationForm ,{'attr':{"class":"icheck-primary"  }}, )}}
+      <button type="submit" class="btn btn-primary btn-block">Register</button>
+</form>
+<div class="text-center pb-2">
+      <p>Déja inscrit ? <a href="#">Login</a></p>
 
-        <button type="submit" class="btn btn-primary btn-block">Register</button>
-    {{ form_end(registrationForm) }}
+      <p>or sign in with:</p>
+
+      <a type="button" class="btn-floating btn-fb btn-sm mr-1">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a type="button" class="btn-floating btn-tw btn-sm mr-1">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a type="button" class="btn-floating btn-li btn-sm mr-1">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a type="button" class="btn-floating btn-git btn-sm">
+        <i class="fab fa-github"></i>
+      </a>
+
+    </div>
+
+    </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
+</div>
+<!-- /.register-box -->
+
+   
 {% endblock %}
 
 {% block javascripts %}
