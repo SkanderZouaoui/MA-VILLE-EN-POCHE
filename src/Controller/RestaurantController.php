@@ -83,7 +83,7 @@ class RestaurantController extends AbstractController
     /**
      * @Route("/{id}/edit", name="restaurant_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Restaurant $restaurant): Response
+    public function edit(Request $request, Restaurant $restaurant , SluggerInterface $slugger): Response
     {
         $form = $this->createForm(RestaurantType::class, $restaurant);
         $form->handleRequest($request);
