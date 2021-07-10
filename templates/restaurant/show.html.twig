@@ -110,7 +110,7 @@
                     {% if (plat.categorie == "Entrées" ) %}
                 <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample"> 
                   <a href="https://via.placeholder.com/1200/FFFFFF.png?text=1" data-toggle="lightbox" data-title="sample 1 - white">
-                    <img src="{{ asset('upload/photo/'~plat.image) }}"  height="150px" width="150px" class="img-fluid mb-2" alt="white sample" />
+                    <img src="{{ asset('upload/photo/'~plat.image) }}"  height="150px" width="150px" />
                   </a>
                 </div>
                   {% endif %}     
@@ -124,7 +124,7 @@
                   {% if (plat.categorie == "FastFood" ) %}
               <div class="filtr-item col-sm-2" data-category="2" data-sort="black sample"> 
                 <a href="https://via.placeholder.com/1200/FFFFFF.png?text=2" data-toggle="lightbox" data-title="sample 2 - black">
-                  <img src="{{ asset('upload/photo/'~plat.image) }}"  height="150px" width="150px" class="img-fluid mb-2" alt="black sample"/>
+                  <img src="{{ asset('upload/photo/'~plat.image) }}"  height="150px" width="150px"/>
                 </a>
               </div>
                 {% endif %}     
@@ -138,7 +138,7 @@
                 {% if (plat.categorie == "Plat" ) %}
             <div class="filtr-item col-sm-2" data-category="3" data-sort="red sample"> 
               <a href="https://via.placeholder.com/1200/FFFFFF.png?text=3" data-toggle="lightbox" data-title="sample 3 - red">
-                <img src="{{ asset('upload/photo/'~plat.image) }}"  height="150px" width="150px" class="img-fluid mb-2" alt="red sample" />
+                <img src="{{ asset('upload/photo/'~plat.image) }}"  height="150px" width="150px"/>
               </a>
             </div>
               {% endif %}     
@@ -152,7 +152,7 @@
               {% if (plat.categorie == "Dessert" ) %}
           <div class="filtr-item col-sm-2" data-category="4" data-sort="red sample"> 
             <a href="https://via.placeholder.com/1200/FFFFFF.png?text=4" data-toggle="lightbox" data-title="sample 4 - red">
-              <img src="{{ asset('upload/photo/'~plat.image) }}"  height="150px" width="150px" class="img-fluid mb-2" alt="red sample" />
+              <img src="{{ asset('upload/photo/'~plat.image) }}" "150x150" height="150px" width="150px" />
             </a>
           </div>
             {% endif %}     
@@ -161,11 +161,7 @@
           </div>   
                     
 
-
-        
-                   
-                  
-                
+     
               </div>
             </div>
 

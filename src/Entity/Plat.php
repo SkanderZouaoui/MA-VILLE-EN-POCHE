@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\PlatRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\PlatRepository;
 
 /**
  * @ORM\Entity(repositoryClass=PlatRepository::class)
@@ -30,6 +31,7 @@ class Plat
     /**
      * @ORM\Column(type="string", length=255)
      */
+    
     private $image;
 
     /**
