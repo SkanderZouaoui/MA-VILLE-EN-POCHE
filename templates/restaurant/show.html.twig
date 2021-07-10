@@ -5,240 +5,178 @@
 
 {% block stylesheets %}
  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+ <!-- Font Awesome -->
+ <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
+ <!-- Ekko Lightbox -->
+ <link rel="stylesheet" href="{{asset('plugins/ekko-lightbox/ekko-lightbox.css')}}">
+ <!-- Theme style -->
+ <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
 {% endblock %}
 
 {% block javascripts %}
 <!-- jQuery -->
 <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
-<!-- Bootstrap 4 -->
+<!-- Bootstrap -->
 <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- Ekko Lightbox -->
+<script src="{{asset('plugins/ekko-lightbox/ekko-lightbox.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
+<!-- Filterizr-->
+<script src="{{asset('plugins/filterizr/jquery.filterizr.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('dist/js/demo.js')}}"></script>
+<!-- Page specific script -->
+<script>
+  $(function () {
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox({
+        alwaysShowClose: true
+      });
+    });
+
+    $('.filter-container').filterizr({gutterPixels: 3});
+    $('.btn[data-filter]').on('click', function() {
+      $('.btn[data-filter]').removeClass('active');
+      $(this).addClass('active');
+    });
+  })
+</script>
+
 {% endblock %}
 
 
 {% block body %}
-    <div class="card-body">
-          <div class="row">
-            <div class="col-12 col-sm-6">
-              <h3 class="d-inline-block d-sm-none">{{ restaurant.nom }}</h3>
-              <div class="col-12">
-                <img src="{{ asset('upload/photo/'~restaurant.image) }}" class="product-image" alt="Product Image">
-              </div>
-              
-            </div>
-            <div class="col-12 col-sm-6">
-              <h3 class="my-3">{{ restaurant.nom }}</h3>
-              <p>{{ restaurant.description }}</p>
-              <h4 class="my-3">{{ restaurant.localisation }}</h4>
-              <hr>
-              
-             <h4></h4>
-              <div class="col-12 col-sm-6">       
-                    <a  class="btn btn-primary" href="{{ path('restaurant_edit', {'id': restaurant.id}) }}">Edit</a>
-                     <a class="btn btn-success" href="{{ path('restaurant_index') }}">Back to list</a>
-                     
-                     <hr>
-                    {{ include('restaurant/_delete_form.html.twig') }}
-                    
-                   
+<!-- lfou9-->
+   <div class="card-body">
+     <div class="row">
+                <div class="col-12 col-sm-6">
+                  <h3 class="d-inline-block d-sm-none">{{ restaurant.nom }}</h3>
+                  <div class="col-12">
+                    <img src="{{ asset('upload/photo/'~restaurant.image) }}" class="product-image" alt="Product Image">
                   </div>
+                  
+                </div>
+                <div class="col-12 col-sm-6">
+                  <h3 class="my-3">{{ restaurant.nom }}</h3>
+                  <p>{{ restaurant.description }}</p>
+                  <h4 class="my-3">{{ restaurant.localisation }}</h4>
+                  <hr>
+                  
+                <h4></h4>
+                  <div class="col-12 col-sm-6">       
+                        <a  class="btn btn-primary" href="{{ path('restaurant_edit', {'id': restaurant.id}) }}">Edit</a>
+                        <a class="btn btn-success" href="{{ path('restaurant_index') }}">Back to list</a>
+                        
+                        <hr>
+                        {{ include('restaurant/_delete_form.html.twig') }}
+                        
+                      
+                      </div>
 
-            </div>
-           
+                </div>
+              
+      </div>
+   </div>     
+<!--endlfouk-->
+
+ <!-- Main content -->
+ <section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card card-primary">
+          <div class="card-header">
+            <h4 class="card-title">{{restaurant.nommenu}}</h4>
           </div>
-         
-
-     <br>
-      <h1>{{restaurant.nommenu}}</h1>
-          <div class="col-12 col-sm-6">
-            <div class="card card-primary card-outline card-outline-tabs">
-              <div class="card-header p-0 border-bottom-0">
-                <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
-                  <li class="nav-item">
-                    <a class="nav-link active" id="custom-tabs-four-entrees-tab" data-toggle="pill" href="#custom-tabs-four-entrees" role="tab" aria-controls="custom-tabs-four-entrees" aria-selected="true">Entrées</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" id="custom-tabs-four-fastfood-tab" data-toggle="pill" href="#custom-tabs-four-fastfood" role="tab" aria-controls="custom-tabs-four-fastfood" aria-selected="false">FastFood</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" id="custom-tabs-four-plat-tab" data-toggle="pill" href="#custom-tabs-four-plat" role="tab" aria-controls="custom-tabs-four-plat" aria-selected="false">Plat</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" id="custom-tabs-four-dessert-tab" data-toggle="pill" href="#custom-tabs-four-dessert" role="tab" aria-controls="custom-tabs-four-dessert" aria-selected="false">Dessert</a>
-                  </li>
-                </ul>
+          <div class="card-body">
+            <div>
+              <div class="btn-group w-100 mb-2">
+                <a class="btn btn-info active" href="javascript:void(0)" data-filter="1"> Entrées </a>
+                <a class="btn btn-info" href="javascript:void(0)" data-filter="2"> FastFood </a>
+                <a class="btn btn-info" href="javascript:void(0)" data-filter="3"> Plat </a>
+                <a class="btn btn-info" href="javascript:void(0)" data-filter="4"> Dessert </a>
               </div>
               
-              <div class="card-body">
-                <div class="tab-content" id="custom-tabs-four-tabContent">
-                <!--Entrées-->
-                  <div class="tab-pane fade show active" id="custom-tabs-four-entrees" role="tabpanel" aria-labelledby="custom-tabs-four-entrees-tab">
-                          <div>
-                       
-                        {% for plat in plats %}
-                        {% if (plat.idresto == restaurant.nommenu ) %}
-                       <div> 
-                         {% if (plat.categorie == "Entrées" ) %}
-                           <div class="card-body p-0">
-                              <table class="table table-striped">
-                                <thead>
-                                  <tr>
-                                    <th style="width: 10px">Image</th>
-                                    <th>NOM</th>
-                                    <th>Description</th>
-                                    <th style="width: 40px">Prix</th>
-                                  </tr>
-                                </thead>
-                               <tbody>
-                                 <tr>
-                                  <td> <img src="{{ asset('upload/photo/'~plat.image) }} "  height="100px" width="100px"></td>
-                                  <td>{{ plat.nom }}</td>   
-                                  <td>{{ plat.description }}</td>
-                                  <td>{{ plat.prix }}</td>
-                                      
-                                        {% endif %}                              
-                                      </div> 
-                                      {% endif %} 
-                                      {% endfor %}  
-                                        </tr> 
-                                  </tbody>
-                                </table>
-                              </div>
-                       </div> 
-                     </div>
-                    </div>
-              
-                <!--FastFood-->
-                <div class="tab-pane fade" id="custom-tabs-four-fastfood" role="tabpanel" aria-labelledby="custom-tabs-four-fastfood-tab"> 
-                    <div>
-                       
-                        {% for plat in plats %}
-                        {% if (plat.idresto == restaurant.nommenu ) %}
-                       <div> 
-                         {% if (plat.categorie == "FastFood" ) %}
-      
-                           <div class="card-body p-0">
-                              <table class="table table-striped">
-                                <thead>
-                                  <tr>
-                                    <th style="width: 10px">Image</th>
-                                    <th>NOM</th>
-                                    <th>Description</th>
-                                    <th style="width: 40px">Prix</th>
-                                  </tr>
-                                </thead>
-                               <tbody>
-                                 <tr>
-                                  <td> <img src="{{ asset('upload/photo/'~plat.image) }} "  height="100px" width="100px"></td>
-                                  <td>{{ plat.nom }}</td>   
-                                  <td>{{ plat.description }}</td>
-                                  <td>{{ plat.prix }}</td>
-                                      
-                                        {% endif %}                              
-                                      </div> 
-                                      {% endif %} 
-                                      {% endfor %}  
-                                        </tr> 
-                                  </tbody>
-                                </table>
-                              </div>
-                       </div> 
-                     </div>
-                    </div>
-                     <!--PLAT-->
-                      <div class="tab-pane fade" id="custom-tabs-four-plat" role="tabpanel" aria-labelledby="custom-tabs-four-plat-tab">
-                       <div>              
-                        {% for plat in plats %}
-                         {% if (plat.idresto == restaurant.nommenu ) %}                       
-                       <div> 
-                         {% if (plat.categorie == "Plat" ) %}
-       <div class="card-body p-0">
-                              <table class="table table-striped">
-                                <thead>
-                                  <tr>
-                                    <th style="width: 10px">Image</th>
-                                    <th>NOM</th>
-                                    <th>Description</th>
-                                    <th style="width: 40px">Prix</th>
-                                  </tr>
-                                </thead>
-                               <tbody>
-                                 <tr>
-                                  <td> <img src="{{ asset('upload/photo/'~plat.image) }} "  height="100px" width="100px"></td>
-                                  <td>{{ plat.nom }}</td>   
-                                  <td>{{ plat.description }}</td>
-                                  <td>{{ plat.prix }}</td>
-                                      
-                                        {% endif %}                              
-                                      </div> 
-                                      {% endif %} 
-                                      {% endfor %}  
-                                        </tr> 
-                                  </tbody>
-                                </table>
-                              </div>
-                       </div> 
-                     </div>
-                    </div>
-                      
-                      <!--Dessert-->
-                        <div class="tab-pane fade" id="custom-tabs-four-dessert" role="tabpanel" aria-labelledby="custom-tabs-four-dessert-tab">
-                       <div>
-                        <div class="card-body p-0">
-                              <table class="table table-striped">
-                                <thead>
-                                  <tr>
-                                    <th style="width: 10px">Image</th>
-                                    <th>NOM</th>
-                                    <th>Description</th>
-                                    <th style="width: 40px">Prix</th>
-                                  </tr>
-                                </thead>
-                        {% for plat in plats %}
-                         {% if (plat.idresto == restaurant.nommenu ) %}
-                       <div> 
-                       
-                         {% if (plat.categorie == "Dessert" ) %}
-      
-                               <tbody>
-                                 <tr>
-                                  <td> <img src="{{ asset('upload/photo/'~plat.image) }} "  height="100px" width="100px"></td>
-                                  <td>{{ plat.nom }}</td>   
-                                  <td>{{ plat.description }}</td>
-                                  <td>{{ plat.prix }}</td>
-                                      
-                                        {% endif %}                              
-                                      </div> 
-                                      {% endif %} 
-                                      {% endfor %}  
-                                        </tr> 
-                                  </tbody>
-                                </table>
-                              </div>
-                       </div> 
-                     </div>
-                    </div>
-                   
-                   
-
-
-                    </div>
-               </div>
             </div>
-      </div>
+            <div>
+              <div class="filter-container p-0 row">
+               <div> 
+                    {% for plat in plats %}
+                    {% if (plat.idresto == restaurant.nommenu ) %}
+                    {% if (plat.categorie == "Entrées" ) %}
+                <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample"> 
+                  <a href="https://via.placeholder.com/1200/FFFFFF.png?text=1" data-toggle="lightbox" data-title="sample 1 - white">
+                    <img src="{{ asset('upload/photo/'~plat.image) }}"  height="150px" width="150px" class="img-fluid mb-2" alt="white sample" />
+                  </a>
+                </div>
+                  {% endif %}     
+                  {% endif %} 
+                  {% endfor %}
+                </div>   
 
-           
-   <!-- /.card-body -->
+                <div> 
+                  {% for plat in plats %}
+                  {% if (plat.idresto == restaurant.nommenu ) %}
+                  {% if (plat.categorie == "FastFood" ) %}
+              <div class="filtr-item col-sm-2" data-category="2" data-sort="black sample"> 
+                <a href="https://via.placeholder.com/1200/FFFFFF.png?text=2" data-toggle="lightbox" data-title="sample 2 - black">
+                  <img src="{{ asset('upload/photo/'~plat.image) }}"  height="150px" width="150px" class="img-fluid mb-2" alt="black sample"/>
+                </a>
+              </div>
+                {% endif %}     
+                {% endif %} 
+                {% endfor %}
+              </div>   
+
+              <div> 
+                {% for plat in plats %}
+                {% if (plat.idresto == restaurant.nommenu ) %}
+                {% if (plat.categorie == "Plat" ) %}
+            <div class="filtr-item col-sm-2" data-category="3" data-sort="red sample"> 
+              <a href="https://via.placeholder.com/1200/FFFFFF.png?text=3" data-toggle="lightbox" data-title="sample 3 - red">
+                <img src="{{ asset('upload/photo/'~plat.image) }}"  height="150px" width="150px" class="img-fluid mb-2" alt="red sample" />
+              </a>
+            </div>
+              {% endif %}     
+              {% endif %} 
+              {% endfor %}
+            </div>   
+
+            <div> 
+              {% for plat in plats %}
+              {% if (plat.idresto == restaurant.nommenu ) %}
+              {% if (plat.categorie == "Dessert" ) %}
+          <div class="filtr-item col-sm-2" data-category="4" data-sort="red sample"> 
+            <a href="https://via.placeholder.com/1200/FFFFFF.png?text=4" data-toggle="lightbox" data-title="sample 4 - red">
+              <img src="{{ asset('upload/photo/'~plat.image) }}"  height="150px" width="150px" class="img-fluid mb-2" alt="red sample" />
+            </a>
+          </div>
+            {% endif %}     
+            {% endif %} 
+            {% endfor %}
+          </div>   
+                    
+
+
+        
+                   
+                  
+                
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
-  </div>       
-       
+  </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+ 
+
+     
   
 {% endblock %}
