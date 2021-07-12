@@ -65,7 +65,7 @@
                                 </div>
                                   Select job items End-->
                             
-                               <div>
+                              <div>
                                     <h1>Categories</h1>
                                    <a class="skander" href="{{path('affrestaurant')}}">Restaurants</a><br>
                                    <a class="skander" href="{{path('affcafe')}}">Cafes</a><br>
@@ -136,51 +136,6 @@
                                         </div>
                                     </div>
                                     {% endfor %}
-                                     {% for cafe in cafes %}
-                                    <div class="col-lg-6 ">
-                                        <div class="single-listing mb-30">
-                                            <div class="list-img">
-                                                <img src="{{ asset('upload/photo/'~cafe.image) }}" height="300px" width="300px">
-                                                <!-- <span>Open</span> -->
-                                            </div>
-                                            <div class="list-caption">
-                                                <span>Open</span>
-                                                <h3><a href="listing_details.html">{{ cafe.nom }}</a></h3>
-                                                <p>{{ cafe.description }}</p><br>
-                                                <p>{{ cafe.localisation }}</p><br>
-                                                <div class="list-footer">
-                                                    <ul>
-                                                        <li>+10 278 367 9823</li>
-                                                        <li>contact@midnight.com</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                        {% endfor %}
-                        {% for sport in sports %}
-                                    <div class="col-lg-6 ">
-                                        <div class="single-listing mb-30">
-                                            <div class="list-img">
-                                                <img src="{{ asset('upload/photo/'~sport.image) }}" height="300px" width="300px">
-                                                <!-- <span>Open</span> -->
-                                            </div>
-                                            <div class="list-caption">
-                                                <span>Open</span>
-                                                <h3><a href="listing_details.html">{{ sport.nom }}</a></h3>
-                                                <p>{{ sport.description }}</p><br>
-                                                <p>{{ sport.localisation }}</p><br>
-                                                <div class="list-footer">
-                                                    <ul>
-                                                        <li>+10 278 367 9823</li>
-                                                        <li>contact@midnight.com</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                        {% endfor %}
-                                
                                 </div>
                         
                                 </div>
