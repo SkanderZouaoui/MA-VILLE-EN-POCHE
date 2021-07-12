@@ -17,4 +17,14 @@ class FrontController extends AbstractController
             'controller_name' => 'FrontController',
         ]);
     }
+
+    /**
+     * @Route("/blog", name="blog")
+     */
+    public function blog(): Response
+    {
+        return $this->render('front/blog.html.twig', [
+            'controller_name' => 'FrontController',
+        ]);
+    }
 }
