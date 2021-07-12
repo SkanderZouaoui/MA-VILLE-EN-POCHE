@@ -27,4 +27,14 @@ class FrontController extends AbstractController
             'controller_name' => 'FrontController',
         ]);
     }
+    /**
+     * @Route("/listing", name="listing")
+     */
+    public function listing(): Response
+    {
+        return $this->render('front/listing.html.twig', [
+            'controller_name' => 'FrontController',
+        ]);
+    }
+
 }
