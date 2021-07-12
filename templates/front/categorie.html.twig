@@ -11,9 +11,11 @@
 <link rel="stylesheet" href="{{asset('front/assets/css/slick.css')}}">
 <link rel="stylesheet" href="{{asset('front/assets/css/nice-select.css')}}">
 <link rel="stylesheet" href="{{asset('front/assets/css/style.css')}}">
+<link rel="manifest" href="site.webmanifest">
+<link rel="shortcut icon" type="image/x-icon" href="{{asset('front/assets/img/favicon.ico')}}">
+<script src="https://kit.fontawesome.com/90d952e4a3.js" crossorigin="anonymous"></script>
 
 {% endblock %}
-
 {% block body %}
 
     <!-- Preloader Start -->
@@ -27,7 +29,6 @@
             </div>
         </div>
     </div>
-    <!-- Preloader Start -->
     <header>
         <!-- Header Start -->
        <div class="header-area header-transparent">
@@ -46,14 +47,14 @@
                                 <div class="main-menu f-right d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">                                                                                                                                     
-                                            <li><a href="{{path('home')}}">Home</a></li>
+                                            <li><a href="index.html">Home</a></li>
                                             <li><a href="about.html">About</a></li>
                                             <li><a href="catagori.html">Catagories</a></li>
-                                            <li><a href="{{path('listing')}}">Listing</a></li>
+                                            <li><a href="listing.html">Listing</a></li>
                                             <li><a href="#">Page</a>
                                                 <ul class="submenu">
                                                     <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="{{path('blog')}}">Blog Details</a></li>
+                                                    <li><a href="blog_details.html">Blog Details</a></li>
                                                     <li><a href="elements.html">Element</a></li>
                                                     <li><a href="listing_details.html">Listing details</a></li>
                                                 </ul>
@@ -81,128 +82,145 @@
     <main>
 
         <!-- Hero Start-->
-        <div class="hero-area3 hero-overly2 d-flex align-items-center ">
+        <div class="hero-area2  slider-height2 hero-overly2 d-flex align-items-center ">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-8 col-lg-9">
-                        <div class="hero-cap text-center pt-50 pb-20">
-                            <h2>Nos Choix</h2>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center pt-50">
+                            <h2>Catagories</h2>
                         </div>
-                        <!--Hero form -->
-                        
                     </div>
                 </div>
             </div>
         </div>
         <!--Hero End -->
-        <!-- listing Area Start -->
-        <div class="listing-area pt-120 pb-120">
+        <!-- Categories Area Start -->
+        <div class="categories-area section-padding30">
             <div class="container">
                 <div class="row">
-                    <!-- Left content -->
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="row">
-                            <div class="col-12">
-                                    <div class="small-section-tittle2 mb-45">
-                                   
-                                </div>
-                            </div>
+                    <div class="col-lg-12">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle text-center mb-80">
+                            <span>We are offering for you</span>
+                            <h2>Featured Categories</h2>
                         </div>
-                        <!-- Job Category Listing start -->
-                        <div class="category-listing mb-50">
-                            <!-- single one -->
-                            <div class="single-listing">
-                              
-                                <!-- Select job items start >
-                                <div class="select-job-items1">
-                                    <select name="select1">
-                                        <option value="">Choose categories</option>
-                                        <option value="">Category 1</option>
-                                        <option value="">Category 2</option>
-                                        <option value="">Category 3</option>
-                                    </select>
-                                </div>
-                                  Select job items End-->
-                            
-                               <div>
-                                    <h1>Categories</h1>
-                                   <a class="skander" href="aa">Restaurants</a><br>
-                                   <a class="skander" href="aa">Cafes</a><br>
-                                   <a class="skander" href="aa">Sports</a><br>
-                                   <a class="skander" href="aa">Vacances</a><br>
-                                   <a class="skander" href="aa">Vetements</a><br>
-                                   <a class="skander" href="aa">Culture</a><br>
-                                   <a class="skander" href="aa">Vie Pratique</a><br>
-                                   <a class="skander" href="aa">Sante</a><br>   
-                                   <a class="skander" href="aa">Bricolage</a><br>
-                               </div>
-                               
-                               
-                               <style>
-                                   h1{
-                                       color:black; 
-                                       font-size: 40px
-
-                                   }
-                                .skander{
-                                    color:gray; 
-                                    font-size: 20px 
-                                }
-                                /* mouse over link */
-                                .skander:hover {
-                                    color: hotpink;
-                                    font-size:140%;
-                                }
-                            </style>
-                            </div>
-                            
-      
-                        </div>
-                        <!-- Job Category Listing End -->
-                    </div>
-                    <!-- Right content -->
-                    <div class="col-xl-8 col-lg-8 col-md-6">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="count mb-35">
-                                    <span>+100 Destinations</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- listing Details Stat-->
-                        <div class="listing-details-area">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-6 ">
-                                        <div class="single-listing mb-30">
-                                            <div class="list-img">
-                                                <img src="{{asset('/front/assets/img/gallery/list1.png')}}" alt="">
-                                                <!-- <span>Open</span> -->
-                                            </div>
-                                            <div class="list-caption">
-                                                <span>Open</span>
-                                                <h3><a href="listing_details.html">Saintmartine</a></h3>
-                                                <p>700/D, Kings road, Green lane, 85/ London</p>
-                                                <div class="list-footer">
-                                                    <ul>
-                                                        <li>+10 278 367 9823</li>
-                                                        <li>contact@midnight.com</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                        
-                                </div>
-                            </div>
-                        </div>
-                        <!-- listing Details End -->
-                       
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-cat text-center mb-50">
+                            <div class="cat-icon">
+                                <span class="fas fa-umbrella-beach"></span>
+                            </div>
+                            <div class="cat-cap">
+                                <h5><a href="#">Vacances</a></h5>
+                                <p>Must explain your how this keind denoun pleasure</p>
+                                <a href="listing.html">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-cat text-center mb-50">
+                            <div class="cat-icon">
+                                <span class="fas fa-coffee"></span>
+                            </div>
+                            <div class="cat-cap">
+                                <h5><a href="#">Cafés</a></h5>
+                                <p>Must explain your how this keind denoun pleasure</p>
+                                <a href="listing.html">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-cat text-center mb-50">
+                            <div class="cat-icon">
+                                <span  class="fas fa-wrench"></span>
+                            </div>
+                            <div class="cat-cap">
+                                <h5><a href="#">Bricolage</a></h5>
+                                <p>Must explain your how this keind denoun pleasure</p>
+                                <a href="listing.html">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-cat text-center mb-50">
+                            <div class="cat-icon">
+                                <span class="fas fa-utensils"></span>
+                            </div>
+                            <div class="cat-cap">
+                                <h5><a href="#">Restaurants</a></h5>
+                                <p>Must explain your how this keind denoun pleasure</p>
+                                <a href="listing.html">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-cat text-center mb-50">
+                            <div class="cat-icon">
+                                <span class="fas fa-dumbbell"></span>
+                            </div>
+                            <div class="cat-cap">
+                                <h5><a href="#">Sports</a></h5>
+                                <p>Must explain your how this keind denoun pleasure</p>
+                                <a href="listing.html">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-cat text-center mb-50">
+                            <div class="cat-icon">
+                                <span class="fas fa-book-open"></span>
+                            </div>
+                            <div class="cat-cap">
+                                <h5><a href="#">Culture</a></h5>
+                                <p>Must explain your how this keind denoun pleasure</p>
+                                <a href="listing.html">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-cat text-center mb-50">
+                            <div class="cat-icon">
+                                <span class="fas fa-lightbulb"></span>
+                            </div>
+                            <div class="cat-cap">
+                                <h5><a href="#">Vie Pratique</a></h5>
+                                <p>Must explain your how this keind denoun pleasure</p>
+                                <a href="listing.html">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-cat text-center mb-50">
+                            <div class="cat-icon">
+                                <span class="fas fa-tshirt"></span>
+                            </div>
+                            <div class="cat-cap">
+                                <h5><a href="#">Vetements</a></h5>
+                                <p>Must explain your how this keind denoun pleasure</p>
+                                <a href="listing.html">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-cat text-center mb-50">
+                            <div class="cat-icon">
+                                <span class="fas fa-heartbeat"></span>
+                            </div>
+                            <div class="cat-cap">
+                                <h5><a href="#">Sante</a></h5>
+                                <p>Must explain your how this keind denoun pleasure</p>
+                                <a href="listing.html">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
             </div>
         </div>
-        <!-- listing-area Area End -->
+        <!-- Categories Area End -->
+      
+       
 
     </main>
     <footer>
@@ -289,8 +307,6 @@
         <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
     </div>
 
-
-   
 
 {% endblock %}
 

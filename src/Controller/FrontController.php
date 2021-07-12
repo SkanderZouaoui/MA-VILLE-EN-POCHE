@@ -36,5 +36,14 @@ class FrontController extends AbstractController
             'controller_name' => 'FrontController',
         ]);
     }
+    /**
+     * @Route("/categorie", name="categorie")
+     */
+    public function categorie(): Response
+    {
+        return $this->render('front/categorie.html.twig', [
+            'controller_name' => 'FrontController',
+        ]);
+    }
 
 }
