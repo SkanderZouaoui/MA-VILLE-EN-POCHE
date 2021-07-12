@@ -45,5 +45,23 @@ class FrontController extends AbstractController
             'controller_name' => 'FrontController',
         ]);
     }
+     /**
+     * @Route("/contact", name="contact")
+     */
+    public function contact(): Response
+    {
+        return $this->render('front/contact.html.twig', [
+            'controller_name' => 'FrontController',
+        ]);
+    }
+    /**
+     * @Route("/about", name="about")
+     */
+    public function about(): Response
+    {
+        return $this->render('front/about.html.twig', [
+            'controller_name' => 'FrontController',
+        ]);
+    }
 
 }
