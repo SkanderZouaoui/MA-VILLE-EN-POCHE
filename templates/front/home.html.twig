@@ -1,0 +1,354 @@
+{% block stylsheets %}
+<!-- CSS here -->
+<link rel="stylesheet" href="{{asset('front/assets/css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('front/assets/css/owl.carousel.min.css')}}">
+<link rel="stylesheet" href="{{asset('front/assets/css/slicknav.css')}}">
+<link rel="stylesheet" href="{{asset('front/assets/css/flaticon.css')}}">
+<link rel="stylesheet" href="{{asset('front/assets/css/animate.min.css')}}">
+<link rel="stylesheet" href="{{asset('front/assets/css/magnific-popup.css')}}">
+<link rel="stylesheet" href="{{asset('front/assets/css/fontawesome-all.min.css')}}">
+<link rel="stylesheet" href="{{asset('front/assets/css/themify-icons.css')}}">
+<link rel="stylesheet" href="{{asset('front/assets/css/slick.css')}}">
+<link rel="stylesheet" href="{{asset('front/assets/css/nice-select.css')}}">
+<link rel="stylesheet" href="{{asset('front/assets/css/style.css')}}">
+{% endblock %}
+
+
+{% block body %}
+
+
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="{{asset('')}}front/assets/img/logo/loder.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+       <div class="header-area header-transparent">
+            <div class="main-header">
+               <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2 col-md-1">
+                                <div class="logo">
+                                  <a href="index.html"><img src="{{asset('')}}front/assets/img/logo/logo.png" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">                                                                                                                                     
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="catagori.html">Catagories</a></li>
+                                            <li><a href="listing.html">Listing</a></li>
+                                            <li><a href="#">Page</a>
+                                                <ul class="submenu">
+                                                    <li><a href="blog.html">Blog</a></li>
+                                                    <li><a href="blog_details.html">Blog Details</a></li>
+                                                    <li><a href="elements.html">Element</a></li>
+                                                    <li><a href="listing_details.html">Listing details</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                            <li class="add-list"><a href="listing_details.html"><i class="ti-plus"></i> add Listing</a></li>
+                                            <li class="login"><a href="#">
+                                                <i class="ti-user"></i> Sign in or Register</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>
+       </div>
+        <!-- Header End -->
+    </header>
+    <main>
+
+        <!-- Hero Area Start-->
+        <div class="slider-area hero-overly">
+            <div class="single-slider hero-overly  slider-height d-flex align-items-center">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-8 col-lg-9">
+                            <!-- Hero Caption -->
+                            <div class="hero__caption">
+                                <span>Explore the city</span>
+                                <h1>Ma Mille en Poche</h1>
+                            </div>
+                            <!--Hero form -->
+                            <form action="#" class="search-box">
+                                <div class="input-form">
+                                    <input type="text" placeholder="Que cherchez-vous ?" readonly>
+                                </div>
+                                <div class="select-form">
+                                    <div class="select-itms">
+                                        <select name="select" id="select1">
+                                            <option value="">All Catagories</option>
+                                            <option value="">Restaurants</option>
+                                            <option value="">Cafes</option>
+                                            <option value="">Sports</option>
+                                            <option value="">Vacances</option>
+                                            <option value="">Vetements</option>
+                                            <option value="">Culture</option>
+                                            <option value="">Sante</option>
+                                            <option value="">Vie Pratique</option>
+                                            <option value="">Bricolage</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="search-form">
+                                    <a href="#">Search</a>
+                                </div>	
+                            </form>	
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--Hero Area End-->
+        <!-- Popular Locations Start -->
+        <div class="popular-location section-padding30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle text-center mb-80">
+                            <span>Que cherchez-vous ?</span>
+                            <h2>Popular Locations</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-location mb-30">
+                            <div class="location-img">
+                                <img src="{{asset('front/assets/img/gallery/vacances.JFIF')}} " alt="" width="360" height="286">
+                            </div>
+                            <div class="location-details">
+                                <p>Destinations Vacances</p>
+                                <a href="#" class="location-btn">10 <i class="ti-plus"></i> Destination</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-location mb-30">
+                            <div class="location-img">
+                                <img src="{{asset('front/assets/img/gallery/resto.jpg')}}" alt="" width="360" height="286">
+                            </div>
+                            <div class="location-details">
+                                <p>Restaurants</p>
+                                <a href="#" class="location-btn">60 <i class="ti-plus"></i> Destination</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-location mb-30">
+                            <div class="location-img">
+                                <img src="{{asset('front/assets/img/gallery/sport.jpg')}}" alt="" width="360" height="286">
+                            </div>
+                            <div class="location-details">
+                                <p>Sports</p>
+                                <a href="#" class="location-btn">50 <i class="ti-plus"></i> Location</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-location mb-30">
+                            <div class="location-img">
+                                <img src="{{asset('front/assets/img/gallery/cafe.jpg')}}" alt="" width="360" height="286">
+                            </div>
+                            <div class="location-details">
+                                <p>Cafés</p>
+                                <a href="#" class="location-btn">28 <i class="ti-plus"></i> Location</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-location mb-30">
+                            <div class="location-img">
+                                <img src="{{asset('front/assets/img/gallery/vetement.jpg')}}" alt="" width="360" height="286">
+                            </div>
+                            <div class="location-details">
+                                <p>Boutiques Vetements</p>
+                                <a href="#" class="location-btn">99 <i class="ti-plus"></i> Location</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-location mb-30">
+                            <div class="location-img">
+                                <img src="{{asset('front/assets/img/gallery/sante.jpg')}}" alt="" width="360" height="286">
+                            </div>
+                            <div class="location-details">
+                                <p>Santé</p>
+                                <a href="#" class="location-btn">78 <i class="ti-plus"></i> Location</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- More Btn -->
+                <div class="row justify-content-center">
+                    <div class="room-btn pt-20">
+                        <a href="catagori.html" class="btn view-btn1">View All Places</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Popular Locations End -->
+      
+      
+         
+       
+        
+      
+
+    </main>
+    <footer>
+        <!-- Footer Start-->
+        <div class="footer-area">
+            <div class="container">
+               <div class="footer-top footer-padding">
+                    <div class="row justify-content-between">
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="single-footer-caption mb-30">
+                                    <!-- logo -->
+                                    <div class="footer-logo">
+                                        <a href="index.html"><img src="{{asset('front/assets/img/logo/logo2_footer.png')}}" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Quick Link</h4>
+                                    <ul>
+                                        <li><a href="#">Home</a></li>
+                                        <li><a href="#">Listing</a></li>
+                                        <li><a href="#">About</a></li>
+                                        <li><a href="#">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Categories</h4>
+                                    <ul>
+                                        <li><a href="#">Reasonable Hotel</a></li>
+                                        <li><a href="#">Popular Restaurant</a></li>
+                                        <li><a href="#">Easy Shopping</a></li>
+                                        <li><a href="#">Night Life</a></li>     
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Download App</h4>
+                                    <ul>
+                                        <li class="app-log"><a href="#"><img src="{{asset('front/assets/img/gallery/app-logo.png')}}" alt=""></a></li>
+                                        <li><a href="#"><img src="{{asset('front/assets/img/gallery/app-logo2.png')}}" alt=""></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-8">
+                            <div class="footer-copy-right">
+                                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <i class="fa fa-heart" aria-hidden="true"></i>  Ma ville en Poche</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4">
+                            <!-- Footer Social -->
+                            <div class="footer-social f-right">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top" >
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+
+
+   
+        
+    
+   
+        
+ 
+{% endblock %}
+
+{% block javascripts %}
+
+<!-- JS here -->
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="{{asset('front/assets/js/vendor/modernizr-3.5.0.min.js')}}"></script>
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="{{asset('front/assets/js/vendor/jquery-1.12.4.min.js')}}"></script>
+        <script src="{{asset('front/assets/js/popper.min.js')}}"></script>
+        <script src="{{asset('front/assets/js/bootstrap.min.js')}}"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script src="{{asset('front/assets/js/jquery.slicknav.min.js')}}"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="{{asset('front/assets/js/owl.carousel.min.js')}}"></script>
+        <script src="{{asset('front/assets/js/slick.min.js')}}"></script>
+		<!-- One Page, Animated-HeadLin -->
+        <script src="{{asset('front/assets/js/wow.min.js')}}"></script>
+		<script src="{{asset('front/assets/js/animated.headline.js')}}"></script>
+        <script src="{{asset('front/assets/js/jquery.magnific-popup.js')}}"></script>
+
+		<!-- Nice-select, sticky -->
+        <script src="{{asset('front/assets/js/jquery.nice-select.min.js')}}"></script>
+		<script src="{{asset('front/assets/js/jquery.sticky.js')}}"></script>
+        
+        <!-- contact js -->
+        <script src="{{asset('front/assets/js/contact.js')}}"></script>
+        <script src="{{asset('front/assets/js/contact.js')}}"></script>
+        <script src="{{asset('front/assets/js/jquery.validate.min.js')}}"></script>
+        <script src="{{asset('front/assets/js/mail-script.js')}}"></script>
+        <script src="{{asset('front/assets/js/jquery.ajaxchimp.min.js')}}"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+        <script src="{{asset('front/assets/js/plugins.js')}}"></script>
+        <script src="{{asset('front/assets/js/main.js')}}"></script>
+       
+
+{% endblock %}
+
