@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Repository\CafeRepository;
 use App\Repository\PlatRepository;
 use App\Repository\SportRepository;
+use App\Repository\VetementRepository;
 use App\Repository\RestaurantRepository;
+use App\Repository\ViePratiqueRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -93,6 +95,36 @@ class FrontController extends AbstractController
             'cafes' => $cafeRepository->findAll(),
         ]);
     }
-    
+    /**
+     * @Route("/affsport", name="affsport")
+     */
+      public function affsport(SportRepository $sportRepository): Response
+    {
+        return $this->render('front/sport.html.twig', [
+            'controller_name' => 'FrontController',
+            'sports' => $sportRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/affvetement", name="affvetement")
+     */
+    public function affvetement(VetementRepository $vetementRepository): Response
+    {
+        return $this->render('front/vetement.html.twig', [
+            'controller_name' => 'FrontController',
+            'vetements' => $vetementRepository->findAll(),
+        ]);
+    }
+     /**
+     * @Route("/affvie_pratique", name="affvie_pratique")
+     */
+    public function affvie_pratique(ViePratiqueRepository $viePratiqueRepository): Response
+    {
+        return $this->render('front/vie_pratique.html.twig', [
+            'controller_name' => 'FrontController',
+            'vie_pratiques' => $viePratiqueRepository->findAll(),
+        ]);
+    }
 
 }
