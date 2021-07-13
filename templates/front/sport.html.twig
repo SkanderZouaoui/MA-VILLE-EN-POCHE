@@ -68,14 +68,14 @@
                                <div>
                                     <h1>Categories</h1>
                                    <a class="skander" href="{{path('affrestaurant')}}">Restaurants</a><br>
-                                   <a class="skander" href="{{path('affcafe')}}">Cafes</a><br>
-                                   <a class="skander" href="{{path('affsport')}}">Sports</a><br>
-                                   <a class="skander" href="{{path('affvacance')}}">Vacances</a><br>
-                                   <a class="skander" href="{{path('affvetement')}}">Vetements</a><br>
-                                   <a class="skander" href="{{path('affculture')}}">Culture</a><br>
-                                   <a class="skander" href="{{path('affvie_pratique')}}">Vie Pratique</a><br>
-                                   <a class="skander" href="{{path('affsante')}}">Sante</a><br>   
-                                   <a class="skander" href="{{path('affbricolage')}}">Bricolage</a><br>
+                                   <a class="skander" href="{{path('affsport')}}">sports</a><br>
+                                   <a class="skander" href="aa">Sports</a><br>
+                                   <a class="skander" href="aa">Vacances</a><br>
+                                   <a class="skander" href="aa">Vetements</a><br>
+                                   <a class="skander" href="aa">Culture</a><br>
+                                   <a class="skander" href="aa">Vie Pratique</a><br>
+                                   <a class="skander" href="aa">Sante</a><br>   
+                                   <a class="skander" href="aa">Bricolage</a><br>
                                </div>
                                
                                
@@ -114,51 +114,7 @@
                         <div class="listing-details-area">
                             <div class="container">
                                 <div class="row">
-                                  {% for restaurant in restaurants %}
-                                    <div class="col-lg-6 ">
-                                        <div class="single-listing mb-30">
-                                            <div class="list-img">
-                                                <img src="{{ asset('upload/photo/'~restaurant.image) }}" height="300px" width="300px">
-                                                <!-- <span>Open</span> -->
-                                            </div>
-                                            <div class="list-caption">
-                                                <span>Open</span>
-                                                <h3><a href="listing_details.html">{{ restaurant.nom }}</a></h3>
-                                                <p>{{ restaurant.description }}</p><br>
-                                                <p>{{ restaurant.localisation }}</p><br>
-                                                <div class="list-footer">
-                                                    <ul>
-                                                        <li>+10 278 367 9823</li>
-                                                        <li>contact@midnight.com</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-                                     {% for cafe in cafes %}
-                                    <div class="col-lg-6 ">
-                                        <div class="single-listing mb-30">
-                                            <div class="list-img">
-                                                <img src="{{ asset('upload/photo/'~cafe.image) }}" height="300px" width="300px">
-                                                <!-- <span>Open</span> -->
-                                            </div>
-                                            <div class="list-caption">
-                                                <span>Open</span>
-                                                <h3><a href="listing_details.html">{{ cafe.nom }}</a></h3>
-                                                <p>{{ cafe.description }}</p><br>
-                                                <p>{{ cafe.localisation }}</p><br>
-                                                <div class="list-footer">
-                                                    <ul>
-                                                        <li>+10 278 367 9823</li>
-                                                        <li>contact@midnight.com</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                        {% endfor %}
-                        {% for sport in sports %}
+                                  {% for sport in sports %}
                                     <div class="col-lg-6 ">
                                         <div class="single-listing mb-30">
                                             <div class="list-img">
@@ -179,8 +135,7 @@
                                             </div>
                                         </div>
                                     </div>
-                        {% endfor %}
-                                
+                                    {% endfor %}
                                 </div>
                         
                                 </div>
