@@ -5,10 +5,14 @@ namespace App\Form;
 use App\Entity\Bricolage;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 class BricolageType extends AbstractType
 {
@@ -41,6 +45,17 @@ class BricolageType extends AbstractType
                     'class' => 'form-control datetimepicker-input'
                 ]
             ])
+            ->add('telephone',IntegerType::class , array(
+                'attr' => [
+                    'class' => 'form-control datetimepicker-input',
+                    
+                ])
+            )
+            ->add('email', EmailType::class, array(
+            'attr' => [
+                'class' => 'form-control datetimepicker-input'
+            ])
+        )
         ;
     }
 

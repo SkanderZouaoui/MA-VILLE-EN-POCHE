@@ -43,6 +43,8 @@
                 <th>categorie</th>
                 <th>Nom</th>
                 <th>Image</th>
+                <th>Email</th>
+                <th>Telephone</th>
                 <th>Description</th>
                 <th>Localisation</th>
                 <th>actions</th>
@@ -55,6 +57,8 @@
                 <td>{{ bricolage.categorie }}</td>
                 <td>{{ bricolage.nom }}</td>
                 <td> <img src="{{ asset('upload/photo/'~bricolage.image) }} "  height="100px" width="100px"></td>
+                <td>{{ bricolage.email }}</td>
+                 <td>{{ bricolage.telephone }}</td> 
                 <td>{{ bricolage.description }}</td>
                 <td>{{ bricolage.localisation }}</td>
              
