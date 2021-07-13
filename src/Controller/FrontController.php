@@ -9,6 +9,7 @@ use App\Entity\Culture;
 use App\Entity\Vacance;
 use App\Entity\Vetement;
 use App\Entity\Bricolage;
+use App\Entity\Restaurant;
 use App\Entity\ViePratique;
 use App\Repository\CafeRepository;
 use App\Repository\PlatRepository;
@@ -256,6 +257,17 @@ class FrontController extends AbstractController
     {
         return $this->render('front/blogvie_pratique.html.twig', [
             'vie_pratique' => $viePratique,
+        ]);
+    }
+     /**
+     * @Route("affrestaurant/{id}", name="restaurant_blog", methods={"GET"})
+     */
+    public function blogrestaurant(Restaurant $restaurant , RestaurantRepository $restaurantRepository , PlatRepository $platRepository): Response
+    {
+        return $this->render('front/blogrestaurant.html.twig', [
+            'restaurant' => $restaurant,
+            'restaurants' => $restaurantRepository->findAll(),
+            'plats' => $platRepository->findAll(),
         ]);
     }
     
