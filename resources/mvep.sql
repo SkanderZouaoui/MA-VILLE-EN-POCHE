@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 13 juil. 2021 à 10:52
--- Version du serveur : 10.4.19-MariaDB
--- Version de PHP : 7.4.20
+-- Généré le : mar. 13 juil. 2021 à 22:38
+-- Version du serveur :  10.4.17-MariaDB
+-- Version de PHP : 7.4.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,8 +33,17 @@ CREATE TABLE `bricolage` (
   `nom` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `localisation` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `localisation` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `latitude` double NOT NULL,
+  `longitude` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `bricolage`
+--
+
+INSERT INTO `bricolage` (`id`, `categorie`, `nom`, `image`, `description`, `localisation`, `latitude`, `longitude`) VALUES
+(1, 'Plambier', 'Moetez Doghman', 'bricolage-60edf0be9ee34.jpg', 'Un jeune plombier motivé', 'corniche bizerte rue assia kandara, Bizerte, Tunisie', 37.295824411072, 9.8642904100647);
 
 -- --------------------------------------------------------
 
@@ -118,17 +127,18 @@ CREATE TABLE `plat` (
   `nom` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `prix` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `latitude` double NOT NULL,
-  `longitude` double NOT NULL
+  `prix` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `plat`
 --
 
-INSERT INTO `plat` (`id`, `idresto_id`, `categorie`, `nom`, `image`, `description`, `prix`, `latitude`, `longitude`) VALUES
-(13, 2, 'Plat', 'Makrouna', 'photo0jpg-60e85535243c6-60ecb953d9549.jpg', 'Makrouna', '15DT', 0, 0);
+INSERT INTO `plat` (`id`, `idresto_id`, `categorie`, `nom`, `image`, `description`, `prix`) VALUES
+(13, 2, 'Plat', 'Makrouna', 'makrouna-60edf6e886fbf.jpg', 'Makrouna', '15DT'),
+(14, 2, 'Entrées', 'Salade Cesar', 'salade-60edf7c08757f.jpg', 'Salade Cesar Poulet', '12DT'),
+(15, 2, 'FastFood', 'Pizza Peperoni', 'pizza-60edf7f8a845b.jpg', 'Peperoni au feu de bois', '25DT'),
+(16, 2, 'Dessert', 'Cheese Cake au Fromboises', 'cheesecake-60edf8331baa3.jpg', 'Cheese Cake au Fromboises', '10DT');
 
 -- --------------------------------------------------------
 
@@ -226,7 +236,8 @@ INSERT INTO `user` (`id`, `email`, `roles`, `password`, `nom`, `prenom`) VALUES
 (1, 'moetaz', '[]', '$2y$13$tnB0F1PZw.lXIoBOzGBMOe7OQrMxjqH05m9/NcCoXDb4eRcsO6Q4u', '', ''),
 (3, 'moetaz.doghman@eprit.tn', '[]', '$2y$13$esAHXwKZwrnoNx/i7cV9Vugr4ndQT8QITkD59ILDkjXXDSfBhI.aO', '', ''),
 (4, 'ahmed@gmail.com', '[]', '$2y$13$zv7bIOSOSohqnazbjxgb0u0rf1Z38cULbNn6S2hkX/NqTiD02Sx/W', 'ahmed', 'doghman'),
-(5, 'skaner@gmail.com', '[]', '$2y$13$h.5wnEOi7TLcnT4CWsONhu9M4v.IlJhOXV1OqWABuM/2JhwJPeCwK', 'skander', 'skander');
+(5, 'skaner@gmail.com', '[]', '$2y$13$h.5wnEOi7TLcnT4CWsONhu9M4v.IlJhOXV1OqWABuM/2JhwJPeCwK', 'skander', 'skander'),
+(6, 'mohamedskander.zouaoui@esprit.tn', '[]', '$2y$13$D4ZcACesvX7jZbiCUzoY1.MS2NAAqr9nuEoPZHutEGOQA37eYS53q', 'Zouaoui', 'Skander');
 
 -- --------------------------------------------------------
 
@@ -250,7 +261,7 @@ CREATE TABLE `vacance` (
 --
 
 INSERT INTO `vacance` (`id`, `categorie`, `nom`, `image`, `description`, `location`, `latitude`, `longitude`) VALUES
-(2, 'Hotel', 'Hôtel Nour', '185172372-4029365043825232-8082164795083660528-n-60ecb840378ad.jpg', 'Hotel Nour', 'Unnamed Road, Bizerte, Tunisie', 37.286956045864, 9.8730558691254),
+(2, 'Hotel', 'Hôtel Nour', 'hotelnour-60edf17444b40.jpg', 'Hotel Nour', 'Unnamed Road, Bizerte, Tunisie', 37.286956045864, 9.8730558691254),
 (3, 'Hotel', 'Hotel Andalucia', '81018131-2785410664835375-1355947288748359680-n-60ecb870b06ff.jpg', 'Andalucia', 'Unnamed Road, Bizerte, Tunisie', 37.287999562732, 9.8725878236523);
 
 -- --------------------------------------------------------
@@ -293,6 +304,13 @@ CREATE TABLE `vie_pratique` (
   `latitude` double NOT NULL,
   `longitude` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `vie_pratique`
+--
+
+INSERT INTO `vie_pratique` (`id`, `categorie`, `nom`, `image`, `description`, `localisation`, `latitude`, `longitude`) VALUES
+(2, 'Banque', 'Amen First Bank', 'amenbanque-60edf2ce40364.jpg', 'Amen Banque', '88 Rue Bourguiba, Bizerte, Tunisie', 37.271333572934, 9.8694724378815);
 
 --
 -- Index pour les tables déchargées
@@ -380,7 +398,7 @@ ALTER TABLE `vie_pratique`
 -- AUTO_INCREMENT pour la table `bricolage`
 --
 ALTER TABLE `bricolage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `cafe`
@@ -398,7 +416,7 @@ ALTER TABLE `culture`
 -- AUTO_INCREMENT pour la table `plat`
 --
 ALTER TABLE `plat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT pour la table `restaurant`
@@ -422,7 +440,7 @@ ALTER TABLE `sport`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `vacance`
@@ -440,7 +458,7 @@ ALTER TABLE `vetement`
 -- AUTO_INCREMENT pour la table `vie_pratique`
 --
 ALTER TABLE `vie_pratique`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Contraintes pour les tables déchargées
