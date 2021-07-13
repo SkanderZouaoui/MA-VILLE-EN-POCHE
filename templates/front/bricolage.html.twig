@@ -122,8 +122,8 @@
                                                 <!-- <span>Open</span> -->
                                             </div>
                                             <div class="list-caption">
-                                                <span>Open</span>
-                                                <h3><a href="listing_details.html">{{ bricolage.nom }}</a></h3>
+                                                <a class="btn btn-info" href="{{ path('bricolage_blog', {'id': bricolage.id}) }}">Open</a>                                               
+                                                <h3>{{ bricolage.nom }}</h3>
                                                 <p>{{ bricolage.description }}</p><br>
                                                 <p>{{ bricolage.localisation }}</p><br>
                                                 <div class="list-footer">

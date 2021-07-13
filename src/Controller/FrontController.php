@@ -2,9 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Cafe;
+use App\Entity\Sante;
+use App\Entity\Sport;
 use App\Entity\Culture;
 use App\Entity\Vacance;
 use App\Entity\Vetement;
+use App\Entity\Bricolage;
+use App\Entity\ViePratique;
 use App\Repository\CafeRepository;
 use App\Repository\PlatRepository;
 use App\Repository\SanteRepository;
@@ -174,7 +179,7 @@ class FrontController extends AbstractController
         ]);
     }
      /**
-     * @Route("/{id}", name="vacance_blog", methods={"GET"})
+     * @Route("affvacance/{id}", name="vacance_blog", methods={"GET"})
      */
     public function blogvacance(Vacance $vacance): Response
     {
@@ -184,9 +189,9 @@ class FrontController extends AbstractController
     }
 
      /**
-     * @Route("/{id}", name="sport_blog", methods={"GET"})
+     * @Route("affsport/{id}", name="sport_blog", methods={"GET"})
      */
-    public function blogsport(sport $sport): Response
+    public function blogsport(Sport $sport): Response
     {
         return $this->render('front/blogsport.html.twig', [
             'sport' => $sport,
@@ -213,6 +218,46 @@ class FrontController extends AbstractController
         ]);
     }
 
+      /**
+     * @Route("affsante/{id}", name="sante_blog", methods={"GET"})
+     */
+    public function blogsante(Sante $sante): Response
+    {
+        return $this->render('front/blogsante.html.twig', [
+            'sante' => $sante,
+        ]);
+    }
+
+    
+      /**
+     * @Route("affbricolage/{id}", name="bricolage_blog", methods={"GET"})
+     */
+    public function blogbricolage(Bricolage $bricolage): Response
+    {
+        return $this->render('front/blogbricolage.html.twig', [
+            'bricolage' => $bricolage,
+        ]);
+    }
+
+     /**
+     * @Route("affcafe/{id}", name="cafe_blog", methods={"GET"})
+     */
+    public function blogcafe(Cafe $cafe): Response
+    {
+        return $this->render('front/blogcafe.html.twig', [
+            'cafe' => $cafe,
+        ]);
+    }
+
+     /**
+     * @Route("affvie_pratique/{id}", name="vie_pratique_blog", methods={"GET"})
+     */
+    public function blogvie_pratique(ViePratique $viePratique): Response
+    {
+        return $this->render('front/blogvie_pratique.html.twig', [
+            'vie_pratique' => $viePratique,
+        ]);
+    }
     
 
 }

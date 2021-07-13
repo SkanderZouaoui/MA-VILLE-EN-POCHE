@@ -122,8 +122,8 @@
                                                 <!-- <span>Open</span> -->
                                             </div>
                                             <div class="list-caption">
-                                                <span>Open</span>
-                                                <h3><a href="listing_details.html">{{ sport.nom }}</a></h3>
+                                                <a class="btn btn-info" href="{{ path('sport_blog', {'id': sport.id}) }}">Open</a>                                               
+                                                <h3>{{ sport.nom }}</h3>
                                                 <p>{{ sport.description }}</p><br>
                                                 <p>{{ sport.localisation }}</p><br>
                                                 <div class="list-footer">

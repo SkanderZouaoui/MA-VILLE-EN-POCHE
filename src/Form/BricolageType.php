@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class BricolageType extends AbstractType
@@ -25,7 +26,21 @@ class BricolageType extends AbstractType
             ->add('nom')
             ->add('image',FileType::class, ['data_class' => null])
             ->add('description')
-            ->add('localisation')
+            ->add('localisation' ,TextType::class, [
+                'attr' => [
+                    'class' => 'form-control datetimepicker-input'
+                ]
+            ])
+            ->add('latitude' ,TextType::class, [
+                'attr' => [
+                    'class' => 'form-control datetimepicker-input'
+                ]
+            ])
+            ->add('longitude' ,TextType::class, [
+                'attr' => [
+                    'class' => 'form-control datetimepicker-input'
+                ]
+            ])
         ;
     }
 

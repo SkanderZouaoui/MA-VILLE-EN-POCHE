@@ -122,8 +122,8 @@
                                                 <!-- <span>Open</span> -->
                                             </div>
                                             <div class="list-caption">
-                                                <span>Open</span>
-                                                <h3><a href="listing_details.html">{{ sante.nom }}</a></h3>
+                                                <a class="btn btn-info" href="{{ path('sante_blog', {'id': sante.id}) }}">Open</a>                                               
+                                                <h3>{{ sante.nom }}</h3>
                                                 <p>{{ sante.description }}</p><br>
                                                 <p>{{ sante.localisation }}</p><br>
                                                 <div class="list-footer">
