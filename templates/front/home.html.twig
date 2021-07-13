@@ -66,6 +66,7 @@
 
             </div>
         </div>
+         
         <!--Hero Area End-->
         <!-- Popular Locations Start -->
         <div class="popular-location section-padding30">
@@ -87,7 +88,7 @@
                             </div>
                             <div class="location-details">
                                 <p>Destinations Vacances</p>
-                                <a href="#" class="location-btn">10 <i class="ti-plus"></i> Destination</a>
+                                <a href="{{path('affvacance')}}" class="location-btn">10 <i class="ti-plus"></i> Destination</a>
                             </div>
                         </div>
                     </div>
@@ -98,7 +99,7 @@
                             </div>
                             <div class="location-details">
                                 <p>Restaurants</p>
-                                <a href="#" class="location-btn">60 <i class="ti-plus"></i> Destination</a>
+                                <a href="{{path('affrestaurant')}}" class="location-btn">60 <i class="ti-plus"></i> Destination</a>
                             </div>
                         </div>
                     </div>
@@ -109,7 +110,7 @@
                             </div>
                             <div class="location-details">
                                 <p>Sports</p>
-                                <a href="#" class="location-btn">50 <i class="ti-plus"></i> Location</a>
+                                <a href="{{path('affsport')}}" class="location-btn">50 <i class="ti-plus"></i> Location</a>
                             </div>
                         </div>
                     </div>
@@ -120,7 +121,7 @@
                             </div>
                             <div class="location-details">
                                 <p>Cafés</p>
-                                <a href="#" class="location-btn">28 <i class="ti-plus"></i> Location</a>
+                                <a href="{{path('affcafe')}}" class="location-btn">28 <i class="ti-plus"></i> Location</a>
                             </div>
                         </div>
                     </div>
@@ -131,7 +132,7 @@
                             </div>
                             <div class="location-details">
                                 <p>Boutiques Vetements</p>
-                                <a href="#" class="location-btn">99 <i class="ti-plus"></i> Location</a>
+                                <a href="{{path('affvetement')}}" class="location-btn">99 <i class="ti-plus"></i> Location</a>
                             </div>
                         </div>
                     </div>
@@ -142,12 +143,45 @@
                             </div>
                             <div class="location-details">
                                 <p>Santé</p>
-                                <a href="#" class="location-btn">78 <i class="ti-plus"></i> Location</a>
+                                <a href="{{path('affsante')}}" class="location-btn">78 <i class="ti-plus"></i> Location</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-location mb-30">
+                            <div class="location-img">
+                                <img src="{{asset('front/assets/img/gallery/viepratique.jpg')}} " alt="" width="360" height="286">
+                            </div>
+                            <div class="location-details">
+                                <p>Vie Pratique</p>
+                                <a href="{{path('affvie_pratique')}}" class="location-btn">10 <i class="ti-plus"></i> Destination</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-location mb-30">
+                            <div class="location-img">
+                                <img src="{{asset('front/assets/img/gallery/culture.jpeg')}} " alt="" width="360" height="286">
+                            </div>
+                            <div class="location-details">
+                                <p>Cultures</p>
+                                <a href="{{path('affculture')}}" class="location-btn">10 <i class="ti-plus"></i> Destination</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-location mb-30">
+                            <div class="location-img">
+                                <img src="{{asset('front/assets/img/gallery/bricolage.png')}} " alt="" width="360" height="286">
+                            </div>
+                            <div class="location-details">
+                                <p>Bricolage</p>
+                                <a href="{{path('affbricolage')}}" class="location-btn">10 <i class="ti-plus"></i> Destination</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- More Btn -->
+                <!-- More Btn >
                 <div class="row justify-content-center">
                     <div class="room-btn pt-20">
                         <a href="{{path('categorie')}}" class="btn view-btn1">Plus de Categories</a>

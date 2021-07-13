@@ -2,14 +2,15 @@
 
 namespace App\Controller;
 
+use App\Entity\Vacance;
 use App\Repository\CafeRepository;
 use App\Repository\PlatRepository;
 use App\Repository\SanteRepository;
 use App\Repository\SportRepository;
 use App\Repository\CultureRepository;
 use App\Repository\VacanceRepository;
-use App\Repository\BricolageRepository;
 use App\Repository\VetementRepository;
+use App\Repository\BricolageRepository;
 use App\Repository\RestaurantRepository;
 use App\Repository\ViePratiqueRepository;
 use Symfony\Component\HttpFoundation\Response;
@@ -170,5 +171,16 @@ class FrontController extends AbstractController
             'vie_pratiques' => $viePratiqueRepository->findAll(),
         ]);
     }
+     /**
+     * @Route("/{id}", name="vacance_blog", methods={"GET"})
+     */
+    public function blogvacance(Vacance $vacance): Response
+    {
+        return $this->render('front/blogvacance.html.twig', [
+            'vacance' => $vacance,
+        ]);
+    }
+
+    
 
 }
