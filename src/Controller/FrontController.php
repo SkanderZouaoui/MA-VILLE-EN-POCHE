@@ -92,7 +92,7 @@ class FrontController extends AbstractController
     /**
      * @Route("/affcafe", name="affcafe")
      */
-     public function affcafe(VafeRepository $cafeRepository): Response
+     public function affcafe(CafeRepository $cafeRepository): Response
     {
         return $this->render('front/cafe.html.twig', [
             'controller_name' => 'FrontController',
@@ -139,7 +139,8 @@ class FrontController extends AbstractController
             'bricolages' => $bricolageRepository->findAll(),
         ]);
     }
-    
+ 
+    /**
      * @Route("/affsport", name="affsport")
      */
       public function affsport(SportRepository $sportRepository): Response
