@@ -180,6 +180,15 @@ class FrontController extends AbstractController
             'vacance' => $vacance,
         ]);
     }
+     /**
+     * @Route("/{id}", name="sport_blog", methods={"GET"})
+     */
+    public function blogsport(sport $sport): Response
+    {
+        return $this->render('front/blogsport.html.twig', [
+            'sport' => $sport,
+        ]);
+    }
 
     
 
