@@ -4,7 +4,11 @@ namespace App\Controller;
 
 use App\Repository\CafeRepository;
 use App\Repository\PlatRepository;
+use App\Repository\SanteRepository;
 use App\Repository\SportRepository;
+use App\Repository\CultureRepository;
+use App\Repository\VacanceRepository;
+use App\Repository\BricolageRepository;
 use App\Repository\RestaurantRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -86,11 +90,51 @@ class FrontController extends AbstractController
     /**
      * @Route("/affcafe", name="affcafe")
      */
-     public function affcafe(cafeRepository $cafeRepository): Response
+     public function affcafe(VafeRepository $cafeRepository): Response
     {
         return $this->render('front/cafe.html.twig', [
             'controller_name' => 'FrontController',
             'cafes' => $cafeRepository->findAll(),
+        ]);
+    }
+    /**
+     * @Route("/affvacance", name="affvacance")
+     */
+    public function affvacance(VacanceRepository $vacanceRepository): Response
+    {
+        return $this->render('front/vacance.html.twig', [
+            'controller_name' => 'FrontController',
+            'vacances' => $vacanceRepository->findAll(),
+        ]);
+    }
+     /**
+     * @Route("/affculture", name="affculture")
+     */
+    public function affculture(CultureRepository $cultureRepository): Response
+    {
+        return $this->render('front/culture.html.twig', [
+            'controller_name' => 'FrontController',
+            'cultures' => $cultureRepository->findAll(),
+        ]);
+    }
+     /**
+     * @Route("/affsante", name="affsante")
+     */
+    public function affsante(SanteRepository $santeRepository): Response
+    {
+        return $this->render('front/sante.html.twig', [
+            'controller_name' => 'FrontController',
+            'santes' => $santeRepository->findAll(),
+        ]);
+    }
+    /**
+     * @Route("/affbricolage", name="affbricolage")
+     */
+    public function affbricolage(BricolageRepository $bricolageRepository): Response
+    {
+        return $this->render('front/bricolage.html.twig', [
+            'controller_name' => 'FrontController',
+            'bricolages' => $bricolageRepository->findAll(),
         ]);
     }
     
