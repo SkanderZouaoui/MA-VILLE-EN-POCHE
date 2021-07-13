@@ -139,8 +139,7 @@ class FrontController extends AbstractController
             'bricolages' => $bricolageRepository->findAll(),
         ]);
     }
- 
-    /**
+     /**
      * @Route("/affsport", name="affsport")
      */
       public function affsport(SportRepository $sportRepository): Response
