@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Culture;
 use App\Entity\Vacance;
+use App\Entity\Vetement;
 use App\Repository\CafeRepository;
 use App\Repository\PlatRepository;
 use App\Repository\SanteRepository;
@@ -180,6 +182,7 @@ class FrontController extends AbstractController
             'vacance' => $vacance,
         ]);
     }
+
      /**
      * @Route("/{id}", name="sport_blog", methods={"GET"})
      */
@@ -187,6 +190,26 @@ class FrontController extends AbstractController
     {
         return $this->render('front/blogsport.html.twig', [
             'sport' => $sport,
+        ]);
+    }
+
+    /**
+     * @Route("affculture/{id}", name="culture_blog", methods={"GET"})
+     */
+    public function blogculture(Culture $culture): Response
+    {
+        return $this->render('front/blogculture.html.twig', [
+            'culture' => $culture,
+        ]);
+    }
+
+      /**
+     * @Route("affvetement/{id}", name="vetement_blog", methods={"GET"})
+     */
+    public function blogvetement(Vetement $vetement): Response
+    {
+        return $this->render('front/blogvetement.html.twig', [
+            'vetement' => $vetement,
         ]);
     }
 

@@ -120,8 +120,8 @@
                                                 <!-- <span>Open</span> -->
                                             </div>
                                             <div class="list-caption">
-                                                <span>Open</span>
-                                                <h3><a href="listing_details.html">{{ culture.nom }}</a></h3>
+                                                <a class="btn btn-info" href="{{ path('culture_blog', {'id': culture.id}) }}">Open</a>
+                                                <h3>{{ culture.nom }}</h3>
                                                 <p>{{ culture.description }}</p><br>
                                                 <p>{{ culture.localisation }}</p><br>
                                                 <div class="list-footer">
