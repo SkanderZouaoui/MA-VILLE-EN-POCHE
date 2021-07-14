@@ -42,10 +42,11 @@
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Image</th>
+                <th>Email</th>
+                <th>Telephone</th>
                 <th>Description</th>
                 <th>Localisation</th>
-                <th>Latitude</th>
-                <th>Longitude</th>
+                
                 
                 <th>actions</th>
                 </tr>
@@ -56,10 +57,11 @@
                 <td>{{ cafe.id }}</td>
                 <td>{{ cafe.nom }}</td>
                 <td> <img src="{{ asset('upload/photo/'~cafe.image) }} "  height="100px" width="100px"></td>
+                <td>{{ cafe.email }}</td>
+                <td>{{ cafe.telephone }}</td> 
                 <td>{{ cafe.description }}</td>
                 <td>{{ cafe.localisation }}</td>
-                <td>{{ cafe.latitude }}</td> 
-                <td>{{ cafe.longitude }}</td> 
+                
              
                 <td>
                     <a class="btn btn-info" href="{{ path('cafe_show', {'id': cafe.id}) }}">Show</a>

@@ -34,6 +34,28 @@
                         </div>
                     </div>
                 </div>
+                 <!-- email -->
+                 <div class="form-group">
+                  <label>Email:</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                       {{ form_widget(form.email,{'attr':{"class":"form-control datetimepicker-input" , "placeholder":"Email" }}) }}
+
+                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-signature"></i></div>
+                        </div>
+                    </div>
+                </div>
+                 <!-- telephone -->
+                <div class="form-group">
+                  <label>Telephone:</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                       {{ form_widget(form.telephone,{'attr':{"class":"form-control datetimepicker-input" , "placeholder":"Telephone" ,"min":"20000000","max":"99999999" }}) }}
+
+                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-signature"></i></div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Description -->
                 <div class="form-group">
                   <label>Description:</label>
