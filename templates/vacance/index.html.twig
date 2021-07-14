@@ -43,10 +43,11 @@
                 <th>Categorie</th>
                 <th>Nom</th>
                 <th>Image</th>
+                <th>Telephone</th>
+                <th>Email</th>
                 <th>Description</th>
                 <th>Localisation</th>
-                <th>Latitude</th>
-                <th>Longitude</th>
+              
                 <th>actions</th>
                 </tr>
                   </thead>
@@ -57,11 +58,11 @@
                 <td>{{ vacance.categorie }}</td>
                 <td>{{ vacance.nom }}</td>
                 <td> <img src="{{ asset('upload/photo/'~vacance.image) }} "  height="100px" width="100px"></td>
+                <td>{{ vacance.Telephone }}</td> 
+                <td>{{ vacance.Email }}</td>
                 <td>{{ vacance.description }}</td>
                 <td>{{ vacance.location }}</td>
-                <td>{{ vacance.latitude }}</td> 
-                <td>{{ vacance.longitude }}</td> 
-             
+               
                 <td>
                     <a class="btn btn-info" href="{{ path('vacance_show', {'id': vacance.id}) }}">Show</a>
                     <a class="btn btn-warning"  href="{{ path('vacance_edit', {'id': vacance.id}) }}">Edit</a>

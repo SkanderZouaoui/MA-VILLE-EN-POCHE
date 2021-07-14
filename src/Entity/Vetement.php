@@ -47,6 +47,16 @@ class Vetement
      */
     private $longitude;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $telephone;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $email;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +130,30 @@ class Vetement
     public function setLongitude(float $longitude): self
     {
         $this->longitude = $longitude;
+
+        return $this;
+    }
+
+    public function getTelephone(): ?string
+    {
+        return $this->telephone;
+    }
+
+    public function setTelephone(?string $telephone): self
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }

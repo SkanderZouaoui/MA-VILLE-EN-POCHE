@@ -43,10 +43,11 @@
                 <th>Categorie</th>
                 <th>Nom</th>
                 <th>Image</th>
+                 <th>Telephone</th>
+                <th>Email</th>
                 <th>Description</th>
                 <th>Localisation</th>
-                <th>Latitude</th>
-                <th>Longitude</th>
+               
                 <th>actions</th>
                 </tr>
                   </thead>
@@ -57,10 +58,11 @@
                 <td>{{ culture.categorie }}</td>
                 <td>{{ culture.nom }}</td>
                 <td> <img src="{{ asset('upload/photo/'~culture.image) }} "  height="100px" width="100px"></td>
+                 <td>{{ culture.telephone }}</td> 
+                <td>{{ culture.email }}</td> 
                 <td>{{ culture.description }}</td>
                 <td>{{ culture.localisation }}</td>
-                <td>{{ culture.latitude }}</td> 
-                <td>{{ culture.longitude }}</td> 
+               
              
                 <td>
                     <a class="btn btn-info" href="{{ path('culture_show', {'id': culture.id}) }}">Show</a>

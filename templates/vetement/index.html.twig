@@ -42,10 +42,11 @@
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Image</th>
+                 <th>Telephone</th>
+                <th>Email</th>
                 <th>Description</th>
                 <th>Localisation</th>
-                <th>Latitude</th>
-                <th>Longitude</th>
+               
                 
                 <th>actions</th>
                 </tr>
@@ -56,10 +57,11 @@
                 <td>{{ vetement.id }}</td>
                 <td>{{ vetement.nom }}</td>
                 <td> <img src="{{ asset('upload/photo/'~vetement.image) }} "  height="100px" width="100px"></td>
+                 <td>{{ vetement.telephone }}</td> 
+                <td>{{ vetement.email }}</td>  
                 <td>{{ vetement.description }}</td>
                 <td>{{ vetement.localisation }}</td>
-                <td>{{ vetement.latitude }}</td> 
-                <td>{{ vetement.longitude }}</td>              
+                           
                 <td>
                     <a class="btn btn-info" href="{{ path('vetement_show', {'id': vetement.id}) }}">Show</a>
                     <a class="btn btn-warning"  href="{{ path('vetement_edit', {'id': vetement.id}) }}">Edit</a>

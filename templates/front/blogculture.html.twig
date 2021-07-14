@@ -187,18 +187,22 @@
              <div class="col-lg-4">
                 <div class="blog_right_sidebar">
       <iframe style="border:0; width: 100%; height: 350px;" class="img-fluid" src="https://maps.google.com/maps?q=+{{culture.latitude}}+,+{{culture.longitude}}+&hl=fr&z=14&amp;output=embed" frameborder="0" allowfullscreen></iframe>
-                    <div class="address">
+                   <div class="address">
                       <span class="fas fa-map-marker-alt" ></span>	
                       <p> {{culture.localisation}}<br></p>
                     </div>
+                    {% if culture.telephone != null %}
                     <div class="address">
                         <span  class="fas fa-mobile-alt"></span>
-                        <p> +44 20 7336 8898</p>
+                        <p>{{culture.telephone}}</p>
                     </div>
+                    {% endif %}
+                      {% if culture.email != null %}
                     <div class="address">
                         <span class="fas fa-link"></span>
-                        <p>https://burgerandlobster.com</p>
+                        <p>{{culture.email}}</p>
                     </div>
+                    {% endif %}
                 </div>
               
             </div>

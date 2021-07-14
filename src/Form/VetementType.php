@@ -8,6 +8,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 
 class VetementType extends AbstractType
@@ -18,6 +20,17 @@ class VetementType extends AbstractType
             ->add('nom')
             ->add('image',FileType::class, ['data_class' => null])    
             ->add('description')
+            ->add('telephone',IntegerType::class , array(
+                'attr' => [
+                    'class' => 'form-control datetimepicker-input',
+                    
+                ])
+            )
+            ->add('email', EmailType::class, array(
+            'attr' => [
+                'class' => 'form-control datetimepicker-input'
+            ], 'required' => false)
+        )
             ->add('localisation' ,TextType::class, [
                 'attr' => [
                     'class' => 'form-control datetimepicker-input'

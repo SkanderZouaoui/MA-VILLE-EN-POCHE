@@ -43,10 +43,11 @@
                 <th>categorie</th>
                 <th>Nom</th>
                 <th>Image</th>
+                <th>Email</th>
+                <th>Telephone</th>
                 <th>Description</th>
                 <th>Localisation</th>
-                <th>Latitude</th>
-                <th>Longitude</th>
+              
                 <th>actions</th>
                 </tr>
                   </thead>
@@ -57,10 +58,11 @@
                 <td>{{ sport.categorie }}</td>
                 <td>{{ sport.nom }}</td>
                 <td> <img src="{{ asset('upload/photo/'~sport.image) }} "  height="100px" width="100px"></td>
+                 <td>{{ sport.email }}</td>
+                 <td>{{ sport.telephone }}</td> 
                 <td>{{ sport.description }}</td>
                 <td>{{ sport.localisation }}</td>
-                <td>{{ sport.latitude }}</td> 
-                <td>{{ sport.longitude }}</td> 
+              
              
                 <td>
                     <a class="btn btn-info" href="{{ path('sport_show', {'id': sport.id}) }}">Show</a>

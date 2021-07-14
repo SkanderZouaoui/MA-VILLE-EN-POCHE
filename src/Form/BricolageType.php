@@ -54,7 +54,7 @@ class BricolageType extends AbstractType
             ->add('email', EmailType::class, array(
             'attr' => [
                 'class' => 'form-control datetimepicker-input'
-            ])
+            ], 'required' => false)
         )
         ;
     }
