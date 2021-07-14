@@ -127,4 +127,6 @@ class CafeController extends AbstractController
 
         return $this->redirectToRoute('cafe_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    
 }

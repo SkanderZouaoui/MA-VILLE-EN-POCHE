@@ -5,28 +5,43 @@ namespace App\Controller;
 use App\Entity\Cafe;
 use App\Entity\Sante;
 use App\Entity\Sport;
+use App\Entity\Comment;
 use App\Entity\Culture;
 use App\Entity\Vacance;
 use App\Entity\Vetement;
 use App\Entity\Bricolage;
 use App\Entity\Restaurant;
 use App\Entity\ViePratique;
+use App\Form\CommentFormType;
 use App\Repository\CafeRepository;
 use App\Repository\PlatRepository;
 use App\Repository\SanteRepository;
 use App\Repository\SportRepository;
+use App\Repository\CommentRepository;
 use App\Repository\CultureRepository;
 use App\Repository\VacanceRepository;
 use App\Repository\VetementRepository;
 use App\Repository\BricolageRepository;
 use App\Repository\RestaurantRepository;
 use App\Repository\ViePratiqueRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManagerInterface;
+use DateTime;
+
+
+
 
 class FrontController extends AbstractController
 {
+       private $entityManager;
+   public function __construct( EntityManagerInterface $entityManager)
+       {
+         $this->entityManager = $entityManager;
+       }
+
     /**
      * @Route("/home", name="home")
      */
@@ -103,9 +118,13 @@ class FrontController extends AbstractController
      */
      public function affcafe(CafeRepository $cafeRepository): Response
     {
+      
+        
         return $this->render('front/cafe.html.twig', [
             'controller_name' => 'FrontController',
             'cafes' => $cafeRepository->findAll(),
+         
+
         ]);
     }
     /**
@@ -241,12 +260,30 @@ class FrontController extends AbstractController
     }
 
      /**
-     * @Route("affcafe/{id}", name="cafe_blog", methods={"GET"})
+     * @Route("affcafe/{id}", name="cafe_blog")
      */
-    public function blogcafe(Cafe $cafe): Response
-    {
+    public function blogcafe(Request $request,Cafe $cafe , CommentRepository $commentRepository): Response
+    {  
+         $comment = new Comment();      
+        $form = $this->createForm(CommentFormType::class, $comment);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $comment->setCreatedAt(new DateTime());
+            $comment->setCafe($cafe);
+
+            $this->entityManager->persist($comment);
+            $this->entityManager->flush();
+
+
+
+             return $this->redirectToRoute('cafe_blog', ['id' => $cafe->getId()]);
+
+
+        }
+
         return $this->render('front/blogcafe.html.twig', [
             'cafe' => $cafe,
+            'comment_form' => $form->createView(),
         ]);
     }
 

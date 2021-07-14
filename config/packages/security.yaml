@@ -44,6 +44,8 @@ security:
         - { path: ^/vetement, roles: ROLE_USER }
         - { path: ^/viepratique, roles: ROLE_USER }
 
+
+
         
 
 
