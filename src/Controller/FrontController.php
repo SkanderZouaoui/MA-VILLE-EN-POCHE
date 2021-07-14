@@ -198,66 +198,173 @@ class FrontController extends AbstractController
             'vie_pratiques' => $viePratiqueRepository->findAll(),
         ]);
     }
-     /**
-     * @Route("affvacance/{id}", name="vacance_blog", methods={"GET"})
+/**
+     * @Route("affvacance/{id}", name="vacance_blog")
      */
-    public function blogvacance(Vacance $vacance): Response
-    {
+    public function blogvacance(Request $request,vacance $vacance , CommentRepository $commentRepository): Response
+    {  
+         $comment = new Comment();      
+        $form = $this->createForm(CommentFormType::class, $comment);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $comment->setCreatedAt(new DateTime());
+            $comment->setvacance($vacance);
+
+            $this->entityManager->persist($comment);
+            $this->entityManager->flush();
+
+
+
+             return $this->redirectToRoute('vacance_blog', ['id' => $vacance->getId()]);
+
+
+        }
+
         return $this->render('front/blogvacance.html.twig', [
             'vacance' => $vacance,
+            'comment_form' => $form->createView(),
         ]);
     }
-
-     /**
-     * @Route("affsport/{id}", name="sport_blog", methods={"GET"})
+      /**
+     * @Route("affsport/{id}", name="sport_blog")
      */
-    public function blogsport(Sport $sport): Response
-    {
+    public function blogsport(Request $request,Sport $sport , CommentRepository $commentRepository): Response
+    {  
+         $comment = new Comment();      
+        $form = $this->createForm(CommentFormType::class, $comment);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $comment->setCreatedAt(new DateTime());
+            $comment->setsport($sport);
+
+            $this->entityManager->persist($comment);
+            $this->entityManager->flush();
+
+
+
+             return $this->redirectToRoute('sport_blog', ['id' => $sport->getId()]);
+
+
+        }
+
         return $this->render('front/blogsport.html.twig', [
             'sport' => $sport,
+            'comment_form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("affculture/{id}", name="culture_blog", methods={"GET"})
+     * @Route("affculture/{id}", name="culture_blog")
      */
-    public function blogculture(Culture $culture): Response
-    {
+    public function blogculture(Request $request,culture $culture , CommentRepository $commentRepository): Response
+    {  
+         $comment = new Comment();      
+        $form = $this->createForm(CommentFormType::class, $comment);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $comment->setCreatedAt(new DateTime());
+            $comment->setculture($culture);
+
+            $this->entityManager->persist($comment);
+            $this->entityManager->flush();
+
+
+
+             return $this->redirectToRoute('culture_blog', ['id' => $culture->getId()]);
+
+
+        }
+
         return $this->render('front/blogculture.html.twig', [
             'culture' => $culture,
+            'comment_form' => $form->createView(),
         ]);
     }
-
-      /**
-     * @Route("affvetement/{id}", name="vetement_blog", methods={"GET"})
+/**
+     * @Route("affvetement/{id}", name="vetement_blog")
      */
-    public function blogvetement(Vetement $vetement): Response
-    {
+    public function blogvetement(Request $request,vetement $vetement , CommentRepository $commentRepository): Response
+    {  
+         $comment = new Comment();      
+        $form = $this->createForm(CommentFormType::class, $comment);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $comment->setCreatedAt(new DateTime());
+            $comment->setvetement($vetement);
+
+            $this->entityManager->persist($comment);
+            $this->entityManager->flush();
+
+
+
+             return $this->redirectToRoute('vetement_blog', ['id' => $vetement->getId()]);
+
+
+        }
+
         return $this->render('front/blogvetement.html.twig', [
             'vetement' => $vetement,
+            'comment_form' => $form->createView(),
         ]);
     }
-
-      /**
-     * @Route("affsante/{id}", name="sante_blog", methods={"GET"})
+    /**
+     * @Route("affsante/{id}", name="sante_blog")
      */
-    public function blogsante(Sante $sante): Response
-    {
+    public function blogsante(Request $request,sante $sante , CommentRepository $commentRepository): Response
+    {  
+         $comment = new Comment();      
+        $form = $this->createForm(CommentFormType::class, $comment);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $comment->setCreatedAt(new DateTime());
+            $comment->setsante($sante);
+
+            $this->entityManager->persist($comment);
+            $this->entityManager->flush();
+
+
+
+             return $this->redirectToRoute('sante_blog', ['id' => $sante->getId()]);
+
+
+        }
+
         return $this->render('front/blogsante.html.twig', [
             'sante' => $sante,
+            'comment_form' => $form->createView(),
         ]);
     }
 
+
     
-      /**
-     * @Route("affbricolage/{id}", name="bricolage_blog", methods={"GET"})
+     /**
+     * @Route("affbricolage/{id}", name="bricolage_blog")
      */
-    public function blogbricolage(Bricolage $bricolage): Response
-    {
+    public function blogbricolage(Request $request,bricolage $bricolage , CommentRepository $commentRepository): Response
+    {  
+         $comment = new Comment();      
+        $form = $this->createForm(CommentFormType::class, $comment);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $comment->setCreatedAt(new DateTime());
+            $comment->setbricolage($bricolage);
+
+            $this->entityManager->persist($comment);
+            $this->entityManager->flush();
+
+
+
+             return $this->redirectToRoute('bricolage_blog', ['id' => $bricolage->getId()]);
+
+
+        }
+
         return $this->render('front/blogbricolage.html.twig', [
             'bricolage' => $bricolage,
+            'comment_form' => $form->createView(),
         ]);
     }
+
 
      /**
      * @Route("affcafe/{id}", name="cafe_blog")
@@ -287,24 +394,63 @@ class FrontController extends AbstractController
         ]);
     }
 
-     /**
-     * @Route("affvie_pratique/{id}", name="vie_pratique_blog", methods={"GET"})
+   
+    /**
+     * @Route("affvie_pratique/{id}", name="vie_pratique_blog")
      */
-    public function blogvie_pratique(ViePratique $viePratique): Response
-    {
+    public function blogvie_pratique(Request $request,ViePratique $viePratique , CommentRepository $commentRepository): Response
+    {  
+         $comment = new Comment();      
+        $form = $this->createForm(CommentFormType::class, $comment);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $comment->setCreatedAt(new DateTime());
+            $comment->setvie_pratique($vie_pratique);
+
+            $this->entityManager->persist($comment);
+            $this->entityManager->flush();
+
+
+
+             return $this->redirectToRoute('vie_pratique_blog', ['id' => $vie_pratique->getId()]);
+
+
+        }
+
         return $this->render('front/blogvie_pratique.html.twig', [
             'vie_pratique' => $viePratique,
+            'comment_form' => $form->createView(),
         ]);
     }
-     /**
-     * @Route("affrestaurant/{id}", name="restaurant_blog", methods={"GET"})
+
+    
+      /**
+     * @Route("affrestaurant/{id}", name="restaurant_blog")
      */
-    public function blogrestaurant(Restaurant $restaurant , RestaurantRepository $restaurantRepository , PlatRepository $platRepository): Response
-    {
+    public function blogrestaurant(Request $request,restaurant $restaurant ,  RestaurantRepository $restaurantRepository , PlatRepository $platRepository ,CommentRepository $commentRepository): Response
+    {  
+         $comment = new Comment();      
+        $form = $this->createForm(CommentFormType::class, $comment);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $comment->setCreatedAt(new DateTime());
+            $comment->setrestaurant($restaurant);
+
+            $this->entityManager->persist($comment);
+            $this->entityManager->flush();
+
+
+
+             return $this->redirectToRoute('restaurant_blog', ['id' => $restaurant->getId()]);
+
+
+        }
+
         return $this->render('front/blogrestaurant.html.twig', [
             'restaurant' => $restaurant,
             'restaurants' => $restaurantRepository->findAll(),
             'plats' => $platRepository->findAll(),
+            'comment_form' => $form->createView(),
         ]);
     }
     
