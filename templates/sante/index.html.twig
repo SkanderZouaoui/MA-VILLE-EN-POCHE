@@ -43,10 +43,11 @@
                 <th>Categorie</th>
                 <th>Nom</th>
                 <th>Image</th>
+                <th>Email</th>
+                <th>Telephone</th>
                 <th>Description</th>
                 <th>Localisation</th>
-                <th>Latitude</th>
-                <th>Longitude</th>
+               
                 <th>actions</th>
                 </tr>
                   </thead>
@@ -57,10 +58,11 @@
                 <td>{{ sante.categorie }}</td>
                 <td>{{ sante.nom }}</td>
                 <td> <img src="{{ asset('upload/photo/'~sante.image) }} "  height="100px" width="100px"></td>
+                <td>{{ sante.email }}</td>
+                <td>{{ sante.telephone }}</td> 
                 <td>{{ sante.description }}</td>
                 <td>{{ sante.localisation }}</td>
-                <td>{{ sante.latitude }}</td> 
-                <td>{{ sante.longitude }}</td> 
+                
              
                 <td>
                     <a class="btn btn-info" href="{{ path('sante_show', {'id': sante.id}) }}">Show</a>

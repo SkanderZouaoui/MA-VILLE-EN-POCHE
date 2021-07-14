@@ -191,14 +191,18 @@
                       <span class="fas fa-map-marker-alt" ></span>	
                       <p> {{vie_pratique.localisation}}<br></p>
                     </div>
+                    {% if vie_pratique.telephone != null %}
                     <div class="address">
                         <span  class="fas fa-mobile-alt"></span>
-                        <p> +44 20 7336 8898</p>
+                        <p>{{vie_pratique.telephone}}</p>
                     </div>
+                    {% endif %}
+                    {% if vie_pratique.email != null %}
                     <div class="address">
                         <span class="fas fa-link"></span>
-                        <p>https://burgerandlobster.com</p>
+                        <p>{{vie_pratique.email}}</p>
                     </div>
+                    {% endif %}
                 </div>
               
             </div>

@@ -8,6 +8,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 
 class CafeType extends AbstractType
@@ -33,6 +35,17 @@ class CafeType extends AbstractType
                     'class' => 'form-control datetimepicker-input'
                 ]
             ])
+            ->add('telephone',IntegerType::class , array(
+                'attr' => [
+                    'class' => 'form-control datetimepicker-input',
+                    
+                ])
+            )
+            ->add('email', EmailType::class, array(
+            'attr' => [
+                'class' => 'form-control datetimepicker-input'
+            ], 'required' => false ))
+            
             
         ;
     }

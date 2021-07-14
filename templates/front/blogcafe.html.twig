@@ -191,14 +191,18 @@
                       <span class="fas fa-map-marker-alt" ></span>	
                       <p> {{cafe.localisation}}<br></p>
                     </div>
+                    {% if cafe.telephone != null %}
                     <div class="address">
                         <span  class="fas fa-mobile-alt"></span>
-                        <p> +44 20 7336 8898</p>
+                        <p>{{cafe.telephone}}</p>
                     </div>
+                    {% endif %}
+                    {% if cafe.email != null %}
                     <div class="address">
                         <span class="fas fa-link"></span>
-                        <p>https://burgerandlobster.com</p>
+                        <p>{{cafe.email}}</p>
                     </div>
+                    {% endif %}
                 </div>
               
             </div>
