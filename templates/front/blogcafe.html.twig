@@ -121,17 +121,19 @@
                         </div>
                         <div class="col-sm-6">
                            <div class="form-group">
-                           {{ form_widget(comment_form.nom, {attr: { value :app.user.nom ~ " " ~app.user.prenom }}) }} 
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                           {{ form_widget(comment_form.nom, {attr: { value :app.user.nom ~ " " ~app.user.prenom ,readonly:true }}) }} 
+                            {% else %}
+                            {{ form_widget(comment_form.nom) }}
+                           {% endif %}
                            </div>
                         </div>
                         <div class="col-sm-6">
                            <div class="form-group">
                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-
-
-                              {{ form_widget(comment_form.email,{ attr: { value : app.user.email }} ) }} 
-
-
+                              {{ form_widget(comment_form.email,{ attr: { value : app.user.email ,readonly:true }} )  }} 
+                           {% else %}
+                            {{ form_widget(comment_form.email) }}
                            {% endif %}
                            </div>
                         </div>
