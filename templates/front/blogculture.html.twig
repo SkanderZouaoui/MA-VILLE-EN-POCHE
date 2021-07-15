@@ -79,7 +79,7 @@
                   
                   <h4> Liste Des Commentaires  </h4>
                
-            <div class="comment-list">
+                  <div class="comment-list">
                     {% for comment in culture.comments %}
 
                     
@@ -107,6 +107,7 @@
                      <hr>
                     {% endfor %}
                     </div>
+
                </div>
                <div class="comment-form">
                  {{ form_start(comment_form) }}
@@ -134,8 +135,11 @@
                       
                     </div>
                     <div class="form-group">
-                       {{ form_end(comment_form) }}
-
+                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                     {{ form_end(comment_form) }}
+                    {% else %}
+                    <a href="{{path('app_login')}}" class="button button-contactForm btn_1 boxed-btn">Envoyer Le Commentaire</a>
+                    {% endif %}
                     </div>
                  </form>
 
