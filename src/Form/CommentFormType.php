@@ -21,7 +21,8 @@ class CommentFormType extends AbstractType
                 'label' => 'Votre e-mail',
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Veuillez sasir votre Email'
+                    'placeholder' => 'Veuillez sasir votre Email',
+                    'readonly' => true,
 
                 ]
             ])
@@ -29,7 +30,8 @@ class CommentFormType extends AbstractType
                 'label' => 'Votre nom',
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Veuillez sasir votre Nom'
+                    'placeholder' => 'Veuillez sasir votre Nom',
+                    'readonly' => true,
                 ]
             ])
             ->add('content', TextareaType::class , [ 

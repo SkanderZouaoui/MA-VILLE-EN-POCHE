@@ -121,14 +121,18 @@
                         </div>
                         <div class="col-sm-6">
                            <div class="form-group">
-                              {{ form_widget(comment_form.nom) }}
+                           {{ form_widget(comment_form.nom, {attr: { value :app.user.nom ~ " " ~app.user.prenom }}) }} 
                            </div>
                         </div>
                         <div class="col-sm-6">
                            <div class="form-group">
-                              {{ form_widget(comment_form.email ) }}
+                           {% if is_granted('IS_AUTHENTICATED_FULLY') %}
 
 
+                              {{ form_widget(comment_form.email,{ attr: { value : app.user.email }} ) }} 
+
+
+                           {% endif %}
                            </div>
                         </div>
                        
