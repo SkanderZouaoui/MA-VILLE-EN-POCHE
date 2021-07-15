@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cafe index{% endblock %}
+{% block title %}Utilisateur index{% endblock %}
         {% block stylesheets %}
         {{parent()}}
         <!-- Google Font: Source Sans Pro -->
@@ -32,7 +32,7 @@
 
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Gestion Cafés</h3>
+                <h3 class="card-title">Gestion Utilisateur</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -61,6 +61,8 @@
                             {% for role in user.roles %}
                                 {% if role == "ROLE_USER" %}
                                     Utilisateur
+                                    {% elseif role == "ROLE_EDITOR" %}
+                                    Editeur
                                 {% elseif role == "ROLE_ADMIN" %}
                                     Administrateur
                                 {% endif %}
@@ -78,7 +80,6 @@
                  
                 </table>
               </div>
-               <a class="btn btn-success" href="{{ path('cafe_new') }}">Create </a>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->

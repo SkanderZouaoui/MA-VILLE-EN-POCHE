@@ -43,6 +43,8 @@ security:
         - { path: ^/vacance, roles: ROLE_ADMIN }
         - { path: ^/vetement, roles: ROLE_ADMIN }
         - { path: ^/viepratique, roles: ROLE_ADMIN }
+        - { path: ^/dashbord, roles: ROLE_ADMIN }
+
 
         
 
@@ -52,3 +54,6 @@ security:
 
 
         # - { path: ^/profile, roles: ROLE_USER }
+    role_hierarchy:
+        ROLE_EDITOR: ROLE_USER
+        ROLE_ADMIN: ROLE_EDITOR
