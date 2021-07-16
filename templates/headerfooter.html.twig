@@ -58,12 +58,17 @@
                                     <!-- Main-menu -->
                                     <div class="main-menu f-right d-none d-lg-block">
                                         <nav>
-                                            <ul id="navigation">                                                                                                                                     
+                                            <ul id="navigation">    
+                                                {% if is_granted('ROLE_ADMIN') %}
+                                                <li><a href="{{path('dashboard')}}">Dashboard</a></li>          
+                                                 {% endif %}    
+                            
+                                                                                                                                                       
                                                 <li><a href="{{path('home')}}">Home</a></li>          
                                                 <li><a href="{{path('categorie')}}">Catagories</a></li>
                                                 <li><a href="{{path('about')}}">About</a></li>                                             
                                                 <li><a href="{{path('contact')}}">Contact</a></li>
-                                                <li class="add-list"><a href="{{path('app_user')}}"><i class="ti-plus"></i>  Sign in or Register</a></li>
+                                                <li class="add-list"><a href="{{path('app_login')}}"><i class="ti-plus"></i>  Sign in or Register</a></li>
                                                 
                                             </ul>
                                         </nav>
