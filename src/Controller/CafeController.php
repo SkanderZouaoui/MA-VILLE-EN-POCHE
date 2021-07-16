@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Entity\Cafe;
 use App\Form\CafeType;
 use App\Repository\CafeRepository;
+use App\Repository\ImageRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,10 +19,11 @@ class CafeController extends AbstractController
     /**
      * @Route("/", name="cafe_index", methods={"GET"})
      */
-    public function index(CafeRepository $cafeRepository): Response
+    public function index(CafeRepository $cafeRepository ,ImageRepository $imageRepository): Response
     {
         return $this->render('cafe/index.html.twig', [
             'cafes' => $cafeRepository->findAll(),
+            'images' => $imageRepository->findAll(),
         ]);
     }
 
@@ -70,10 +72,11 @@ class CafeController extends AbstractController
     /**
      * @Route("/{id}", name="cafe_show", methods={"GET"})
      */
-    public function show(Cafe $cafe): Response
+    public function show(Cafe $cafe ,ImageRepository $imageRepository): Response
     {
         return $this->render('cafe/show.html.twig', [
             'cafe' => $cafe,
+            'images' => $imageRepository->findAll(),
         ]);
     }
 
