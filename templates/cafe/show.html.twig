@@ -32,11 +32,7 @@
               <div class="col-12">
                 <img src="{{ asset('upload/photo/'~cafe.image) }}" class="product-image" alt="Product Image">
               </div>
-              {% for image in images %}
-              {% if image.cafe == cafe.nom %}
-               <img src="{{ asset('upload/photo/'~image.image) }}" class="product-image" alt="Product Image">
-              {% endif %}
-              {% endfor %}
+             
             </div>
             <div class="col-12 col-sm-6">
               <h4 class="my-3">{{ cafe.nom }}</h4>
