@@ -11,7 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ContactController extends AbstractController
 {
     /**
-     * @Route("/contacty", name="contactaa")
+     * @Route("/contact", name="contact")
      */
     public function index(Request $request , \Swift_Mailer $mailer): Response
     {
