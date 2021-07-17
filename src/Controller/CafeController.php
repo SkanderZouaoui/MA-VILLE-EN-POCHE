@@ -23,7 +23,6 @@ class CafeController extends AbstractController
     {
         return $this->render('cafe/index.html.twig', [
             'cafes' => $cafeRepository->findAll(),
-            'images' => $imageRepository->findAll(),
         ]);
     }
 
@@ -76,7 +75,6 @@ class CafeController extends AbstractController
     {
         return $this->render('cafe/show.html.twig', [
             'cafe' => $cafe,
-            'images' => $imageRepository->findAll(),
         ]);
     }
 
