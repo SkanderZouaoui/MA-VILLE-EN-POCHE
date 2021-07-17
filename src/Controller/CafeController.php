@@ -19,7 +19,7 @@ class CafeController extends AbstractController
     /**
      * @Route("/", name="cafe_index", methods={"GET"})
      */
-    public function index(CafeRepository $cafeRepository ,ImageRepository $imageRepository): Response
+    public function index(CafeRepository $cafeRepository): Response
     {
         return $this->render('cafe/index.html.twig', [
             'cafes' => $cafeRepository->findAll(),
@@ -72,7 +72,7 @@ class CafeController extends AbstractController
     /**
      * @Route("/{id}", name="cafe_show", methods={"GET"})
      */
-    public function show(Cafe $cafe ,ImageRepository $imageRepository): Response
+    public function show(Cafe $cafe ): Response
     {
         return $this->render('cafe/show.html.twig', [
             'cafe' => $cafe,
