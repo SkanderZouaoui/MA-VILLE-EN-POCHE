@@ -64,15 +64,12 @@ class Cafe
      */
     private $comments;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="cafe", orphanRemoval=true)
-     */
-    private $images;
+    
 
     public function __construct()
     {
         $this->comments = new ArrayCollection();
-        $this->images = new ArrayCollection();
+      
     }
 
     public function __toString()
@@ -211,39 +208,6 @@ class Cafe
         return $this;
     }
 
-    /**
-     * @return Collection|Image[]
-     */
-    public function getImages(): Collection
-    {
-        return $this->images;
-    }
-
-    public function addImage(Image $image): self
-    {
-        if (!$this->images->contains($image)) {
-            $this->images[] = $image;
-            $image->setCafe($this);
-        }
-
-        return $this;
-    }
-
-    public function removeImage(Image $image): self
-    {
-        if ($this->images->removeElement($image)) {
-            // set the owning side to null (unless already changed)
-            if ($image->getCafe() === $this) {
-                $image->setCafe(null);
-            }
-        }
-
-        return $this;
-    }
-
-   
-    
-
-   
+ 
   
 }
