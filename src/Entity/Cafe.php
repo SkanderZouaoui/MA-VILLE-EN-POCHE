@@ -64,18 +64,21 @@ class Cafe
      */
     private $comments;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Note::class, mappedBy="cafe")
+     */
+    private $notes;
+
     
 
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->notes = new ArrayCollection();
       
     }
 
-    public function __toString()
-    {
-        return "".($this->nom) ; 
-    }
+   
 
     public function getId(): ?int
     {
@@ -202,6 +205,36 @@ class Cafe
             // set the owning side to null (unless already changed)
             if ($comment->getCafe() === $this) {
                 $comment->setCafe(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Note[]
+     */
+    public function getNotes(): Collection
+    {
+        return $this->notes;
+    }
+
+    public function addNote(Note $note): self
+    {
+        if (!$this->notes->contains($note)) {
+            $this->notes[] = $note;
+            $note->setCafe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNote(Note $note): self
+    {
+        if ($this->notes->removeElement($note)) {
+            // set the owning side to null (unless already changed)
+            if ($note->getCafe() === $this) {
+                $note->setCafe(null);
             }
         }
 

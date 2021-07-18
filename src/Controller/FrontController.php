@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+use DateTime;
 use App\Entity\Cafe;
+use App\Entity\Note;
 use App\Entity\Sante;
 use App\Entity\Sport;
+use App\Form\NoteType;
 use App\Entity\Comment;
 use App\Entity\Culture;
 use App\Entity\Vacance;
@@ -14,6 +17,7 @@ use App\Entity\Restaurant;
 use App\Entity\ViePratique;
 use App\Form\CommentFormType;
 use App\Repository\CafeRepository;
+use App\Repository\NoteRepository;
 use App\Repository\PlatRepository;
 use App\Repository\SanteRepository;
 use App\Repository\SportRepository;
@@ -23,13 +27,12 @@ use App\Repository\VacanceRepository;
 use App\Repository\VetementRepository;
 use App\Repository\BricolageRepository;
 use App\Repository\RestaurantRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\ViePratiqueRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Doctrine\ORM\EntityManagerInterface;
-use DateTime;
 
 
 
@@ -361,16 +364,28 @@ class FrontController extends AbstractController
      /**
      * @Route("affcafe/{id}", name="cafe_blog")
      */
-    public function blogcafe(Request $request,Cafe $cafe , CommentRepository $commentRepository): Response
+    public function blogcafe(Request $request,Cafe $cafe , CommentRepository $commentRepository,  NoteRepository $noteRepository): Response
     {  
          $comment = new Comment();      
         $form = $this->createForm(CommentFormType::class, $comment);
         $form->handleRequest($request);
+
+        $note = new Note();      
+        $noteform = $this->createForm(NoteType::class,$note);
+        $noteform->handleRequest($request);
+        if ($noteform->isSubmitted() && $noteform->isValid()) {
+            $note->setCafe($cafe);
+            $this->entityManager->persist($note);
+            $this->entityManager->flush();
+
+            return $this->redirectToRoute('cafe_blog', ['id' => $cafe->getId()]);
+
+        }
         if ($form->isSubmitted() && $form->isValid()) {
             $comment->setCreatedAt(new DateTime());
             $comment->setCafe($cafe);
 
-            $this->entityManager->persist($comment);
+            $this->entityManager->persist( $comment);
             $this->entityManager->flush();
 
 
@@ -383,6 +398,7 @@ class FrontController extends AbstractController
         return $this->render('front/blogcafe.html.twig', [
             'cafe' => $cafe,
             'comment_form' => $form->createView(),
+            'noteform' => $noteform->createView(),
         ]);
     }
 
