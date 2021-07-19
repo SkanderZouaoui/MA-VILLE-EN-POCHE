@@ -1,203 +1,183 @@
-{% extends 'headerfooter.html.twig' %}
-
-{% block stylsheets %}
-{{parent()}}
-<!-- CSS here -->
-<link rel="stylesheet" href="{{asset('front/assets/css/bootstrap.min.css')}}">
-<link rel="stylesheet" href="{{asset('front/assets/css/owl.carousel.min.css')}}">
-<link rel="stylesheet" href="{{asset('front/assets/css/slicknav.css')}}">
-<link rel="stylesheet" href="{{asset('front/assets/css/flaticon.css')}}">
-<link rel="stylesheet" href="{{asset('front/assets/css/animate.min.css')}}">
-<link rel="stylesheet" href="{{asset('front/assets/css/magnific-popup.css')}}">
-<link rel="stylesheet" href="{{asset('front/assets/css/fontawesome-all.min.css')}}">
-<link rel="stylesheet" href="{{asset('front/assets/css/themify-icons.css')}}">
-<link rel="stylesheet" href="{{asset('front/assets/css/slick.css')}}">
-<link rel="stylesheet" href="{{asset('front/assets/css/nice-select.css')}}">
-<link rel="stylesheet" href="{{asset('front/assets/css/style.css')}}">
-{% endblock %}
-
-
+{% extends "headerfooter.html.twig" %}
 {% block body %}
 
 
     
       
-    <main>
+<main>
 
-        <!-- Hero Area Start-->
-        <div class="slider-area hero-overly">
-            <div class="single-slider hero-overly  slider-height d-flex align-items-center">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-xl-8 col-lg-9">
-                            <!-- Hero Caption -->
-                            <div class="hero__caption">
-                                <span>Explore the city</span>
-                                <h1>Ma Ville en Poche</h1>
-                            </div>
-                            <!--Hero form -->
-                            <form action="#" class="search-box">
-                                <div class="input-form">
-                                    <input type="text" placeholder="Que cherchez-vous ?" readonly>
-                                </div>
-                                <div class="select-form">
-                                    <div class="select-itms">
-                                        <select name="select" id="select1">
-                                            <option value="">All Catagories</option>
-                                            <option value="">Restaurants</option>
-                                            <option value="">Cafes</option>
-                                            <option value="">Sports</option>
-                                            <option value="">Vacances</option>
-                                            <option value="">Vetements</option>
-                                            <option value="">Culture</option>
-                                            <option value="">Sante</option>
-                                            <option value="">Vie Pratique</option>
-                                            <option value="">Bricolage</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="search-form">
-                                    <a href="#">Search</a>
-                                </div>	
-                            </form>	
-                        </div>
-                    </div>
-                </div>
 
-            </div>
-        </div>
-         
-        <!--Hero Area End-->
-        <!-- Popular Locations Start -->
-        <div class="popular-location section-padding30">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- Section Tittle -->
-                        <div class="section-tittle text-center mb-80">
-                            <span>Que cherchez-vous ?</span>
-                            <h2>Popular Locations</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-location mb-30">
-                            <div class="location-img">
-                                <img src="{{asset('front/assets/img/gallery/vacances.JFIF')}} " alt="" width="360" height="286">
-                            </div>
-                            <div class="location-details">
-                                <p>Destinations Vacances</p>
-                                <a href="{{path('affvacance')}}" class="location-btn">10 <i class="ti-plus"></i> Destination</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-location mb-30">
-                            <div class="location-img">
-                                <img src="{{asset('front/assets/img/gallery/resto.jpg')}}" alt="" width="360" height="286">
-                            </div>
-                            <div class="location-details">
-                                <p>Restaurants</p>
-                                <a href="{{path('affrestaurant')}}" class="location-btn">60 <i class="ti-plus"></i> Destination</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-location mb-30">
-                            <div class="location-img">
-                                <img src="{{asset('front/assets/img/gallery/sport.jpg')}}" alt="" width="360" height="286">
-                            </div>
-                            <div class="location-details">
-                                <p>Sports</p>
-                                <a href="{{path('affsport')}}" class="location-btn">50 <i class="ti-plus"></i> Location</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-location mb-30">
-                            <div class="location-img">
-                                <img src="{{asset('front/assets/img/gallery/cafe.jpg')}}" alt="" width="360" height="286">
-                            </div>
-                            <div class="location-details">
-                                <p>Cafés</p>
-                                <a href="{{path('affcafe')}}" class="location-btn">28 <i class="ti-plus"></i> Location</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-location mb-30">
-                            <div class="location-img">
-                                <img src="{{asset('front/assets/img/gallery/vetement.jpg')}}" alt="" width="360" height="286">
-                            </div>
-                            <div class="location-details">
-                                <p>Boutiques Vetements</p>
-                                <a href="{{path('affvetement')}}" class="location-btn">99 <i class="ti-plus"></i> Location</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-location mb-30">
-                            <div class="location-img">
-                                <img src="{{asset('front/assets/img/gallery/sante.jpg')}}" alt="" width="360" height="286">
-                            </div>
-                            <div class="location-details">
-                                <p>Santé</p>
-                                <a href="{{path('affsante')}}" class="location-btn">78 <i class="ti-plus"></i> Location</a>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-location mb-30">
-                            <div class="location-img">
-                                <img src="{{asset('front/assets/img/gallery/viepratique.jpg')}} " alt="" width="360" height="286">
-                            </div>
-                            <div class="location-details">
-                                <p>Vie Pratique</p>
-                                <a href="{{path('affvie_pratique')}}" class="location-btn">10 <i class="ti-plus"></i> Destination</a>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-location mb-30">
-                            <div class="location-img">
-                                <img src="{{asset('front/assets/img/gallery/culture.jpeg')}} " alt="" width="360" height="286">
-                            </div>
-                            <div class="location-details">
-                                <p>Cultures</p>
-                                <a href="{{path('affculture')}}" class="location-btn">10 <i class="ti-plus"></i> Destination</a>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-location mb-30">
-                            <div class="location-img">
-                                <img src="{{asset('front/assets/img/gallery/bricolage.png')}} " alt="" width="360" height="286">
-                            </div>
-                            <div class="location-details">
-                                <p>Bricolage</p>
-                                <a href="{{path('affbricolage')}}" class="location-btn">10 <i class="ti-plus"></i> Destination</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- More Btn >
-                <div class="row justify-content-center">
-                    <div class="room-btn pt-20">
-                        <a href="{{path('categorie')}}" class="btn view-btn1">Plus de Categories</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Popular Locations End -->
-      
-      
-         
-       
-        
-      
+    <!-- Hero Area Start-->
+    <div class="slider-area hero-overly">
+       <div class="single-slider hero-overly  slider-height d-flex align-items-center">
+           <div class="container">
+               <div class="row justify-content-center">
+                   <div class="col-xl-8 col-lg-9">
+                       <!-- Hero Caption -->
+                       <div class="hero__caption">
+                           <span>Explore the city</span>
+                           <h1>Ma Ville en Poche</h1>
+                       </div>
+                       <!--Hero form -->
+                       <form action="#" class="search-box">
+                           <div class="input-form">
+                               <input type="text" placeholder="Que cherchez-vous ?">
+                           </div>
+                           <div class="select-form">
+                               <div class="select-itms">
+                                   <select name="select" id="select1">
+                                       <option value="">All Catagories</option>
+                                       <option value="">Restaurants</option>
+                                       <option value="">Cafes</option>
+                                       <option value="">Sports</option>
+                                       <option value="">Vacances</option>
+                                       <option value="">Vetements</option>
+                                       <option value="">Culture</option>
+                                       <option value="">Sante</option>
+                                       <option value="">Vie Pratique</option>
+                                       <option value="">Bricolage</option>
+                                   </select>
+                               </div>
+                           </div>
+                           <div class="search-form">
+                               <a href="#">Search</a>
+                           </div>	
+                       </form>	
+                   </div>
+               </div>
+           </div>
 
-    </main>
+       </div>
+   </div>
+   <!--Hero Area End-->
+   <!-- Popular Locations Start -->
+   <div class="popular-location section-padding30">
+       <div class="container">
+           <div class="row">
+               <div class="col-lg-12">
+                   <!-- Section Tittle -->
+                   <div class="section-tittle text-center mb-80">
+                       <span>Que cherchez-vous ?</span>
+                       <h2>Popular Locations</h2>
+                   </div>
+               </div>
+           </div>
+           <div class="row">
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                   <div class="single-location mb-30">
+                       <div class="location-img">
+                           <img src="{{asset('front/assets/img/gallery/vacances.JFIF')}} " alt="" width="360" height="286">
+                       </div>
+                       <div class="location-details">
+                           <p>Destinations Vacances</p>
+                               <a href="{{path('affvacance')}}" class="location-btn">10 <i class="ti-plus"></i> Destination</a>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                   <div class="single-location mb-30">
+                       <div class="location-img">
+                           <img src="{{asset('front/assets/img/gallery/resto.jpg')}}" alt="" width="360" height="286">
+                           </div>
+                           <div class="location-details">
+                               <p>Restaurants</p>
+                               <a href="{{path('affrestaurant')}}" class="location-btn">60 <i class="ti-plus"></i> Destination</a>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                   <div class="single-location mb-30">
+                       <div class="location-img">
+                           <img src="{{asset('front/assets/img/gallery/sport.jpg')}}" alt="" width="360" height="286">
+                       </div>
+                       <div class="location-details">
+                           <p>Sports</p>
+                           <a href="{{path('affsport')}}" class="location-btn">50 <i class="ti-plus"></i> Location</a>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                   <div class="single-location mb-30">
+                       <div class="location-img">
+                           <img src="{{asset('front/assets/img/gallery/cafe.jpg')}}" alt="" width="360" height="286">
+                       </div>
+                       <div class="location-details">
+                           <p>Cafés</p>
+                           <a href="{{path('affcafe')}}" class="location-btn">28 <i class="ti-plus"></i> Location</a>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                   <div class="single-location mb-30">
+                       <div class="location-img">
+                           <img src="{{asset('front/assets/img/gallery/vetement.jpg')}}" alt="" width="360" height="286">
+                       </div>
+                       <div class="location-details">
+                           <p>Boutiques Vetements</p>
+                           <a href="{{path('affvetement')}}" class="location-btn">99 <i class="ti-plus"></i> Location</a>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                   <div class="single-location mb-30">
+                       <div class="location-img">
+                           <img src="{{asset('front/assets/img/gallery/sante.jpg')}}" alt="" width="360" height="286">
+                       </div>
+                       <div class="location-details">
+                           <p>Santé</p>
+                           <a href="{{path('affsante')}}" class="location-btn">78 <i class="ti-plus"></i> Location</a>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                   <div class="single-location mb-30">
+                       <div class="location-img">
+                           <img src="{{asset('front/assets/img/gallery/viepratique.jpg')}} " alt="" width="360" height="286">
+                       </div>
+                       <div class="location-details">
+                           <p>Vie Pratique</p>
+                           <a href="{{path('affvie_pratique')}}" class="location-btn">10 <i class="ti-plus"></i> Destination</a>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                   <div class="single-location mb-30">
+                       <div class="location-img">
+                           <img src="{{asset('front/assets/img/gallery/culture.jpeg')}} " alt="" width="360" height="286">
+                       </div>
+                       <div class="location-details">
+                           <p>Cultures</p>
+                           <a href="{{path('affculture')}}" class="location-btn">10 <i class="ti-plus"></i> Destination</a>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                   <div class="single-location mb-30">
+                       <div class="location-img">
+                           <img src="{{asset('front/assets/img/gallery/bricolage.png')}} " alt="" width="360" height="286">
+                           </div>
+                           <div class="location-details">
+                               <p>Bricolage</p>
+                               <a href="{{path('affbricolage')}}" class="location-btn">10 <i class="ti-plus"></i> Destination</a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <!-- More Btn -->
+           <div class="row justify-content-center">
+               <div class="room-btn pt-20">
+                   <a href="{{path('categorie')}}" class="btn view-btn1">Plus de Categories</a>
+               </div>
+           </div>
+       </div>
+   </div>
+   <!-- Popular Locations End -->
+    
+  
+
+</main>
+
+
    
 
 
@@ -209,42 +189,5 @@
  
 {% endblock %}
 
-{% block javascripts %}
-{{parent()}}
 
-<!-- JS here -->
-		<!-- All JS Custom Plugins Link Here here -->
-        <script src="{{asset('front/assets/js/vendor/modernizr-3.5.0.min.js')}}"></script>
-		<!-- Jquery, Popper, Bootstrap -->
-		<script src="{{asset('front/assets/js/vendor/jquery-1.12.4.min.js')}}"></script>
-        <script src="{{asset('front/assets/js/popper.min.js')}}"></script>
-        <script src="{{asset('front/assets/js/bootstrap.min.js')}}"></script>
-	    <!-- Jquery Mobile Menu -->
-        <script src="{{asset('front/assets/js/jquery.slicknav.min.js')}}"></script>
-
-		<!-- Jquery Slick , Owl-Carousel Plugins -->
-        <script src="{{asset('front/assets/js/owl.carousel.min.js')}}"></script>
-        <script src="{{asset('front/assets/js/slick.min.js')}}"></script>
-		<!-- One Page, Animated-HeadLin -->
-        <script src="{{asset('front/assets/js/wow.min.js')}}"></script>
-		<script src="{{asset('front/assets/js/animated.headline.js')}}"></script>
-        <script src="{{asset('front/assets/js/jquery.magnific-popup.js')}}"></script>
-
-		<!-- Nice-select, sticky -->
-        <script src="{{asset('front/assets/js/jquery.nice-select.min.js')}}"></script>
-		<script src="{{asset('front/assets/js/jquery.sticky.js')}}"></script>
-        
-        <!-- contact js -->
-        <script src="{{asset('front/assets/js/contact.js')}}"></script>
-        <script src="{{asset('front/assets/js/contact.js')}}"></script>
-        <script src="{{asset('front/assets/js/jquery.validate.min.js')}}"></script>
-        <script src="{{asset('front/assets/js/mail-script.js')}}"></script>
-        <script src="{{asset('front/assets/js/jquery.ajaxchimp.min.js')}}"></script>
-        
-		<!-- Jquery Plugins, main Jquery -->	
-        <script src="{{asset('front/assets/js/plugins.js')}}"></script>
-        <script src="{{asset('front/assets/js/main.js')}}"></script>
-       
-
-{% endblock %}
 
