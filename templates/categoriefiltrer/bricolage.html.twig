@@ -65,17 +65,17 @@
                                 </div>
                                   Select job items End-->
                             
-                              <div>
+                                  <div>
                                     <h1>Categories</h1>
                                   
-                                   <a class="skander" href="{{path('categoriesante' ,{categorie: "Hopitale"})}}">Hopitale</a><br>
-                                   <a class="skander" href="{{path('categoriesante' ,{categorie: "Medecin"})}}">Medecin</a><br>
-                                   <a class="skander" href="{{path('categoriesante' ,{categorie: "Centre De Vaccin"})}}">Centre De Vaccin</a><br>
-                                   <a class="skander" href="{{path('categoriesante' ,{categorie: "SOS"})}}">SOS</a><br>
+                                   <a class="skander" href="{{path('categoriebricolage' ,{categorie: "Plambier"})}}">Plombier</a><br>
+                                   <a class="skander" href="{{path('categoriebricolage' ,{categorie: "Mecanincien"})}}">Mecanincien</a><br>
+                                   <a class="skander" href="{{path('categoriebricolage' ,{categorie: "electricien"})}}">electricien</a><br>
+
 
 
                               
-                               </div>
+                                 </div>
                                
                                
                                <style>
@@ -105,7 +105,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="count mb-35">
-                                    <span>10 Destinations</span>
+                                    <span></span>
                                 </div>
                             </div>
                         </div>
@@ -113,22 +113,22 @@
                         <div class="listing-details-area">
                             <div class="container">
                                 <div class="row">
-                                  {% for sante in santes %}
+                                  {% for bricolage in bricolages %}
                                     <div class="col-lg-6 ">
                                         <div class="single-listing mb-30">
                                             <div class="list-img">
-                                                <img src="{{ asset('upload/photo/'~sante.image) }}" height="300px" width="300px">
+                                                <img src="{{ asset('upload/photo/'~bricolage.image) }}" height="300px" width="300px">
                                                 <!-- <span>Open</span> -->
                                             </div>
                                             <div class="list-caption">
-                                                <a class="btn btn-info" href="{{ path('sante_blog', {'id': sante.id}) }}">Open</a>                                               
-                                                <h3>{{ sante.nom }}</h3>
-                                                <p>{{ sante.description }}</p><br>
-                                                <p>{{ sante.localisation }}</p><br>
+                                                <a class="btn btn-info" href="{{ path('bricolage_blog', {'id': bricolage.id}) }}">Open</a>                                               
+                                                <h3>{{ bricolage.nom }}</h3>
+                                                <p>{{ bricolage.description }}</p><br>
+                                                <p>{{ bricolage.localisation }}</p><br>
                                                 <div class="list-footer">
                                                     <ul>
-                                                       <li>{{sante.telephone}}</li>
-                                                        <li>{{sante.email}}</li>
+                                                       <li>{{bricolage.telephone}}</li>
+                                                        <li>{{bricolage.email}}</li>
                                                     </ul>
                                                 </div>
                                             </div>

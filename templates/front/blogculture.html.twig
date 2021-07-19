@@ -144,7 +144,7 @@
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         {{ form_end(comment_form) }}
                        {% else %}
-                       <a href="{{path('app_login')}}" class="button button-contactForm btn_1 boxed-btn">Envoyer Le Commentaire</a>
+                       <a href="{{path('app_loginuser')}}" class="button button-contactForm btn_1 boxed-btn">Envoyer Le Commentaire</a>
                        {% endif %}
                      </div>
                   </form>
