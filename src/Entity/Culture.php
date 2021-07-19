@@ -69,9 +69,15 @@ class Culture
      */
     private $comments;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Note::class, mappedBy="culture")
+     */
+    private $notes;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->notes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -211,6 +217,36 @@ class Culture
             // set the owning side to null (unless already changed)
             if ($comment->getCulture() === $this) {
                 $comment->setCulture(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Note[]
+     */
+    public function getNotes(): Collection
+    {
+        return $this->notes;
+    }
+
+    public function addNote(Note $note): self
+    {
+        if (!$this->notes->contains($note)) {
+            $this->notes[] = $note;
+            $note->setCulture($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNote(Note $note): self
+    {
+        if ($this->notes->removeElement($note)) {
+            // set the owning side to null (unless already changed)
+            if ($note->getCulture() === $this) {
+                $note->setCulture(null);
             }
         }
 

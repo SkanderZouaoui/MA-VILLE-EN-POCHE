@@ -61,7 +61,7 @@
                       <h2>{{cafe.nom}}
                       </h2>
                       <ul class="blog-info-link mt-3 mb-4">
-                         <li><a href="#"><i class="fa fa-user"></i> Cofe</a></li>
+                         <li><a href="#"><i class="fa fa-user"></i> Coffee</a></li>
                          <li><a href="#"><i class="fa fa-comments"></i></a></li>
                       </ul>
                       <p class="excert">
@@ -74,6 +74,7 @@
                    <div class="container">
                      <div class="row">
  
+                    
                         {{form_start(noteform)}}
 
                         <div>
@@ -81,28 +82,40 @@
                            {{form_widget(noteform.nom , {'value':cafe.nom ,'type':'hidden'})}}
                         </div>
                      
-                              <div class="rateyo" id= "rating"
-                              data-rateyo-rating="4"
+                             
+                               {% set somme = 0 %}
+                              {% for caf in NoteCafe %}
+                                    {% set somme = (caf.note / NoteCafe|length)+ somme %}  
+                              {% endfor %}
+                               <div class="rateyo" id= "rating"
+                              data-rateyo-rating={{somme}}
                               data-rateyo-num-stars="5"
                               data-rateyo-score="3">
                               </div>
+                              <br>
+                              <style>
+                              h3{
+                                 color:grey;
                               
+                              }
+                              </style>
+                              <h3>Raiting : {{somme|number_format(1, '.')}} /5</h3>
                               
                               {{form_widget(noteform.note , { 'id': 'rating','type':'hidden'} ) }}
+                              <br>
 
-                     
+                              {{form_end(noteform)}}
+                              <br>
                         </div>
                      
-                        <div>{{form_end(noteform)}}</div>
+                        
 
-                     {% for caf in noteVanilla %}
-                           {{caf.note}}
-                     {% endfor %}
+                    
                      </div>
                      </div>
                 
 
-                      </p>
+                      <br>
                       <div class="col-sm-4 text-center my-2 my-sm-0">
                          <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
                       </div>

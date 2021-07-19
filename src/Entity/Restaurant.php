@@ -74,10 +74,16 @@ class Restaurant
      */
     private $comments;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Note::class, mappedBy="restaurant")
+     */
+    private $notes;
+
     public function __construct()
     {
         $this->plats = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->notes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -251,6 +257,36 @@ class Restaurant
             // set the owning side to null (unless already changed)
             if ($comment->getRestaurant() === $this) {
                 $comment->setRestaurant(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Note[]
+     */
+    public function getNotes(): Collection
+    {
+        return $this->notes;
+    }
+
+    public function addNote(Note $note): self
+    {
+        if (!$this->notes->contains($note)) {
+            $this->notes[] = $note;
+            $note->setRestaurant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNote(Note $note): self
+    {
+        if ($this->notes->removeElement($note)) {
+            // set the owning side to null (unless already changed)
+            if ($note->getRestaurant() === $this) {
+                $note->setRestaurant(null);
             }
         }
 
