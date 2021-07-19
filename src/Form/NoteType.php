@@ -16,7 +16,7 @@ class NoteType extends AbstractType
             ->add('nom')
             ->add('note')
             ->add('submit', SubmitType::class , [
-                'label' => ' Envoyer le commentaire',
+                'label' => ' Valider',
                 'attr' => [
                     'class' => 'button button-contactForm btn_1 boxed-btn'
                 ]

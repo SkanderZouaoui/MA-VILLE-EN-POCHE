@@ -19,6 +19,14 @@ class NoteRepository extends ServiceEntityRepository
         parent::__construct($registry, Note::class);
     }
 
+    public function myFindAllDQLCafe()
+    {
+      $query = $this->_em->createQuery('SELECT note FROM NOTE where( id = 7 )');
+      $resultats = $query->getResult();
+      return $resultats;
+    }
+
+
     // /**
     //  * @return Note[] Returns an array of Note objects
     //  */
