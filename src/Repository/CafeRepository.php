@@ -19,6 +19,8 @@ class CafeRepository extends ServiceEntityRepository
         parent::__construct($registry, Cafe::class);
     }
 
+  
+
     // /**
     //  * @return Cafe[] Returns an array of Cafe objects
     //  */

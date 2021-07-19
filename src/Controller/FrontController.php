@@ -364,7 +364,7 @@ class FrontController extends AbstractController
      /**
      * @Route("affcafe/{id}", name="cafe_blog")
      */
-    public function blogcafe(Request $request,Cafe $cafe , CommentRepository $commentRepository,  NoteRepository $noteRepository): Response
+    public function blogcafe(Request $request,Cafe $cafe , CommentRepository $commentRepository,  NoteRepository $noteRepository , CafeRepository $CafeRepository): Response
     {  
          $comment = new Comment();      
         $form = $this->createForm(CommentFormType::class, $comment);
@@ -399,9 +399,9 @@ class FrontController extends AbstractController
             'cafe' => $cafe,
             'comment_form' => $form->createView(),
             'noteform' => $noteform->createView(),
+            'noteVanilla'=> $noteRepository->findByNom($cafe->getNom()),
         ]);
     }
-
    
     /**
      * @Route("affvie_pratique/{id}", name="vie_pratique_blog")
