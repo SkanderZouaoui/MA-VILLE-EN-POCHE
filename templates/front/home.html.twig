@@ -21,27 +21,27 @@
                        <!--Hero form -->
                        <form action="#" class="search-box">
                            <div class="input-form">
-                               <input type="text" placeholder="Que cherchez-vous ?">
+                               <input type="text" placeholder="Que cherchez-vous ?" readonly>
                            </div>
                            <div class="select-form">
                                <div class="select-itms">
-                                   <select name="select" id="select1">
-                                       <option value="">All Catagories</option>
-                                       <option value="">Restaurants</option>
-                                       <option value="">Cafes</option>
-                                       <option value="">Sports</option>
-                                       <option value="">Vacances</option>
-                                       <option value="">Vetements</option>
-                                       <option value="">Culture</option>
-                                       <option value="">Sante</option>
-                                       <option value="">Vie Pratique</option>
-                                       <option value="">Bricolage</option>
+                                   <select name="select" id="select1" onchange="javascript:handleSelect(this)">
+                                       <option value="{{path('categorie')}}">All Catagories</option>
+                                       <option value="{{path('affrestaurant')}}">Restaurants</option>
+                                       <option value="{{path('affcafe')}}">Cafes</option>
+                                       <option value="{{path('affsport')}}">Sports</option>
+                                       <option value="{{path('affvacance')}}">Vacances</option>
+                                       <option value="{{path('affvetement')}}">Vetements</option>
+                                       <option value="{{path('affculture')}}">Culture</option>
+                                       <option value="{{path('affsante')}}">Sante</option>
+                                       <option value="{{path('affvie_pratique')}}">Vie Pratique</option>
+                                       <option value="{{path('affbricolage')}}">Bricolage</option>
                                    </select>
                                </div>
                            </div>
                            <div class="search-form">
-                               <a href="#">Search</a>
-                           </div>	
+                            <button onclick="clear2()">Clear2</button>
+                        </div>	
                        </form>	
                    </div>
                </div>
@@ -178,15 +178,26 @@
 </main>
 
 
-   
-
-
-   
-        
-    
-   
-        
  
+ 
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+<script>
+  function handleSelect(elm)
+  { 
+
+     window.location = elm.value;
+  }
+
+  function clear2() {
+    alert('clear2');
+  }
+</script>
+
+
+
 {% endblock %}
 
 
