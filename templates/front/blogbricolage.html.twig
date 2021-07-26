@@ -20,7 +20,6 @@
 
 {% block body %}
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
 
 </head>
@@ -40,31 +39,30 @@
     </div>
     <!--Hero End -->
     <!--================Blog Area =================-->
-    <section class="blog_area single-post-area section-padding">
+   <section class="blog_area single-post-area section-padding">
        <div class="container">
           <div class="row">
              <div class="col-lg-8 posts-list">
                 <div class="single-post">
                    <div class="feature-img">
                      <img class="img-fluid" src="{{ asset('upload/photo/'~bricolage.image) }}" height="600px" width="900px" >
+                    
                    </div>
                    <div class="blog_details">
                       <h2>{{bricolage.nom}}
                       </h2>
                       <ul class="blog-info-link mt-3 mb-4">
-                         <li><a href="#"><i class="fa fa-user"></i> Bricolage </a></li>
+                         <li><a href="#"><i class="fa fa-user"></i>Bricolage</a></li>
                          <li><a href="#"><i class="fa fa-comments"></i></a></li>
                       </ul>
                       <p class="excert">
                         {{bricolage.description}}
                       </p>
-                     
-                      
                    </div>
                 </div>
                 <div class="navigation-top">
                    <div class="d-sm-flex justify-content-between text-center">
-                              <div class="container">
+                   <div class="container">
                      <div class="row">
  
                     
@@ -77,8 +75,8 @@
                      
                              
                                {% set somme = 0 %}
-                              {% for note in Notes %}
-                                    {% set somme = (note.note / Notes|length)+ somme %}  
+                              {% for caf in Notes %}
+                                    {% set somme = (caf.note / Notes|length)+ somme %}  
                               {% endfor %}
                                <div class="rateyo" id= "rating"
                               data-rateyo-rating={{somme}}
@@ -121,40 +119,64 @@
                    </div>
                   
                 </div>
+
+                  <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+                        <iframe style="border:0; width: 100%; height: 350px;" class="img-fluid" src="https://maps.google.com/maps?q=+{{bricolage.latitude}}+,+{{bricolage.longitude}}+&hl=fr&z=14&amp;output=embed" frameborder="0" allowfullscreen></iframe>
+                    <div class="address">
+                      <span class="fas fa-map-marker-alt" ></span>	
+                      <p> {{bricolage.localisation}}<br></p>
+                    </div>
+                    {% if bricolage.telephone != null %}
+                    <div class="address">
+                        <span  class="fas fa-mobile-alt"></span>
+                        <p>{{bricolage.telephone}}</p>
+                    </div>
+                    {% endif %}
+                    {% if bricolage.email != null %}
+                    <div class="address">
+                        <span class="fas fa-link"></span>
+                        <p>{{bricolage.email}}</p>
+                    </div>
+                    {% endif %}
+                </div>
+              
+            </div>
                
                 <div class="comments-area">
                   
-                  <h4> Liste Des Commentaires  </h4>
-               
-            <div class="comment-list">
-                    {% for comment in bricolage.comments %}
+                   <h4> Liste Des Commentaires  </h4>
+                
+             <div class="comment-list">
+                     {% for comment in bricolage.comments %}
 
-                    
-                     <div class="single-comment justify-content-between d-flex">
-                        <div class="user justify-content-between d-flex">
-                         
-                           <div class="desc">
-                              <p class="comment">
-                                 {{ comment.content}}
-                              </p>
-                              <div class="d-flex justify-content-between">
-                                 <div class="d-flex align-items-center">
-                                    <h5>
-                                       {{comment.nom}}
-                                    </h5>
-                                    <p class="date">{{comment.createdAt|date("d/m/Y H:i" )}}</p>
-                                 </div>
-                                 <div class="reply-btn">
-                                    <a href="#" class="btn-reply text-uppercase">reply</a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
+                     
+                      <div class="single-comment justify-content-between d-flex">
+                         <div class="user justify-content-between d-flex">
+                          
+                            <div class="desc">
+                               <p class="comment">
+                                  {{ comment.content}}
+                               </p>
+                               <div class="d-flex justify-content-between">
+                                  <div class="d-flex align-items-center">
+                                     <h5>
+                                        {{comment.nom}}
+                                     </h5>
+                                     <p class="date">{{comment.createdAt|date("d/m/Y H:i" )}}</p>
+                                  </div>
+                                  <div class="reply-btn">
+                                     <a href="#" class="btn-reply text-uppercase">reply</a>
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                      <hr>
+                     {% endfor %}
                      </div>
-                     <hr>
-                    {% endfor %}
-                    </div>
-               </div>
+                </div>
+                </div>
                 <div class="comment-form">
                   {{ form_start(comment_form) }}
                   <h4>Leave a Reply</h4>
@@ -195,31 +217,10 @@
                      </div>
                   </form>
 
-
+                     </div>
                  </div>
                </div>
-             <div class="col-lg-4">
-                <div class="blog_right_sidebar">
-      <iframe style="border:0; width: 100%; height: 350px;" class="img-fluid" src="https://maps.google.com/maps?q=+{{bricolage.latitude}}+,+{{bricolage.longitude}}+&hl=fr&z=14&amp;output=embed" frameborder="0" allowfullscreen></iframe>
-                    <div class="address">
-                      <span class="fas fa-map-marker-alt" ></span>	
-                      <p> {{bricolage.localisation}}<br></p>
-                    </div>
-                    {% if bricolage.telephone != null %}
-                    <div class="address">
-                        <span  class="fas fa-mobile-alt"></span>
-                        <p>{{bricolage.telephone}}</p>
-                    </div>
-                    {% endif %}
-                    {% if bricolage.email != null %}
-                    <div class="address">
-                        <span class="fas fa-link"></span>
-                        <p>{{bricolage.email}}</p>
-                    </div>
-                    {% endif %}
-                </div>
-              
-            </div>
+           
           </div>
        </div>
     </section>

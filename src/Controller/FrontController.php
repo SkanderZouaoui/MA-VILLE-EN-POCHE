@@ -232,7 +232,7 @@ class FrontController extends AbstractController
             'vacance' => $vacance,
             'comment_form' => $form->createView(),
             'noteform' => $noteform->createView(),
-            'NoteVacance'=> $noteRepository->findByNom($vacance->getNom()),
+            'Notes'=> $noteRepository->findByNom($vacance->getNom()),
         ]);
     }
       /**
@@ -274,7 +274,7 @@ class FrontController extends AbstractController
             'sport' => $sport,
             'comment_form' => $form->createView(),
             'noteform' => $noteform->createView(),
-            'NoteSport'=> $noteRepository->findByNom($sport->getNom()),
+            'Notes'=> $noteRepository->findByNom($sport->getNom()),
 
         ]);
     }
