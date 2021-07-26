@@ -233,6 +233,7 @@ class FrontController extends AbstractController
             'comment_form' => $form->createView(),
             'noteform' => $noteform->createView(),
             'Notes'=> $noteRepository->findByNom($vacance->getNom()),
+            'comm'=> $commentRepository->findByVacance($vacance->getId()),
         ]);
     }
       /**
@@ -275,6 +276,7 @@ class FrontController extends AbstractController
             'comment_form' => $form->createView(),
             'noteform' => $noteform->createView(),
             'Notes'=> $noteRepository->findByNom($sport->getNom()),
+            'comm'=> $commentRepository->findBySport($sport->getId()),
 
         ]);
     }
@@ -318,6 +320,7 @@ class FrontController extends AbstractController
             'comment_form' => $form->createView(),
             'noteform' => $noteform->createView(),
             'Notes'=> $noteRepository->findByNom($culture->getNom()),
+            'comm'=> $commentRepository->findByCulture($culture->getId()),
         ]);
     }
 /**
@@ -360,6 +363,7 @@ class FrontController extends AbstractController
             'comment_form' => $form->createView(),
             'noteform' => $noteform->createView(),
             'Notes'=> $noteRepository->findByNom($vetement->getNom()),
+            'comm'=> $commentRepository->findByVetement($vetement->getId()),
         ]);
     }
     /**
@@ -402,6 +406,7 @@ class FrontController extends AbstractController
             'comment_form' => $form->createView(),
             'noteform' => $noteform->createView(),
             'Notes'=> $noteRepository->findByNom($sante->getNom()),
+            'comm'=> $commentRepository->findBySante($sante->getId()),
         ]);
     }
 
@@ -447,6 +452,7 @@ class FrontController extends AbstractController
             'comment_form' => $form->createView(),
             'noteform' => $noteform->createView(),
             'Notes'=> $noteRepository->findByNom($bricolage->getNom()),
+            'comm'=> $commentRepository->findByBricolage($bricolage->getId()),
         ]);
     }
 
@@ -489,7 +495,9 @@ class FrontController extends AbstractController
             'cafe' => $cafe,
             'comment_form' => $form->createView(),
             'noteform' => $noteform->createView(),
-            'NoteCafe'=> $noteRepository->findByNom($cafe->getNom()),
+            'Notes'=> $noteRepository->findByNom($cafe->getNom()),
+            'comm'=> $commentRepository->findByCafe($cafe->getId()),
+
         ]);
     }
    
@@ -533,6 +541,7 @@ class FrontController extends AbstractController
             'comment_form' => $form->createView(),
             'noteform' => $noteform->createView(),
             'Notes'=> $noteRepository->findByNom($viePratique->getNom()),
+            'comm'=> $commentRepository->findByViePratique($viePratique->getId()),
             
         ]);
     }
@@ -581,6 +590,7 @@ class FrontController extends AbstractController
             'comment_form' => $form->createView(),
             'noteform' => $noteform->createView(),
             'Notes'=> $noteRepository->findByNom($restaurant->getNom()),
+            'comm'=> $commentRepository->findByRestaurant($restaurant->getId()),
         ]);
     }
     

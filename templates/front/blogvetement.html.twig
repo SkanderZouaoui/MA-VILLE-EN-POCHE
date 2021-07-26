@@ -96,6 +96,7 @@
                               <br>
 
                               {{form_end(noteform)}}
+                                <p>{{ Notes|length}} Avis</p>
                               <br>
                         </div>
                      
@@ -145,7 +146,7 @@
                
                 <div class="comments-area">
                   
-                   <h4> Liste Des Commentaires  </h4>
+                   <h4> {{comm|length}} Commentaires  </h4>
                 
              <div class="comment-list">
                      {% for comment in vetement.comments %}

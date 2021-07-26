@@ -60,7 +60,7 @@
                       <h2>{{cafe.nom}}
                       </h2>
                       <ul class="blog-info-link mt-3 mb-4">
-                         <li><a href="#"><i class="fa fa-user"></i> Coffee</a></li>
+                         <li><a href="#"><i class="fa fa-user"></i> Cafe</a></li>
                          <li><a href="#"><i class="fa fa-comments"></i></a></li>
                       </ul>
                       <p class="excert">
@@ -79,12 +79,13 @@
                         <div>
                      
                            {{form_widget(noteform.nom , {'value':cafe.nom ,'type':'hidden'})}}
+                          
                         </div>
                      
                              
                                {% set somme = 0 %}
-                              {% for caf in NoteCafe %}
-                                    {% set somme = (caf.note / NoteCafe|length)+ somme %}  
+                              {% for caf in Notes %}
+                                    {% set somme = (caf.note / Notes|length)+ somme %}  
                               {% endfor %}
                                <div class="rateyo" id= "rating"
                               data-rateyo-rating={{somme}}
@@ -104,6 +105,7 @@
                               <br>
 
                               {{form_end(noteform)}}
+                               <p>{{ Notes|length}} Avis</p>
                               <br>
                         </div>
                      
@@ -153,7 +155,7 @@
                
                 <div class="comments-area">
                   
-                   <h4> Liste Des Commentaires  </h4>
+                   <h4>{{ comm|length}} Commentaires  </h4>
                 
              <div class="comment-list">
                      {% for comment in cafe.comments %}
