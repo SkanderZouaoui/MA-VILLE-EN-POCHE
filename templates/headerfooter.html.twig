@@ -63,7 +63,15 @@
                                         <li><a href="{{path('categorie')}}">Catagories</a></li>
                                         <li><a href="{{path('about')}}">A Propos</a></li>                                             
                                         <li><a href="{{path('contact')}}">Contact</a></li>
-                                        <li class="add-list"><a href="{{path('app_loginuser')}}"><i class="ti-plus"></i>  Sign in or Register</a></li>
+
+                                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                        <li><a href="{{path('categorie')}}"> {{ app.user.nom }} {{ app.user.prenom }}</a></li>
+
+                                         <li class="add-list"><a href="{{ path('app_logout') }}"><i class="ti-close" aria-hidden="true"></i> Logout</a></li>
+                                        {% else %}
+                                         <li class="add-list"><a href="{{path('app_loginuser')}}"><i class="ti-user"></i>  Sign in or Register</a></li>
+                                       {% endif %}
+                                       
                                         
                                     </ul>
                                 </nav>

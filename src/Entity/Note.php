@@ -72,6 +72,11 @@ class Note
      */
     private $bricolage;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $iduser;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -205,6 +210,18 @@ class Note
     public function setBricolage(?Bricolage $bricolage): self
     {
         $this->bricolage = $bricolage;
+
+        return $this;
+    }
+
+    public function getIduser(): ?int
+    {
+        return $this->iduser;
+    }
+
+    public function setIduser(int $iduser): self
+    {
+        $this->iduser = $iduser;
 
         return $this;
     }

@@ -14,6 +14,7 @@ class NoteType extends AbstractType
     {
         $builder
             ->add('nom')
+            ->add('iduser')
             ->add('note')
             ->add('submit', SubmitType::class , [
                 'label' => ' Valider',

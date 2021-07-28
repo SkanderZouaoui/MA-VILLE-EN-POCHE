@@ -46,195 +46,239 @@
        </div>
     </div>
     <!--Hero End -->
-    <!--================Blog Area =================-->
-    <section class="blog_area single-post-area section-padding">
-       <div class="container">
-          <div class="row">
-             <div class="col-lg-8 posts-list">
-                <div class="single-post">
-                   <div class="feature-img">
-                     <img class="img-fluid" src="{{ asset('upload/photo/'~cafe.image) }}" height="600px" width="900px" >
-                    
-                   </div>
-                   <div class="blog_details">
-                      <h2>{{cafe.nom}}
-                      </h2>
-                      <ul class="blog-info-link mt-3 mb-4">
-                         <li><a href="#"><i class="fa fa-user"></i> Cafe</a></li>
-                         <li><a href="#"><i class="fa fa-comments"></i></a></li>
-                      </ul>
-                      <p class="excert">
-                        {{cafe.description}}
-                      </p>
-                   </div>
-                </div>
-                <div class="navigation-top">
-                   <div class="d-sm-flex justify-content-between text-center">
-                   <div class="container">
-                     <div class="row">
- 
-                    
-                        {{form_start(noteform)}}
-
-                        <div>
-                     
-                           {{form_widget(noteform.nom , {'value':cafe.nom ,'type':'hidden'})}}
-                          
-                        </div>
-                     
-                             
-                               {% set somme = 0 %}
-                              {% for caf in Notes %}
-                                    {% set somme = (caf.note / Notes|length)+ somme %}  
-                              {% endfor %}
-                               <div class="rateyo" id= "rating"
-                              data-rateyo-rating={{somme}}
-                              data-rateyo-num-stars="5"
-                              data-rateyo-score="3">
-                              </div>
-                              <br>
-                              <style>
-                              h3{
-                                 color:grey;
-                              
-                              }
-                              </style>
-                              <h3>Raiting : {{somme|number_format(1, '.')}} /5</h3>
-                              
-                              {{form_widget(noteform.note , { 'id': 'rating','type':'hidden'} ) }}
-                              <br>
-
-                              {{form_end(noteform)}}
-                               <p>{{ Notes|length}} Avis</p>
-                              <br>
-                        </div>
-                     
-                        
-
-                    
-                     </div>
-                     </div>
-                
-
-                      <br>
-                      <div class="col-sm-4 text-center my-2 my-sm-0">
-                         <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
-                      </div>
-                      <ul class="social-icons">
-                         <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                         <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                         <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                         <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                      </ul>
-                   </div>
-                  
-                </div>
-
-                  <div class="col-lg-4">
-                <div class="blog_right_sidebar">
-                        <iframe style="border:0; width: 100%; height: 350px;" class="img-fluid" src="https://maps.google.com/maps?q=+{{cafe.latitude}}+,+{{cafe.longitude}}+&hl=fr&z=14&amp;output=embed" frameborder="0" allowfullscreen></iframe>
-                    <div class="address">
-                      <span class="fas fa-map-marker-alt" ></span>	
-                      <p> {{cafe.localisation}}<br></p>
-                    </div>
-                    {% if cafe.telephone != null %}
-                    <div class="address">
-                        <span  class="fas fa-mobile-alt"></span>
-                        <p>{{cafe.telephone}}</p>
-                    </div>
-                    {% endif %}
-                    {% if cafe.email != null %}
-                    <div class="address">
-                        <span class="fas fa-link"></span>
-                        <p>{{cafe.email}}</p>
-                    </div>
-                    {% endif %}
-                </div>
-              
-            </div>
-               
-                <div class="comments-area">
-                  
-                   <h4>{{ comm|length}} Commentaires  </h4>
-                
-             <div class="comment-list">
-                     {% for comment in cafe.comments %}
-
-                     
-                      <div class="single-comment justify-content-between d-flex">
-                         <div class="user justify-content-between d-flex">
-                          
-                            <div class="desc">
-                               <p class="comment">
-                                  {{ comment.content}}
-                               </p>
-                               <div class="d-flex justify-content-between">
-                                  <div class="d-flex align-items-center">
-                                     <h5>
-                                        {{comment.nom}}
-                                     </h5>
-                                     <p class="date">{{comment.createdAt|date("d/m/Y H:i" )}}</p>
-                                  </div>
-                                  <div class="reply-btn">
-                                     <a href="#" class="btn-reply text-uppercase">reply</a>
-                                  </div>
-                               </div>
-                            </div>
-                         </div>
-                      </div>
-                      <hr>
-                     {% endfor %}
-                     </div>
-                </div>
-                </div>
-                <div class="comment-form">
-                  {{ form_start(comment_form) }}
-                  <h4>Leave a Reply</h4>
-                  <form class="form-contact comment_form" >
-                     <div class="row">
-                        <div class="col-12">
-                           <div class="form-group">
-                              {{ form_widget(comment_form.content) }}
-                             
-                           </div>
-                        </div>
-                        <div class="col-sm-6">
-                           <div class="form-group">
-                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                           {{ form_widget(comment_form.nom, {attr: { value :app.user.nom ~ " " ~app.user.prenom ,readonly:true }}) }} 
-                            {% else %}
-                            {{ form_widget(comment_form.nom) }}
-                           {% endif %}
-                           </div>
-                        </div>
-                        <div class="col-sm-6">
-                           <div class="form-group">
-                           {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                              {{ form_widget(comment_form.email,{ attr: { value : app.user.email ,readonly:true }} )  }} 
-                           {% else %}
-                            {{ form_widget(comment_form.email) }}
-                           {% endif %}
-                           </div>
-                        </div>
-                       
-                     </div>
-                     <div class="form-group">
-                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        {{ form_end(comment_form) }}
-                       {% else %}
-                       <a href="{{path('app_loginuser')}}" class="button button-contactForm btn_1 boxed-btn">Envoyer Le Commentaire</a>
-                       {% endif %}
-                     </div>
-                  </form>
-
-                     </div>
-                 </div>
+     <!--================Blog Area =================-->
+     <section class="blog_area single-post-area section-padding">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-8 posts-list">
+               <div class="single-post">
+                  <div class="feature-img">
+                    <img class="img-fluid" src="{{ asset('upload/photo/'~cafe.image) }}" height="600px" width="900px" >
+                   
+                  </div>
+                  <div class="blog_details">
+                     <h2>{{cafe.nom}}
+                     </h2>
+                     <ul class="blog-info-link mt-3 mb-4">
+                        <li><a href="#"><i class="fa fa-user"></i> cafe</a></li>
+                        <li><a href="#"><i class="fa fa-comments"></i></a></li>
+                     </ul>
+                     <p class="excert">
+                       {{cafe.description}}
+                     </p>
+                  </div>
                </div>
-           
-          </div>
-       </div>
-    </section>
-    <!--================ Blog Area end =================-->
+               <div class="navigation-top">
+                  <div class="d-sm-flex justify-content-between text-center">
+                  <div class="container">
+                    <div class="row">
+
+                   
+                       {{form_start(noteform)}}
+                       {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                     <div>
+                       
+                          {{form_widget(noteform.nom , {'value':cafe.nom ,'type':'hidden'})}}
+                        
+                          
+
+
+                       </div>
+                    
+                            
+                              {% set somme = 0 %}
+                             {% for caf in Notes %}
+                                   {% set somme = (caf.note / Notes|length)+ somme %}  
+                             {% endfor %}
+                              <div class="rateyo" id= "rating"
+                             data-rateyo-rating={{somme}}
+                             data-rateyo-num-stars="5"
+                             data-rateyo-score="3">
+                             </div>
+                             <br>
+                             <style>
+                             h3{
+                                color:grey;
+                             
+                             }
+                             </style>
+
+                             <h3>Raiting : {{somme|number_format(1, '.')}} /5</h3>
+                             
+                             {{form_widget(noteform.note , { 'id': 'rating','type':'hidden'} ) }}
+                             
+                             {{form_widget(noteform.iduser , {'value':app.user.id ,'type':'hidden'})}}
+
+
+
+                             <br>
+                             {{form_end(noteform)}}
+
+                               <p>{{ Notes|length}} Avis</p>
+                             <br>
+                             {% else %}
+                             <div>
+
+                              {{form_widget(noteform.nom , {'value':cafe.nom ,'type':'hidden'})}}
+                           </div>
+                        
+                                
+                                  {% set somme = 0 %}
+                                 {% for caf in Notes %}
+                                       {% set somme = (caf.note / Notes|length)+ somme %}  
+                                 {% endfor %}
+                                  <div class="rateyo" id= "rating"
+                                 data-rateyo-rating={{somme}}
+                                 data-rateyo-num-stars="5"
+                                 data-rateyo-score="3">
+                                 </div>
+                                 <br>
+                                 <style>
+                                 h3{
+                                    color:grey;
+                                 
+                                 }
+                                 </style>
+                                   
+                                 <h3>Raiting : {{somme|number_format(1, '.')}} /5</h3>
+                                 
+                                 {{form_widget(noteform.note , { 'id': 'rating','type':'hidden'} ) }}
+                                 <p>{{ Notes|length}} Avis</p>
+
+                                 <br>
+    
+                                 <a href="{{path('app_loginuser')}}" class="button button-contactForm btn_1 boxed-btn">Valider</a>
+                                 <br>
+
+                            {% endif %}
+                       </div>
+                    
+                       
+
+                   
+                    </div>
+                    </div>
+               
+
+                     <br>
+                     <div class="col-sm-4 text-center my-2 my-sm-0">
+                        <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
+                     </div>
+                     <ul class="social-icons">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                        <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                     </ul>
+                  </div>
+                 
+               </div>
+
+                 <div class="col-lg-4">
+               <div class="blog_right_sidebar">
+                       <iframe style="border:0; width: 100%; height: 350px;" class="img-fluid" src="https://maps.google.com/maps?q=+{{cafe.latitude}}+,+{{cafe.longitude}}+&hl=fr&z=14&amp;output=embed" frameborder="0" allowfullscreen></iframe>
+                   <div class="address">
+                     <span class="fas fa-map-marker-alt" ></span>	
+                     <p> {{cafe.localisation}}<br></p>
+                   </div>
+                   {% if cafe.telephone != null %}
+                   <div class="address">
+                       <span  class="fas fa-mobile-alt"></span>
+                       <p>{{cafe.telephone}}</p>
+                   </div>
+                   {% endif %}
+                   {% if cafe.email != null %}
+                   <div class="address">
+                       <span class="fas fa-link"></span>
+                       <p>{{cafe.email}}</p>
+                   </div>
+                   {% endif %}
+               </div>
+             
+           </div>
+              
+               <div class="comments-area">
+                 
+                  <h4> {{comm|length}} Commentaires  </h4>
+               
+            <div class="comment-list">
+                    {% for comment in cafe.comments %}
+
+                    
+                     <div class="single-comment justify-content-between d-flex">
+                        <div class="user justify-content-between d-flex">
+                         
+                           <div class="desc">
+                              <p class="comment">
+                                 {{ comment.content}}
+                              </p>
+                              <div class="d-flex justify-content-between">
+                                 <div class="d-flex align-items-center">
+                                    <h5>
+                                       {{comment.nom}}
+                                    </h5>
+                                    <p class="date">{{comment.createdAt|date("d/m/Y H:i" )}}</p>
+                                 </div>
+                                 <div class="reply-btn">
+                                    <a href="#" class="btn-reply text-uppercase">reply</a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <hr>
+                    {% endfor %}
+                    </div>
+               </div>
+               </div>
+               <div class="comment-form">
+                 {{ form_start(comment_form) }}
+                 <h4>Leave a Reply</h4>
+                 <form class="form-contact comment_form" >
+                    <div class="row">
+                       <div class="col-12">
+                          <div class="form-group">
+                             {{ form_widget(comment_form.content) }}
+                            
+                          </div>
+                       </div>
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                           {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                          {{ form_widget(comment_form.nom, {attr: { value :app.user.nom ~ " " ~app.user.prenom ,readonly:true }}) }} 
+                           {% else %}
+                           {{ form_widget(comment_form.nom) }}
+                          {% endif %}
+                          </div>
+                       </div>
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                          {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                             {{ form_widget(comment_form.email,{ attr: { value : app.user.email ,readonly:true }} )  }} 
+                          {% else %}
+                           {{ form_widget(comment_form.email) }}
+                          {% endif %}
+                          </div>
+                       </div>
+                      
+                    </div>
+                    <div class="form-group">
+                       {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                       {{ form_end(comment_form) }}
+                      {% else %}
+                      <a href="{{path('app_loginuser')}}" class="button button-contactForm btn_1 boxed-btn">Envoyer Le Commentaire</a>
+                      {% endif %}
+                    </div>
+                 </form>
+
+                    </div>
+                </div>
+              </div>
+          
+         </div>
+      </div>
+   </section>
+   <!--================ Blog Area end =================-->
  </main>
 
   

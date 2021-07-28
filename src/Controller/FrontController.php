@@ -460,7 +460,7 @@ class FrontController extends AbstractController
      /**
      * @Route("affcafe/{id}", name="cafe_blog")
      */
-    public function blogcafe(Request $request,Cafe $cafe , CommentRepository $commentRepository,  NoteRepository $noteRepository): Response
+    public function blogcafe(Request $request,Cafe $cafe , CommentRepository $commentRepository,  NoteRepository $noteRepositoryz): Response
     {  
          $comment = new Comment();      
         $form = $this->createForm(CommentFormType::class, $comment);
