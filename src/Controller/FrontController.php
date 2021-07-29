@@ -5,6 +5,7 @@ namespace App\Controller;
 use DateTime;
 use App\Entity\Cafe;
 use App\Entity\Note;
+use App\Entity\User;
 use App\Entity\Sante;
 use App\Entity\Sport;
 use App\Form\NoteType;
@@ -462,17 +463,20 @@ class FrontController extends AbstractController
      */
     public function blogcafe(Request $request,Cafe $cafe , CommentRepository $commentRepository,  NoteRepository $noteRepository): Response
     {  
-         $comment = new Comment();      
+        $comment = new Comment();      
         $form = $this->createForm(CommentFormType::class, $comment);
         $form->handleRequest($request);
 
+      
         $note = new Note();      
         $noteform = $this->createForm(NoteType::class,$note);
         $noteform->handleRequest($request);
         if ($noteform->isSubmitted() && $noteform->isValid()) {
+           
             $note->setCafe($cafe);
             $this->entityManager->persist($note);
             $this->entityManager->flush();
+            
 
             return $this->redirectToRoute('cafe_blog', ['id' => $cafe->getId()]);
 
