@@ -1,0 +1,94 @@
+{% extends 'headerfooter.html.twig' %}
+{% block body %}
+
+
+<main>
+
+    <!-- Hero Start-->
+    <div class="hero-area2  slider-height2 hero-overly2 d-flex align-items-center ">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap text-center pt-50">
+                        <h2>Mon Profil</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Hero End -->
+    <!-- ================ contact section start ================= -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                </div>
+                <div class="col-lg-8">
+                        {{form_start(userform)}}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Nom:</label>
+                                    
+                                    {{ form_widget(userform.prenom, {attr: { value :app.user.prenom ,readonly:true }}) }} 
+                                 
+
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Prenom:</label>
+
+                                   
+                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                    {{ form_widget(userform.nom, {attr: { value :app.user.nom ,readonly:true }}) }} 
+                                     {% else %}
+                                     {{ form_widget(userform.nom , {'attr': { "placeholder":"Nom"}} )}} 
+                                     {% endif %}
+
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Email:</label>
+
+                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                    {{ form_widget(userform.email, {attr: { value :app.user.email ,readonly:true }}) }} 
+                                     {% else %}
+                                    {{ form_widget(userform.email , {'attr': { "placeholder":"E-mail"}} )}} 
+                                    {% endif %}
+
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="form-group mt-3">
+                        </div>
+                      
+                    </form>
+                </div>
+            
+    </section>
+    <!-- ================ contact section end ================= -->
+
+</main>  
+      
+ 
+        
+ 
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+
+<!-- JS here -->
+	
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="{{asset('front/assets/js/vendor/modernizr-3.5.0.min.js')}}"></script>
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="{{asset('front/assets/js/vendor/jquery-1.12.4.min.js')}}"></script>
+       
+
+
+{% endblock %}
+

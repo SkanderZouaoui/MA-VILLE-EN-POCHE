@@ -65,7 +65,7 @@
                                         <li><a href="{{path('contact')}}">Contact</a></li>
 
                                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                        <li><a href="{{path('categorie')}}"> {{ app.user.nom }} {{ app.user.prenom }}</a></li>
+                                        <li><a href="{{path('profil')}}"> {{ app.user.nom }} {{ app.user.prenom }}</a></li>
 
                                          <li class="add-list"><a href="{{ path('app_logout') }}"><i class="ti-close" aria-hidden="true"></i> Logout</a></li>
                                         {% else %}
